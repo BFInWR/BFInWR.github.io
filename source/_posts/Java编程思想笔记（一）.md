@@ -12,6 +12,7 @@ description: "记录《Thinking in Java》一书的笔记"
 ## 初始化与清理
 
 ### this
+
 当发送消息给对象时，编译器做了一些幕后工作。它暗自把“所操作对象的引用”作为第一个参数传递给该对象调用的方法。
 ```
     FuncClass.method(funcObj1,args1);
