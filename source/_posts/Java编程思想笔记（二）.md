@@ -156,7 +156,7 @@ interface A{
 }
 ```
 
-## 接口与工厂
+### 接口与工厂
 
 接口是实现多重继承的途径，而生成遵循某个接口的对象典型方式就是工厂方法设计模式。这与直接调用构造器不同，我们在工厂对象上调用的是创建方法，而该工厂对象将生成接口的某个实现的对象。
 
@@ -190,3 +190,279 @@ class ConcreteProduct2 implements Product{}
 class ConcreteProduct3 implements Product{}
 ```
 
+## 内部类
+
+> 可以将一个类定义放在另一个类的定义内部，这就是内部类。
+> 不止是可以名字隐藏和组织代码模式，当生成一个内部类的对象时，此对象与制造它的**外围对象**之间就有了一种联系，所以它能访问其外围对象的所有成员，而**不需要**任何特殊条件。
+
+```java
+public class t1 {
+	void f(){}
+	Inner inner(){
+		return new Inner();
+	}
+	
+	class Inner{
+		public t1 outer(){
+			return t1.this; //生成对外部类对象的引用
+		}
+	}
+	
+	public static void main(String[] args) {
+		t1 t = new t1();
+		
+		Inner in = t.inner();
+		in.outer().f();
+//		|| 		
+//		Inner in = t.new Inner();
+//		in.outer().f();
+	}
+}
+```
+
+> 在拥有外部类的对象之前是不可能创建内部类对象的，因为内部类对象会暗暗地链接到创建它的外部类对象上。**静态内部类不需要**。所以普通的内部类不能有static数据和static字段和static类。
+
+
+### 内部类与向上转型
+
+> 当将内部类向上转型为其基类，尤其是转型为一个接口时，内部类就有了用武之地。内部类对某个接口的实现可以完全不可见，并不可用。所得到的只是指向基类或接口的引用，所以能够很方便的隐藏实现细节。
+
+```java
+public class t1 {
+	class SmallStudent implements Student{
+		private int age;
+		SmallStudent(int age) {
+			this.age = age;
+		}
+	}
+	
+	public Student student(int age){
+		return new SmallStudent(age);
+	}
+	
+	public static void main(String[] args) {
+		t1 t = new t1();
+		Student s = t.student(2);
+	}
+}
+
+interface Student{}
+```
+
+### 在方法和作用域内的内部类
+
+```java
+//在方法作用域的类-局部内部类
+public class t1 {
+	Student student(int age){
+		class SmallStudent implements Student{
+			private int age;
+			public SmallStudent(int age) {
+				this.age = age;
+			}
+		}
+		return new SmallStudent(age);
+	}
+}
+
+interface Student{}
+```
+也可以嵌入if等语句的作用域类
+
+### 匿名内部类
+
+```java
+public class t1 {
+	Student student(int age){	
+		return new Student() { //相当于 StudentSub implements Student{}
+			@Override
+			public int getAge() {
+				return 0;
+			}
+			public int value(){
+				return 1;
+			}	
+		};
+			
+	}
+}
+
+interface Student{
+	int getAge();
+}
+
+```
+在这个匿名内部类中使用了默认的构造器来生成Student。如果需要参数，那么你需要创建一个带参构造器的**类**。`new XXClass(x,y){};`
+
+> jdk7 之前若是你的匿名内部类希望在类中使用其外部定义的对象，参数引用需为final为了解决生命周期不同的问题，匿名内部类备份了变量，为了解决备份变量引出的问题，外部变量要被定义成final我们匿名内部类使用final不是怕修改，是怕不能同步修改。
+> 值得注意的是，从JDK1.8开始，编译器不要求自由变量一定要声明为final，如果这个变量在后面的使用中**没有发生变化**，就可以通过编译，Java称这种情况为“effectively final”。 若是**发生变化**则无法通过编译。
+
+```java
+int answer = 42; // jdk8 上 不用强制使用final
+Thread t = new Thread(new Runnable() {
+    public void run() {
+        System.out.println("The answer is: " + answer);
+   }
+});
+
+int answer = 42;
+Thread t = new Thread(
+    () -> System.out.println("The answer is: " + answer)
+);
+
+int answer = 42;
+answer ++; // don't do this !编译报错
+Thread t = new Thread(
+   () -> System.out.println("The answer is: " + answer)
+ );
+```
+
+#### 结合工厂设计模式
+```java
+public class SimpleFactory {
+	public Product createProduct(int type){
+		switch (type) {
+		case 1:
+			return new Product(){};
+		case 2:
+			return new Product(){};
+		default:
+			return new Product(){};
+		}
+	}
+}
+
+class Client{
+	public static void main(String[] args) {
+		SimpleFactory sf = new SimpleFactory();
+		Product p = sf.createProduct(1);
+	}
+}
+
+interface Product{}
+```
+
+### 嵌套类
+
+> 如果不需要内部类对象与其外围类对象之前有联系，那么可以将内部类声明为static。这通常称为**嵌套类**，
+> 普通的内部类不能有static数据和static字段和static类，嵌套类则可以。
+> 嵌套类不需要外围类对象，不能访问非静态的外围对象。
+> 嵌套类可以作为接口的一部分，因为放到接口中的任何类都是public 和 static 的。
+
+### 为什么需要内部类？
+
+> 一般来说，内部类继承自某个类或实现某个接口，内部类的代码操作创建它的外围类的对象。所以可以认为内部类提供了某种进入其外围类的窗口。
+> **每个内部类都能独立地继承自一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响**
+> 主要解决**’多重继承‘**问题
+```java
+class A{}
+class B{}
+class C{
+	A funA(){
+		return new A(){};
+	}
+	B funB(){
+		return new B(){};
+	}
+}
+```
+
+### 闭包与回调
+
+> 闭包是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。
+> 通过回调，对象能够携带一些信息，这些信息允许它在稍后某个时刻调用初始的对象。回调的价值在于它的灵活性，可以在运行时动态的决定调用什么方法
+> 通过内部类提供闭包的功能是优良的解决方案。
+```java
+class MyIncrement{
+	void increment(){System.out.println("other operation");} 
+	static void f(MyIncrement mi){mi.increment();}
+}
+
+class Caller{
+	private Incrementable CallbackRef;
+	public Caller(Incrementable CallbackRef) {
+		this.CallbackRef = CallbackRef;
+	}
+	void go(){CallbackRef.increment(1);}
+}
+
+interface Incrementable{
+	void increment(int i);
+}
+
+class Callee1 implements Incrementable{
+	private int i = 0;
+	@Override
+	public void increment(int j) {
+		System.out.println(++i);
+	}
+}
+
+class Callee2 extends MyIncrement{ //MyIncrement 已经有了一个increment方法，与
+	private int i =0;
+	@Override
+	void increment() {//复写MyIncrement的increment方法
+		super.increment();
+		System.out.println(++i);
+	}
+	
+	private class Closure implements Incrementable{ //以提供返回Callee2的“钩子（hook）”
+		@Override
+		public void increment(int j) { //复写Incrementable的increment方法
+			System.out.println("Another operation"); 
+			Callee2.this.increment(); //Closure使用此引用回调Callee2类
+		}
+	}
+	
+	Incrementable getCallbackRef(){
+		return new Closure();
+	}
+}
+
+public class t1 {
+	public static void main(String[] args) {
+		Callee1 c1 = new Callee1();
+		Callee2 c2 = new Callee2();
+		MyIncrement.f(c2);
+		Caller cr1 = new Caller(c1);
+		Caller cr2 = new Caller(c2.getCallbackRef());
+		cr1.go();
+		cr1.go();
+		cr2.go();
+		cr2.go();
+
+	}
+}
+```
+
+### 内部类与控制框架
+
+> 控制框架是一类特殊的应用程序框架，它用来解决响应事件的需求。主要用来响应**事件驱动系统**。应用程序设计中常见的问题之一是图形用户接口（GUI），它几乎完全是事件驱动系统。它的工作就是在事件“就绪”的时候执行事件。
+
+> 内部类允许
+> 1. 控制框架的完整实现是由单个的类创建的，从而使得实现的细节被封装起来。内部类用来表示解决问题所必需的各种不同的action()。
+> 2. 内部类能够很容易地访问外围类的任意成员，所以可以避免这种实现变得笨拙。
+
+### 内部类的继承
+
+> 因为内部类的构造器必须连接到指向其外部类对象的引用，所以在继承内部类时必须显示的用语法来明确他们之间的关系
+> 内部类不会因外部类被继承而被覆盖
+
+```java
+public class T1 {
+	class T2{}
+}
+
+class T3 extends T1.T2{
+	T3(T1 t1) {
+		t1.super();
+	}
+}
+
+```
+
+----------
+
+> 局部内部类和匿名内部类具有相同的行为和能力，且局部内部类的名字在方法外是不可见的。使用区别则是：我们需要一个已命名的构造器，或这需要重载构造器，而匿名内部类只能用于实例化。另一个原因是，需要不止一个该内部类的对象。
+> **内部类标识符** ：外围类名+$+内部类名+.class
+> 若是匿名内部类则会把内部类名变成一个简单的数字
