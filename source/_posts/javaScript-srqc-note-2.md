@@ -16,7 +16,7 @@ description: "记录JavaScript深入浅出视频的笔记"
 1. 字面量数组创建 ` var BAT = ['B','A','T']; `
 	数组允许最后一个值后留一个逗号
 2. new Array 创建数组
-	` var arrLength = new Array(100); //undefined * 100` 
+	` var arrLength = new Array(100); //undefined * 100 ` 
 	` var BAT= new Array('B','A','T'); `
 
 ### 数组的读写
