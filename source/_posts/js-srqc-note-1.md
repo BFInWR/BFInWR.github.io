@@ -10,7 +10,7 @@ description: "记录JavaScript深入浅出视频的笔记"
 # JavaScript深入浅出笔记（一）
 
 ## 大纲
-
+[视频链接](https://www.imooc.com/learn/277)
 - 数据类型
 - 表达式和运算符
 - 语句

@@ -197,7 +197,7 @@ bosn.walk();//Bosn is walking...
 bosn.learn('math');//Bosn is learning math
 ```
 原型链如下图
-![原型链如图](JavaScript深入浅出笔记（三）/yuanxinglian.JPG)
+![原型链如图](js-srqc-note-3/yuanxinglian.JPG)
 
 **并不是所有的函数都会继承至Object.prototype **` var o = new Obejct(null) ` `o.__proto__; //undefined`
 
