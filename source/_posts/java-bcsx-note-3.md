@@ -5,9 +5,7 @@ categories: "Java"
 tags:
 	- Java
 	- 书籍笔记
-description: "记录《Thinking in Java》一书的笔记"
 ---
-# Java编程思想笔记（三）
 
 ## 持有对象
 
@@ -21,7 +19,7 @@ List<Integer> l = Arrays.asList(1,2,3,4);
 ```
 
 > 与HashSet一样，HashMap也提供了最快的查找技术，也没有按照任何明显的顺序来保存其元素。TreeMap按照比较结果升序保存键，而LinkedHashMap则按照插入顺序保存键，同时保留了HashMap的查询速度。
-
+<!--more-->
 ### List
 
 > ArrayList 访问快，读写较慢

@@ -5,10 +5,7 @@ categories: "JavaScript"
 tags:
 	- JavaScript
 	- 视频笔记
-description: "记录JavaScript深入浅出视频的笔记"
 ---
-# JavaScript深入浅出笔记（二）
-
 ## 数组
 
 **JS中的数组是弱类型的，数组中可以含有不同的类型元素**
@@ -18,7 +15,7 @@ description: "记录JavaScript深入浅出视频的笔记"
 2. new Array 创建数组
 	` var arrLength = new Array(100); //undefined * 100 ` 
 	` var BAT= new Array('B','A','T'); `
-
+<!--more-->
 ### 数组的读写
 ```javascript
 var arr = [1,2,3,4,5];

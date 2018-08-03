@@ -5,9 +5,9 @@ categories: "Java"
 tags:
 	- Java
 	- 书籍笔记
-description: "记录《Thinking in Java》一书的笔记"
+
 ---
-# Java编程思想笔记（一）
+> 记录《Thinking in Java》一书的笔记
 
 ## 初始化与清理
 
@@ -22,7 +22,7 @@ description: "记录《Thinking in Java》一书的笔记"
 - **this**关键字只能在方法内部使用，表示对“调用方法的那个对象”的引用。用法和对象的引用一样。但要注意如果在方法的内部调用同类的另一个方法，就不必使用this，直接调用即可，编译器会自动帮你添加。
 
 >  **只有当需要明确指出对当前对象的引用时，才需要使用this关键字**
-
+<!--more-->
 例如，当需要返回当前对象的引用时，就常常在return语句中这样写 
 ```java
     return this;

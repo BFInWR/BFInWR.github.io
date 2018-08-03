@@ -5,7 +5,6 @@ categories: "Hexo教程"
 tags:
 	- Hexo
 	- 教程
-description: "一个Hexo笔记"
 ---
 
 hexo clean  //清除缓存
@@ -21,7 +20,7 @@ $ hexo clean
 $ hexo generate
 $ hexo deploy
 ```
-
+<!--more-->
 ##git push & git pull 推送/拉取分支
 git push 使用本地的对应分支来更新对应的远程分支。
 

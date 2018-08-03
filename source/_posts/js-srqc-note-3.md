@@ -5,16 +5,14 @@ categories: "JavaScript"
 tags:
 	- JavaScript
 	- 视频笔记
-description: "记录JavaScript深入浅出视频的笔记"
 ---
-# JavaScript深入浅出笔记（三）
 
 ## 闭包&作用域
 
 ### 理解闭包
   
 > 闭包是指 有权访问另一个函数作用域中的变量的 函数，闭包是定义在一个函数内部的函数
-
+<!--more-->
 ```javascript
 documnt.body.innerHTML = "<div id=div1>aaa</div>"+
 "<div id=div2>bbb</div><div id=div3>ccc</div>";

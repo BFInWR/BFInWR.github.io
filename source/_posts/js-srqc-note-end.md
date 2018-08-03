@@ -5,14 +5,11 @@ categories: "JavaScript"
 tags:
 	- JavaScript
 	- 视频笔记
-description: "记录JavaScript深入浅出视频的笔记"
 ---
-# JavaScript深入浅出笔记（END）
-
 ## OOP 
 
 **因为JavaScript是弱类型，没有直接的机制去实现参数的重载，在JS中函数传参类型不确定，个数也是任意的，可以通过判断实际传入参数的个数，去模拟重载**
-
+<!--more-->
 ```javascript
 function Person(){
 	var args = arguments;

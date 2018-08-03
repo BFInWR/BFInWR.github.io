@@ -5,10 +5,7 @@ categories: "JavaScript"
 tags:
 	- JavaScript
 	- 视频笔记
-description: "记录JavaScript深入浅出视频的笔记"
 ---
-# JavaScript深入浅出笔记（一）
-
 ## 大纲
 [视频链接](https://www.imooc.com/learn/277)
 - 数据类型
@@ -21,7 +18,7 @@ description: "记录JavaScript深入浅出视频的笔记"
 - 闭包
 - OOP
 - 正则与模式匹配
-
+<!--more-->
 ## 数据类型
 
 弱类型的特性，隐式转化逻辑
