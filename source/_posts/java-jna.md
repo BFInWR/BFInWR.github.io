@@ -9,6 +9,20 @@ tags:
 ---
 ## JNA
 
+> **Java Native Access（JNA）**
+> JNA为Java程序提供了对本机共享库的轻松访问，而无需编写除Java代码之外的任何内容 - 不需要JNI或本机代码。此功能可与Windows的Platform / Invoke和Python的ctypes相媲美。
+
+> JNA允许您使用自然Java方法调用直接调用本机函数。Java调用看起来就像本机代码中的调用一样。大多数呼叫不需要特殊处理或配置; 不需要样板或生成的代码。
+
+> JNA使用小型JNI库存根来动态调用本机代码。开发人员使用Java接口来描述目标本机库中的函数和结构。这使得利用本机平台功能变得非常容易，而不会产生为多个平台配置和构建JNI代码的高额开销。
+
+>虽然对性能给予了极大的关注，但正确性和易用性优先考虑。
+
+>此外，JNA还包括一个平台库，其中已经映射了许多本机函数，以及一组简化本机访问的实用程序接口。
+>—— 以上Google翻译
+
+<!--more-->
+
 **JNA jar包**
 ![Alt text](java-jna/jna-3.2.5.jar.zip)
 
@@ -23,19 +37,6 @@ tags:
 [stackoverflow-JNA](https://stackoverflow.com/questions/tagged/jna)
 
 [官网入门教程](https://github.com/java-native-access/jna/blob/master/www/GettingStarted.md)
-
-> **Java Native Access（JNA）**
-> JNA为Java程序提供了对本机共享库的轻松访问，而无需编写除Java代码之外的任何内容 - 不需要JNI或本机代码。此功能可与Windows的Platform / Invoke和Python的ctypes相媲美。
-
-> JNA允许您使用自然Java方法调用直接调用本机函数。Java调用看起来就像本机代码中的调用一样。大多数呼叫不需要特殊处理或配置; 不需要样板或生成的代码。
-
-> JNA使用小型JNI库存根来动态调用本机代码。开发人员使用Java接口来描述目标本机库中的函数和结构。这使得利用本机平台功能变得非常容易，而不会产生为多个平台配置和构建JNI代码的高额开销。
-
->虽然对性能给予了极大的关注，但正确性和易用性优先考虑。
-
->此外，JNA还包括一个平台库，其中已经映射了许多本机函数，以及一组简化本机访问的实用程序接口。
->—— 以上Google翻译
-
 
 ### 官网小实例
 
