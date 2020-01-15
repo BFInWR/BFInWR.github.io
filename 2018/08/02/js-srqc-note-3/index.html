@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,视频笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="闭包&amp;amp;作用域理解闭包 闭包是指 有权访问另一个函数作用域中的变量的 函数，闭包是定义在一个函数内部的函数">
+<meta name="keywords" content="JavaScript,视频笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript深入浅出笔记（三）">
+<meta property="og:url" content="https://bfinwr.github.io/2018/08/02/js-srqc-note-3/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="闭包&amp;amp;作用域理解闭包 闭包是指 有权访问另一个函数作用域中的变量的 函数，闭包是定义在一个函数内部的函数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://bfinwr.github.io/2018/08/02/js-srqc-note-3/yuanxinglian.JPG">
+<meta property="og:updated_time" content="2020-01-15T09:06:24.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript深入浅出笔记（三）">
+<meta name="twitter:description" content="闭包&amp;amp;作用域理解闭包 闭包是指 有权访问另一个函数作用域中的变量的 函数，闭包是定义在一个函数内部的函数">
+<meta name="twitter:image" content="https://bfinwr.github.io/2018/08/02/js-srqc-note-3/yuanxinglian.JPG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2018/08/02/js-srqc-note-3/">
+
+
+
+
+
+  <title>JavaScript深入浅出笔记（三） | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2018/08/02/js-srqc-note-3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript深入浅出笔记（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T10:52:00+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,581
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="闭包-amp-作用域"><a href="#闭包-amp-作用域" class="headerlink" title="闭包&amp;作用域"></a>闭包&amp;作用域</h2><h3 id="理解闭包"><a href="#理解闭包" class="headerlink" title="理解闭包"></a>理解闭包</h3><blockquote>
+<p>闭包是指 有权访问另一个函数作用域中的变量的 函数，闭包是定义在一个函数内部的函数</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">documnt.body.innerHTML = <span class="string">"&lt;div id=div1&gt;aaa&lt;/div&gt;"</span>+</span><br><span class="line"><span class="string">"&lt;div id=div2&gt;bbb&lt;/div&gt;&lt;div id=div3&gt;ccc&lt;/div&gt;"</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>;<span class="number">1</span>&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">	!<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123; <span class="comment">//匿名函数的一个写法，可以选择加括号或者感叹号</span></span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">'div'</span>+i).</span><br><span class="line">			addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				alert(i);</span><br><span class="line">			&#125;); <span class="comment">//1,2,3</span></span><br><span class="line">	&#125;(i); <span class="comment">//不加这个函数的话 点击弹出总是4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>** 变量的作用域 **</p>
+<ul>
+<li>函数内部可以直接读取全局变量。</li>
+<li>函数外部自然无法读取函数内的局部变量。</li>
+<li>函数内部声明变量，一定要使用var命令。如果不用，你实际上声明了一个全局变量！</li>
+</ul>
+<hr>
+<p>** 如何从外部读取局部变量？**</p>
+<blockquote>
+<p>Javascript语言特有的”链式作用域”结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
+</blockquote>
+<p>** 闭包的用途 **</p>
+<ol>
+<li>可以读取函数内部的变量</li>
+<li>让这些变量的值始终保持在内存中。</li>
+</ol>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">	　nAdd=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n+=<span class="number">1</span>&#125; </span><br><span class="line">	　<span class="comment">//没有加var的全局匿名函数nAdd,匿名函数本身就是一个闭包</span></span><br><span class="line">	　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	　　　alert(n);</span><br><span class="line">	　&#125;</span><br><span class="line">	　<span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result=f1(); </span><br><span class="line"><span class="comment">//返回的f2被赋给了一个全局变量,这导致f2始终在内存中，而f2的存在依赖于f1，</span></span><br><span class="line"><span class="comment">//因此f1也始终在内存中，不会在调用结束后，</span></span><br><span class="line"><span class="comment">//被垃圾回收机制（garbage collection）回收。</span></span><br><span class="line">result(); <span class="comment">// 999 </span></span><br><span class="line">nAdd();	</span><br><span class="line">result(); <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>闭包的注意点</strong></p>
+<blockquote>
+<ol>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的<strong>性能问题</strong>，在IE中可能导致<strong>内存泄露</strong>。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
+</ol>
+</blockquote>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><blockquote>
+<p>全局、函数、eval 三个作用域 没有块级作用域</p>
+</blockquote>
+<h3 id="ES3-执行上下文"><a href="#ES3-执行上下文" class="headerlink" title="ES3 执行上下文"></a>ES3 执行上下文</h3><p><strong>JS解释器如何找到我们定义的函数和变量？</strong></p>
+<ul>
+<li><strong>变量对象(Variable Object，VO)</strong> 是有一个抽象概念中的“对象”，它用于存储执行上下文中的：1. 变量 2. 函数声明 3. 函数参数</li>
+</ul>
+<p>JS解释器初始化 VO上下文</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">VO(globalContext) === [[global]];</span><br><span class="line">[[global]] = &#123;</span><br><span class="line">	<span class="built_in">Math</span> : <span class="xml"><span class="tag">&lt;&gt;</span>,</span></span><br><span class="line"><span class="xml">	String : <span class="tag">&lt;&gt;</span>,</span></span><br><span class="line"><span class="xml">	isNaN : function()&#123;[Native Code]&#125;</span></span><br><span class="line"><span class="xml">	...</span></span><br><span class="line"><span class="xml">	window : global</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">GlobalContextVO (VO === this === global)</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">String(10); 	//[[global]].String(10);</span></span><br><span class="line"><span class="xml">window.a = 10; 	//[[global]].window.a = 10;</span></span><br><span class="line"><span class="xml">this.b = 20;	//[[global]].b = 20;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>函数中的激活对象 AO</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VO(functionContext) === AO;</span><br><span class="line">AO = &#123;</span><br><span class="line">	<span class="built_in">arguments</span> : <span class="xml"><span class="tag">&lt;<span class="name">Arg0</span>&gt;</span></span></span><br><span class="line"><span class="xml">&#125;;</span></span><br><span class="line"><span class="xml">arguments = &#123;</span></span><br><span class="line"><span class="xml">	callee,</span></span><br><span class="line"><span class="xml">	length,</span></span><br><span class="line"><span class="xml">	properties-indexes</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<p>VO按照如下顺序填充<br>    1. 函数参数（若为传入 ，初始化该参数值为undefined）<br>    2. 函数声明（若发生命名冲突，会覆盖）<br>    3. 变量声明（初始化变量值为undefined，若发生命名冲突，会忽略。）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c = <span class="number">10</span>; <span class="comment">//赋值语句 不是变量初始化阶段做的</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> _e(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//函数表达式名 _e 不会影响VO</span></span><br><span class="line">	(<span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br><span class="line">	b = <span class="number">20</span>; <span class="comment">//变量声明冲突会被忽略</span></span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">AO(test)=&#123;</span><br><span class="line">	a:<span class="number">10</span>,</span><br><span class="line">	b:<span class="literal">undefined</span>,</span><br><span class="line">	c:<span class="literal">undefined</span>,</span><br><span class="line">	d:<span class="xml"><span class="tag">&lt;<span class="name">ref</span> <span class="attr">to</span> <span class="attr">func</span> "<span class="attr">d</span>"&gt;</span></span></span><br><span class="line"><span class="xml">	e:undefined</span></span><br><span class="line"><span class="xml">&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">/</th>
+<th align="right">函数声明</th>
+<th align="center">函数表达式</th>
+<th align="center">函数构造器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">前置</td>
+<td align="right">✔</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">允许匿名</td>
+<td align="right"></td>
+<td align="center">✔</td>
+<td align="center">✔</td>
+</tr>
+<tr>
+<td align="left">立即调用</td>
+<td align="right"></td>
+<td align="center">✔</td>
+<td align="center">✔</td>
+</tr>
+<tr>
+<td align="left">通过函数名访问</td>
+<td align="right">✔</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">没有函数名</td>
+<td align="right"></td>
+<td align="center"></td>
+<td align="center">✔</td>
+</tr>
+</tbody></table>
+<h2 id="OOP"><a href="#OOP" class="headerlink" title="OOP"></a>OOP</h2><h3 id="概念与继承"><a href="#概念与继承" class="headerlink" title="概念与继承"></a>概念与继承</h3><p><strong>封装、继承、多态、抽象</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">typeof</span> Fpp.prototype; <span class="comment">//"Object"</span></span><br><span class="line">Foo.prototype.x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">Foo.prototype</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">constructor</span> : Foo,</span><br><span class="line">	__proto__ : Object.prototype,</span><br><span class="line">	x : 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.hi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hi'</span>+<span class="keyword">this</span>.name+<span class="string">"i'm"</span>+<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.LEGS_NUM = <span class="number">2</span>;</span><br><span class="line">Person.prototype.ARMS_NUM = <span class="number">2</span>;</span><br><span class="line">Person.prototype.walk = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" is walking..."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,age,className</span>)</span>&#123;</span><br><span class="line">	Person.call(<span class="keyword">this</span>,name,age);</span><br><span class="line">	<span class="keyword">this</span>.className = className;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br><span class="line"><span class="comment">//创建一个空对象 它的原型指向它的参数 如果不用create直接= 两个prototype就绑定一起了</span></span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"><span class="comment">//保证一致性 如果不设置的话 会依据Person.prototype 指向Person</span></span><br><span class="line"></span><br><span class="line">Student.prototype.hi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//覆盖</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hi,'</span>+<span class="keyword">this</span>.name+<span class="string">",i'm"</span>+<span class="keyword">this</span>.age+<span class="string">",from"</span>+<span class="keyword">this</span>.className);</span><br><span class="line">&#125;;</span><br><span class="line">Student.prototype.learn= <span class="function"><span class="keyword">function</span>(<span class="params">subject</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" is learning "</span> +subject);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bosn = <span class="keyword">new</span> Student(<span class="string">'Bosn'</span>,<span class="number">27</span>,<span class="string">'Class3'</span>);</span><br><span class="line">bosn.hi(); <span class="comment">// hi,Bosn,i'm27,fromClass3</span></span><br><span class="line">bson.LEGS_NUM; <span class="comment">//2</span></span><br><span class="line">bosn.walk();<span class="comment">//Bosn is walking...</span></span><br><span class="line">bosn.learn(<span class="string">'math'</span>);<span class="comment">//Bosn is learning math</span></span><br></pre></td></tr></table></figure>
+
+<p>原型链如下图<br><img src="/2018/08/02/js-srqc-note-3/yuanxinglian.JPG" alt="原型链如图"></p>
+<p>*<em>并不是所有的函数都会继承至Object.prototype *</em><code>var o = new Obejct(null)</code> <code>o.__proto__; //undefined</code></p>
+<h3 id="prototype属性"><a href="#prototype属性" class="headerlink" title="prototype属性"></a>prototype属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype.x = <span class="number">101</span>;</span><br><span class="line">bosn.x; <span class="comment">//101</span></span><br><span class="line"></span><br><span class="line">Student.prototype = &#123;<span class="attr">y</span>:<span class="number">2</span>&#125;; <span class="comment">//prototype 指向了一个新的对象&#123;y:2&#125;</span></span><br><span class="line">bosn.y; <span class="comment">//undefined	//但是bosn上的prototype并没有改变指向 还是指向的原来的对象</span></span><br><span class="line">bosn.x; <span class="comment">// 101</span></span><br><span class="line">bosn.__proto__;</span><br><span class="line"><span class="comment">//Object &#123; constructor: Student(), hi: hi(), leran: leran(), x: 101 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> Student(<span class="string">'v'</span>,<span class="number">1</span>,<span class="string">'s'</span>);</span><br><span class="line">n.x; <span class="comment">// undefined</span></span><br><span class="line">n.y; <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><ul>
+<li>左边一般要求是一个对象，右边要求是一个函数或者说是构造器，它会判断右边构造器的prototype的属性是否出现在左边对象的原型链上。</li>
+<li>所有右边必须是一个函数对象，不是函数的话 就没有prototype属性 就会报错。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,<span class="number">2</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> === <span class="literal">true</span></span><br><span class="line"><span class="keyword">new</span> Obejct() <span class="keyword">instanceof</span> <span class="built_in">Array</span> === <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="实现继承的多种方式"><a href="#实现继承的多种方式" class="headerlink" title="实现继承的多种方式"></a>实现继承的多种方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">[x] Student.prototype = Person.prototype; </span><br><span class="line"><span class="comment">//1 改变Student.prototype的同时也会改变Person.prototype</span></span><br><span class="line">[x] Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="comment">//2 因为调用了Person的构造函数新建了一个实例，若是Person需要传参 则会很奇怪</span></span><br><span class="line">[√] Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br><span class="line"><span class="comment">//3 Student.prototype 修改不会影响到 Person.prototype 但是ES5之后才支持</span></span><br><span class="line">ES5之前模拟 相当于<span class="number">1</span>+<span class="number">2</span>的结合</span><br><span class="line"><span class="keyword">if</span>(!<span class="built_in">Object</span>.create)&#123;</span><br><span class="line">	<span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params">prroto</span>)</span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">		F.prototype = proto;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> F; </span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/视频笔记/" rel="tag"><i class="fa fa-tag"></i> 视频笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/31/js-srqc-note-2/" rel="next" title="JavaScript深入浅出笔记（二）">
+                <i class="fa fa-chevron-left"></i> JavaScript深入浅出笔记（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/java-bcsx-note-3/" rel="prev" title="Java编程思想笔记（三）">
+                Java编程思想笔记（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包-amp-作用域"><span class="nav-number">1.</span> <span class="nav-text">闭包&amp;作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解闭包"><span class="nav-number">1.1.</span> <span class="nav-text">理解闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES3-执行上下文"><span class="nav-number">1.3.</span> <span class="nav-text">ES3 执行上下文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOP"><span class="nav-number">2.</span> <span class="nav-text">OOP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念与继承"><span class="nav-number">2.1.</span> <span class="nav-text">概念与继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype属性"><span class="nav-number">2.2.</span> <span class="nav-text">prototype属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#instanceof"><span class="nav-number">2.3.</span> <span class="nav-text">instanceof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现继承的多种方式"><span class="nav-number">2.4.</span> <span class="nav-text">实现继承的多种方式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>

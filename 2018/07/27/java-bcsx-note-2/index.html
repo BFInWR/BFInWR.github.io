@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,书籍笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="访问权限控制package语句，必须是文件中除注释以外的第一句程序代码。需注意的是，Java包的命名规则全部使用小写字母，包括中间的字也是如此。 import static com.PackName.xxClass.* 语句可以让你在代码中直接使用静态的导入方法 内部类可以用任何一种访问修饰符修饰 控制对成员的访问权限有两个原因。    1. 是为了使用户不接触它们不该接触的部分，同使也简化客户端">
+<meta name="keywords" content="Java,书籍笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java编程思想笔记（二）">
+<meta property="og:url" content="https://bfinwr.github.io/2018/07/27/java-bcsx-note-2/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="访问权限控制package语句，必须是文件中除注释以外的第一句程序代码。需注意的是，Java包的命名规则全部使用小写字母，包括中间的字也是如此。 import static com.PackName.xxClass.* 语句可以让你在代码中直接使用静态的导入方法 内部类可以用任何一种访问修饰符修饰 控制对成员的访问权限有两个原因。    1. 是为了使用户不接触它们不该接触的部分，同使也简化客户端">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-11T14:08:04.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java编程思想笔记（二）">
+<meta name="twitter:description" content="访问权限控制package语句，必须是文件中除注释以外的第一句程序代码。需注意的是，Java包的命名规则全部使用小写字母，包括中间的字也是如此。 import static com.PackName.xxClass.* 语句可以让你在代码中直接使用静态的导入方法 内部类可以用任何一种访问修饰符修饰 控制对成员的访问权限有两个原因。    1. 是为了使用户不接触它们不该接触的部分，同使也简化客户端">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2018/07/27/java-bcsx-note-2/">
+
+
+
+
+
+  <title>Java编程思想笔记（二） | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2018/07/27/java-bcsx-note-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java编程思想笔记（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T16:52:00+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,064
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><p>package语句，必须是文件中除注释以外的第一句程序代码。<br><strong>需注意的是，Java包的命名规则全部使用小写字母，包括中间的字也是如此。</strong></p>
+<p><code>import static com.PackName.xxClass.*</code> 语句可以让你在代码中直接使用静态的导入方法</p>
+<p>内部类可以用任何一种访问修饰符修饰</p>
+<p>控制对成员的访问权限有两个原因。<br>    1. 是为了使用户不接触它们不该接触的部分，同使也简化客户端开发对于类的理解。<br>    2. 确保不会有任何客户端开发依赖于某个类的底层实现的任何部分</p>
+<a id="more"></a>
+
+<h2 id="复用类"><a href="#复用类" class="headerlink" title="复用类"></a>复用类</h2><h3 id="继承与组合"><a href="#继承与组合" class="headerlink" title="继承与组合"></a>继承与组合</h3><p>为了继承，一般规则是将所有的数据成员都指定为private，将所有的方法指定为public。</p>
+<p>若是父类有带参构造器需要用<code>supen(args)</code>显示调用</p>
+<p>组合技术通常用于想在新类中使用现有类的功能而非接口 （ has - a 有一个）<br>继承则是使用某个现有类，并开发一个它的特殊版本。通常，这意味着你在使用一个通用类，并为了某种特殊需要而将其特殊化。（ is - a 是一个）<br>是否使用继承考虑是否需要从新类向基类<strong>向上转型</strong></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>开始一个设计时，一般应优先选择使用组合（或者可能是代理），只有确实必要时才用继承。因为组合更加灵活。此外，通过对成员类型使用继承技术的添加技巧，可以在运行时改变那些成员对象的类型和行为。当你开始设计一个系统时，应该认识到程序开发是一种增量过程，犹如人类的学习一样，这一点很重要。程序依赖于实验，你可以尽可能去分析，但当你开始执行一个项目时，你任然无法知道所有的答案。如果将项目视作是一种有机的、进化着的生命体而去培养，而不是打算盖摩天大楼一样快速见效，就会获得更多和更迅速的回馈。继承和组合正是在面向对象程序设计中使你可以执行这种实验的最基本的两个工具。</p>
+</blockquote>
+<h3 id="final-关键字"><a href="#final-关键字" class="headerlink" title="final 关键字"></a>final 关键字</h3><p>通常它指“这是无法改变的”，可能出于这两种理由：设计或者效率。<br>一般可能使用到<strong>final</strong>的三种情况：数据、方法、类。</p>
+<h4 id="final-数据"><a href="#final-数据" class="headerlink" title="final 数据"></a>final 数据</h4><p>有时数据的恒定不变是很有用的，比如：</p>
+<ol>
+<li>一个永不改变的编译时的常量。</li>
+<li>一个在运行时被初始化的值，而你不希望它被改变。<br>编译器可以将常量代入任何可能用到它的计算式中，也就是说，可以在编译时执行计算式。这减轻了一些运行时的负担。在Java中这类常量必须是基本数据类型，并且以关键字<strong>final</strong>表示。在对常量进行定义的时候，必须对其进行赋值。<br>一个既是<strong>static</strong>又是<strong>final</strong>的域只占据一段不能改变的存储空间。<br>当对象引用不是基本数据类型使用<strong>final</strong>时，对于对象引用，使其引用恒定不变。一旦引用被初始化指向一个对象，就无法再把它改为另一个对象。然而，对象其自身却是可以被修改的，Java并没有提供使任何对象恒定不变的途径（但可以自己编写类是取得恒定不变的效果）。数组也一样，它也是对象。</li>
+</ol>
+<blockquote>
+<p>根据惯例，<strong>static 、final</strong> 同时修饰的域（编译期常量）将用大写表示。字间用下划线隔开。</p>
+</blockquote>
+<p>Java允许生成“空白final”，但编译器需确保空白final在使用前必须被初始化。<strong>必须在域的定义处或者每个构造器中用表达式对final进行赋值</strong>,final 也可用在参数中，这一特性主要用于匿名内部类传递数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> j = <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> i;</span><br><span class="line">	t1(<span class="keyword">final</span> <span class="keyword">int</span> a)&#123;</span><br><span class="line">		i = a;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="final-方法"><a href="#final-方法" class="headerlink" title="final 方法"></a>final 方法</h4><p>使用final方法的原因有两个</p>
+<ol>
+<li>把方法锁定，防止继承类修改它的含义。这是出于设计的考虑，确保在继承中使方法行为保持不变，并且不会被覆盖。</li>
+<li>效率。&lt;Java SE5/6 上的版本中已经不再需要了&gt;</li>
+</ol>
+<p>类中所有的private方法都隐式的指定为是final的。由于无法取用private方法，所以也就无法覆盖它。可以给private方法添加final修饰，但这并没有添加任何额外的意义。</p>
+<hr>
+<h4 id="final-类"><a href="#final-类" class="headerlink" title="final 类"></a>final 类</h4><p>当将某个类的整体定义为final时，就表明了你不打算继承该类，而且也不允许别人这么做。换句话说，出于某种考虑，你对该类的设计永不需要做任何改动，或者出于安全考虑，你不希望它有子类。** 由于final类是禁止继承的，所以final类中的所有方法都隐式的指定为是final的，因为无法覆盖他们 **</p>
+<blockquote>
+<p>有关final的忠告<br>在设计类时，将方法指明是final的，应该说是明智的。</p>
+</blockquote>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><blockquote>
+<p>多态的作用则是消除类型之间的耦合关系<br>通过动态绑定实现多态<br>所做的代码修改，不会对程序中其它不应受影响的部分产生破坏<br>只有非private方法才可以覆盖</p>
+</blockquote>
+<p>构造器内部的多态行为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person1</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"eat.eat.eat.."</span>);&#125;</span><br><span class="line">	Person1()&#123;</span><br><span class="line">		eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student1</span> <span class="keyword">extends</span> <span class="title">Person1</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> eatNum = <span class="number">4</span>;</span><br><span class="line">	Student1(<span class="keyword">int</span> eatNum)&#123;</span><br><span class="line">		<span class="keyword">this</span>.eatNum = eatNum;</span><br><span class="line">		System.out.println(<span class="string">"Student1.Student1.eatNum="</span>+eatNum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Student1.eat.eatNum="</span>+eatNum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Student1(<span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Output:</span></span><br><span class="line"><span class="comment">* Student1.eat.eatNum=0</span></span><br><span class="line"><span class="comment">* Student1.Student1.eatNum=3</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>为啥第一个等于0？<br> 初始化的实际过程是：<ol>
+<li>在其它任何事物发生之前，将分配给对象的存储空间初始化成二进制的零。</li>
+<li>基类构造器调用的是子类覆盖的 eat() 方法，由于1的原因 <code>eatNum = 0</code></li>
+<li>按照声明的顺序调用成员的初始化方法</li>
+<li>调用子类的构造器主体</li>
+</ol>
+</li>
+<li>编写构造器的准则<br> <strong>用尽可能简单的方法使对象进入正常状态，如果可以的话，避免调用其它方法</strong></li>
+</ol>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>使用接口的核心原因：</p>
+<ol>
+<li>为了向上转型为多个基类型（以及由此带来的灵活性）。</li>
+<li>与使用抽象基类相同，防止客户端创建该类的对象</li>
+<li>如果某事物应该成为一个基类，那么第一选择应该是使它成为一个接口。</li>
+</ol>
+<p>因为重载方法仅通过返回值是分不开的，所以若是在覆盖实现接口方法中方法仅返回值不同则会发生混乱，编译器会报错。</p>
+<p>在Java SE5 之前通常使用接口来定义常量，因为你放入接口中的任何域都自动隐式是<strong>static</strong>和<strong>final</strong>的。之后使用更为强大的<strong>enum</strong>。</p>
+<h3 id="嵌套接口"><a href="#嵌套接口" class="headerlink" title="嵌套接口"></a>嵌套接口</h3><p>接口方法可以嵌套在类或者其它接口中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span> <span class="keyword">implements</span> <span class="title">A</span>.<span class="title">B</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">interface</span> <span class="title">C</span></span>&#123;&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InObj</span> <span class="keyword">implements</span> <span class="title">C</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">interface</span> <span class="title">B</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接口与工厂"><a href="#接口与工厂" class="headerlink" title="接口与工厂"></a>接口与工厂</h3><p>接口是实现多重继承的途径，而生成遵循某个接口的对象典型方式就是工厂方法设计模式。这与直接调用构造器不同，我们在工厂对象上调用的是创建方法，而该工厂对象将生成接口的某个实现的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Product <span class="title">createProduct</span><span class="params">(<span class="keyword">int</span> type)</span></span>&#123;</span><br><span class="line">		<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ConcreteProduct1();</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ConcreteProduct2();</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> ConcreteProduct3();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SimpleFactory sf = <span class="keyword">new</span> SimpleFactory();</span><br><span class="line">		Product p = sf.createProduct(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Product</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteProduct1</span> <span class="keyword">implements</span> <span class="title">Product</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteProduct2</span> <span class="keyword">implements</span> <span class="title">Product</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteProduct3</span> <span class="keyword">implements</span> <span class="title">Product</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><blockquote>
+<p>可以将一个类定义放在另一个类的定义内部，这就是内部类。<br>不止是可以名字隐藏和组织代码模式，当生成一个内部类的对象时，此对象与制造它的<strong>外围对象</strong>之间就有了一种联系，所以它能访问其外围对象的所有成员，而<strong>不需要</strong>任何特殊条件。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">	<span class="function">Inner <span class="title">inner</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Inner();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> t1 <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> t1.<span class="keyword">this</span>; <span class="comment">//生成对外部类对象的引用</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		t1 t = <span class="keyword">new</span> t1();</span><br><span class="line">		</span><br><span class="line">		Inner in = t.inner();</span><br><span class="line">		in.outer().f();</span><br><span class="line"><span class="comment">//		|| 		</span></span><br><span class="line"><span class="comment">//		Inner in = t.new Inner();</span></span><br><span class="line"><span class="comment">//		in.outer().f();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在拥有外部类的对象之前是不可能创建内部类对象的，因为内部类对象会暗暗地链接到创建它的外部类对象上。<strong>静态内部类不需要</strong>。所以普通的内部类不能有static数据和static字段和static类。</p>
+</blockquote>
+<h3 id="内部类与向上转型"><a href="#内部类与向上转型" class="headerlink" title="内部类与向上转型"></a>内部类与向上转型</h3><blockquote>
+<p>当将内部类向上转型为其基类，尤其是转型为一个接口时，内部类就有了用武之地。内部类对某个接口的实现可以完全不可见，并不可用。所得到的只是指向基类或接口的引用，所以能够很方便的隐藏实现细节。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">SmallStudent</span> <span class="keyword">implements</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">		SmallStudent(<span class="keyword">int</span> age) &#123;</span><br><span class="line">			<span class="keyword">this</span>.age = age;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Student <span class="title">student</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> SmallStudent(age);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		t1 t = <span class="keyword">new</span> t1();</span><br><span class="line">		Student s = t.student(<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Student</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="在方法和作用域内的内部类"><a href="#在方法和作用域内的内部类" class="headerlink" title="在方法和作用域内的内部类"></a>在方法和作用域内的内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法作用域的类-局部内部类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="function">Student <span class="title">student</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">SmallStudent</span> <span class="keyword">implements</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">			<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="title">SmallStudent</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">this</span>.age = age;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> SmallStudent(age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Student</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以嵌入if等语句的作用域类</p>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="function">Student <span class="title">student</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;	</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Student() &#123; <span class="comment">//相当于 StudentSub implements Student&#123;&#125;</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">value</span><span class="params">()</span></span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			&#125;	</span><br><span class="line">		&#125;;</span><br><span class="line">			</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个匿名内部类中使用了默认的构造器来生成Student。如果需要参数，那么你需要创建一个带参构造器的<strong>类</strong>。<code>new XXClass(x,y){};</code></p>
+<blockquote>
+<p>jdk7 之前若是你的匿名内部类希望在类中使用其外部定义的对象，参数引用需为final为了解决生命周期不同的问题，匿名内部类备份了变量，为了解决备份变量引出的问题，外部变量要被定义成final我们匿名内部类使用final不是怕修改，是怕不能同步修改。<br>值得注意的是，从JDK1.8开始，编译器不要求自由变量一定要声明为final，如果这个变量在后面的使用中<strong>没有发生变化</strong>，就可以通过编译，Java称这种情况为“effectively final”。 若是<strong>发生变化</strong>则无法通过编译。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> answer = <span class="number">42</span>; <span class="comment">// jdk8 上 不用强制使用final</span></span><br><span class="line">Thread t = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"The answer is: "</span> + answer);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> answer = <span class="number">42</span>;</span><br><span class="line">Thread t = <span class="keyword">new</span> Thread(</span><br><span class="line">    () -&gt; System.out.println(<span class="string">"The answer is: "</span> + answer)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> answer = <span class="number">42</span>;</span><br><span class="line">answer ++; <span class="comment">// don't do this !编译报错</span></span><br><span class="line">Thread t = <span class="keyword">new</span> Thread(</span><br><span class="line">   () -&gt; System.out.println(<span class="string">"The answer is: "</span> + answer)</span><br><span class="line"> );</span><br></pre></td></tr></table></figure>
+
+<h4 id="结合工厂设计模式"><a href="#结合工厂设计模式" class="headerlink" title="结合工厂设计模式"></a>结合工厂设计模式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFactory</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Product <span class="title">createProduct</span><span class="params">(<span class="keyword">int</span> type)</span></span>&#123;</span><br><span class="line">		<span class="keyword">switch</span> (type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Product()&#123;&#125;;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Product()&#123;&#125;;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> Product()&#123;&#125;;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SimpleFactory sf = <span class="keyword">new</span> SimpleFactory();</span><br><span class="line">		Product p = sf.createProduct(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Product</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h3><blockquote>
+<p>如果不需要内部类对象与其外围类对象之前有联系，那么可以将内部类声明为static。这通常称为<strong>嵌套类</strong>，<br>普通的内部类不能有static数据和static字段和static类，嵌套类则可以。<br>嵌套类不需要外围类对象，不能访问非静态的外围对象。<br>嵌套类可以作为接口的一部分，因为放到接口中的任何类都是public 和 static 的。</p>
+</blockquote>
+<h3 id="为什么需要内部类？"><a href="#为什么需要内部类？" class="headerlink" title="为什么需要内部类？"></a>为什么需要内部类？</h3><blockquote>
+<p>一般来说，内部类继承自某个类或实现某个接口，内部类的代码操作创建它的外围类的对象。所以可以认为内部类提供了某种进入其外围类的窗口。<br><strong>每个内部类都能独立地继承自一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，对于内部类都没有影响</strong><br>主要解决<strong>’多重继承‘</strong>问题</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span></span>&#123;</span><br><span class="line">	<span class="function">A <span class="title">funA</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> A()&#123;&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function">B <span class="title">funB</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> B()&#123;&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包与回调"><a href="#闭包与回调" class="headerlink" title="闭包与回调"></a>闭包与回调</h3><blockquote>
+<p>闭包是一个可调用的对象，它记录了一些信息，这些信息来自于创建它的作用域。<br>通过回调，对象能够携带一些信息，这些信息允许它在稍后某个时刻调用初始的对象。回调的价值在于它的灵活性，可以在运行时动态的决定调用什么方法<br>通过内部类提供闭包的功能是优良的解决方案。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyIncrement</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span></span>&#123;System.out.println(<span class="string">"other operation"</span>);&#125; </span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(MyIncrement mi)</span></span>&#123;mi.increment();&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Caller</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Incrementable CallbackRef;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Caller</span><span class="params">(Incrementable CallbackRef)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.CallbackRef = CallbackRef;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;CallbackRef.increment(<span class="number">1</span>);&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Incrementable</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">increment</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Callee1</span> <span class="keyword">implements</span> <span class="title">Incrementable</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">(<span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">		System.out.println(++i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Callee2</span> <span class="keyword">extends</span> <span class="title">MyIncrement</span></span>&#123; <span class="comment">//MyIncrement 已经有了一个increment方法，与</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> i =<span class="number">0</span>;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;<span class="comment">//复写MyIncrement的increment方法</span></span><br><span class="line">		<span class="keyword">super</span>.increment();</span><br><span class="line">		System.out.println(++i);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Closure</span> <span class="keyword">implements</span> <span class="title">Incrementable</span></span>&#123; <span class="comment">//以提供返回Callee2的“钩子（hook）”</span></span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">(<span class="keyword">int</span> j)</span> </span>&#123; <span class="comment">//复写Incrementable的increment方法</span></span><br><span class="line">			System.out.println(<span class="string">"Another operation"</span>); </span><br><span class="line">			Callee2.<span class="keyword">this</span>.increment(); <span class="comment">//Closure使用此引用回调Callee2类</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Incrementable <span class="title">getCallbackRef</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Closure();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">t1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Callee1 c1 = <span class="keyword">new</span> Callee1();</span><br><span class="line">		Callee2 c2 = <span class="keyword">new</span> Callee2();</span><br><span class="line">		MyIncrement.f(c2);</span><br><span class="line">		Caller cr1 = <span class="keyword">new</span> Caller(c1);</span><br><span class="line">		Caller cr2 = <span class="keyword">new</span> Caller(c2.getCallbackRef());</span><br><span class="line">		cr1.go();</span><br><span class="line">		cr1.go();</span><br><span class="line">		cr2.go();</span><br><span class="line">		cr2.go();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="内部类与控制框架"><a href="#内部类与控制框架" class="headerlink" title="内部类与控制框架"></a>内部类与控制框架</h3><blockquote>
+<p>控制框架是一类特殊的应用程序框架，它用来解决响应事件的需求。主要用来响应<strong>事件驱动系统</strong>。应用程序设计中常见的问题之一是图形用户接口（GUI），它几乎完全是事件驱动系统。它的工作就是在事件“就绪”的时候执行事件。</p>
+</blockquote>
+<blockquote>
+<p>内部类允许</p>
+<ol>
+<li>控制框架的完整实现是由单个的类创建的，从而使得实现的细节被封装起来。内部类用来表示解决问题所必需的各种不同的action()。</li>
+<li>内部类能够很容易地访问外围类的任意成员，所以可以避免这种实现变得笨拙。</li>
+</ol>
+</blockquote>
+<h3 id="内部类的继承"><a href="#内部类的继承" class="headerlink" title="内部类的继承"></a>内部类的继承</h3><blockquote>
+<p>因为内部类的构造器必须连接到指向其外部类对象的引用，所以在继承内部类时必须显示的用语法来明确他们之间的关系<br>内部类不会因外部类被继承而被覆盖</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T1</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">T2</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">T3</span> <span class="keyword">extends</span> <span class="title">T1</span>.<span class="title">T2</span></span>&#123;</span><br><span class="line">	T3(T1 t1) &#123;</span><br><span class="line">		t1.<span class="keyword">super</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>局部内部类和匿名内部类具有相同的行为和能力，且局部内部类的名字在方法外是不可见的。使用区别则是：我们需要一个已命名的构造器，或这需要重载构造器，而匿名内部类只能用于实例化。另一个原因是，需要不止一个该内部类的对象。<br><strong>内部类标识符</strong> ：外围类名+$+内部类名+.class<br>若是匿名内部类则会把内部类名变成一个简单的数字</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/书籍笔记/" rel="tag"><i class="fa fa-tag"></i> 书籍笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/27/js-srqc-note-1/" rel="next" title="JavaScript深入浅出笔记（一）">
+                <i class="fa fa-chevron-left"></i> JavaScript深入浅出笔记（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/31/js-srqc-note-2/" rel="prev" title="JavaScript深入浅出笔记（二）">
+                JavaScript深入浅出笔记（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限控制"><span class="nav-number">1.</span> <span class="nav-text">访问权限控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复用类"><span class="nav-number">2.</span> <span class="nav-text">复用类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承与组合"><span class="nav-number">2.1.</span> <span class="nav-text">继承与组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final-关键字"><span class="nav-number">2.3.</span> <span class="nav-text">final 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#final-数据"><span class="nav-number">2.3.1.</span> <span class="nav-text">final 数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-方法"><span class="nav-number">2.3.2.</span> <span class="nav-text">final 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-类"><span class="nav-number">2.3.3.</span> <span class="nav-text">final 类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">3.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">4.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套接口"><span class="nav-number">4.1.</span> <span class="nav-text">嵌套接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口与工厂"><span class="nav-number">4.2.</span> <span class="nav-text">接口与工厂</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类"><span class="nav-number">5.</span> <span class="nav-text">内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类与向上转型"><span class="nav-number">5.1.</span> <span class="nav-text">内部类与向上转型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在方法和作用域内的内部类"><span class="nav-number">5.2.</span> <span class="nav-text">在方法和作用域内的内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类"><span class="nav-number">5.3.</span> <span class="nav-text">匿名内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结合工厂设计模式"><span class="nav-number">5.3.1.</span> <span class="nav-text">结合工厂设计模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套类"><span class="nav-number">5.4.</span> <span class="nav-text">嵌套类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要内部类？"><span class="nav-number">5.5.</span> <span class="nav-text">为什么需要内部类？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包与回调"><span class="nav-number">5.6.</span> <span class="nav-text">闭包与回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类与控制框架"><span class="nav-number">5.7.</span> <span class="nav-text">内部类与控制框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类的继承"><span class="nav-number">5.8.</span> <span class="nav-text">内部类的继承</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>

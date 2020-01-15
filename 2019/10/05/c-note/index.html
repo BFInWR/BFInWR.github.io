@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="C笔记语言中，数据类型可分为：基本数据类型，构造数据类型，指针类型，空类型四大类。">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C学习笔记-基本结构">
+<meta property="og:url" content="https://bfinwr.github.io/2019/10/05/c-note/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="C笔记语言中，数据类型可分为：基本数据类型，构造数据类型，指针类型，空类型四大类。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-1.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-2.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-3.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-4.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-5.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-6.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-7.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-8.png">
+<meta property="og:image" content="https://github.com/BFInWR/BFInWR.github.io/blob/hexo/source/_posts/resource/c-note-language-library.chm">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-9.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-10.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-14.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-15.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-11.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-16.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-12.png">
+<meta property="og:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-13.png">
+<meta property="og:updated_time" content="2020-01-15T09:04:14.806Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C学习笔记-基本结构">
+<meta name="twitter:description" content="C笔记语言中，数据类型可分为：基本数据类型，构造数据类型，指针类型，空类型四大类。">
+<meta name="twitter:image" content="https://bfinwr.github.io/2019/10/05/c-note/c-note-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2019/10/05/c-note/">
+
+
+
+
+
+  <title>C学习笔记-基本结构 | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2019/10/05/c-note/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C学习笔记-基本结构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T10:52:00+08:00">
+                2019-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,401
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="C笔记"><a href="#C笔记" class="headerlink" title="C笔记"></a>C笔记</h2><p>语言中，数据类型可分为：基本数据类型，构造数据类型，指针类型，空类型四大类。<br><img src="/2019/10/05/c-note/c-note-1.png" alt="四种基本数据类型"></p>
+<a id="more"></a>
+<p>整型、实型与字符型。<br><img src="/2019/10/05/c-note/c-note-2.png" alt="整型、实型与字符型"></p>
+<p><img src="/2019/10/05/c-note/c-note-3.png" alt="Alt text"></p>
+<p><img src="/2019/10/05/c-note/c-note-4.png" alt="Alt text"></p>
+<p>注：int、short int、long int是根据编译环境的不同，所取范围不同。而其中short int和long int至少是表中所写范围，但是int在表中是以16位编译环境写的取值范围。另外 c语言int的取值范围在于他占用的字节数 ，不同的编译器，规定是不一样。ANSI标准定义int是占2个字节，TC是按ANSI标准的，它的int是占2个字节的。但是在VC里，一个int是占4个字节的。</p>
+<p>###格式化输出语句</p>
+<p>格式化输出语句，也可以说是占位输出，是将各种类型的数据按照格式化后的类型及指定的位置从计算机上显示。</p>
+<p>其格式为：printf(“输出格式符”，输出项);</p>
+<p>C语言中的常用格式化符：<br><img src="/2019/10/05/c-note/c-note-5.png" alt="Alt text"></p>
+<p>注意：格式符的个数要与变量、常量或者表达式的个数一一对应 </p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>C语言的常量可以分为直接常量和符号常量。<br>直接常量也称为字面量，是可以直接拿来使用，无需说明的量。<br>在C语言中，可以用一个标识符来表示一个常量，称之为符号常量。符号常量在使用之前必须先定义，其一般形式为：</p>
+<p><code>#define 标识符 常量值</code></p>
+<p>符号常量的标示符一般习惯使用大写字母，变量的标示符一般习惯使用小写字母，加以区分。<br><strong>注意：#define 放置于main() 前，结尾无分号，量是不可改变的</strong></p>
+<p>###自动类型转换</p>
+<p>自动转换发生在不同数据类型运算时，<strong>在编译的时候自动完成</strong>。<br><img src="/2019/10/05/c-note/c-note-6.png" alt="Alt text"></p>
+<p><strong>char类型数据转换为int类型数据遵循ASCII码中的对应值，ASCII码请查看WIKI。</strong></p>
+<p>注：字节小的可以向字节大的自动转换，但字节大的不能向字节小的自动转换</p>
+<p>###强制类型转换</p>
+<p>强制类型转换是通过定义类型转换运算来实现的。其一般形式为：<br><code>(数据类型) (表达式)</code></p>
+<p>在使用强制转换时应注意以下问题：</p>
+<p>1、数据类型和表达式都必须加括号，如把(int)(x/2+y)写成(int)x/2+y则成了把x转换成int型之后再除2再与y相加了。</p>
+<p><strong>2、转换后不会改变原数据的类型及变量值，只在本次运算中临时性转换。</strong></p>
+<p><strong>3、强制转换后的运算结果不遵循四舍五入原则（是向下取整 -2.5 —&gt; -3）。</strong></p>
+<p>###运算符</p>
+<p>取余运算中注意：<br>该运算只适合用两个整数进行取余运算，如：10%3 = 1；而10.0%3则是错误的；运算后的符号取决于被模数的符号，如(-10)%3 = -1;而10%(-3) = 1。</p>
+<p>###优先级</p>
+<p><img src="/2019/10/05/c-note/c-note-7.png" alt="优先级顺序"></p>
+<h3 id="for循环顺序"><a href="#for循环顺序" class="headerlink" title="for循环顺序"></a>for循环顺序</h3><p><img src="/2019/10/05/c-note/c-note-8.png" alt="Alt text"></p>
+<p>它的执行过程如下：</p>
+<p>第一步：执行表达式1，对循环变量做初始化；</p>
+<p>第二步：判断表达式2，若其值为真（非0），则执行for循环体中执行代码块，然后向下执行；若其值为假（0），则结束循环；</p>
+<p>第三步：执行表达式3；</p>
+<p>第四步：执行for循环中执行代码块后执行第二步；</p>
+<p>第五步：循环结束，程序继续向下执行。</p>
+<p>###自创函数</p>
+<p><img src="https://github.com/BFInWR/BFInWR.github.io/blob/hexo/source/_posts/resource/c-note-language-library.chm" alt="《C语言库函数速查手册》"></p>
+<p>自定义函数的一般形式：<br><img src="/2019/10/05/c-note/c-note-9.png" alt="Alt text"></p>
+<p>注意：</p>
+<p>1、[ ]包含的内容可以省略，数据类型说明省略，默认是int类型函数；参数省略表示该函数是无参函数，参数不省略表示该函数是有参函数；</p>
+<p>2、函数名称遵循标识符命名规范；</p>
+<p>3、自定义函数尽量放在main函数之前，如果要放在main函数后面的话，需要在main函数之前先声明自定义函数，声明格式为：[数据类型说明] 函数名称（[参数]）;</p>
+<p><strong>C语言没有重载。</strong><br>但是C语言作为一个具有超强功能的底层语言，是有办法进行模拟函数重载的。那就是函数指针。最简单的例子就是qsort函数。这个函数可以传递一个函数指针变量，通过不同的函数指针，可以对不同的数据类型就行相同的qsort操作，从某种层面来说相当于函数重载。</p>
+<p><strong>C语言中局部变量可以与全局变量同名</strong><br>在函数内引用这个变量时，会用到同名的局部变量，而不会用到全局变量。对于有些编译器而言，在同一个函数内可以定义多个同名的局部变量，比如在两个循环体内都定义一个同名的局部变量，而那个局部变量的作用域就在那个循环体内</p>
+<p>###变量存储类别<br>C语言根据变量的生存周期来划分，可以分为静态存储方式和动态存储方式。</p>
+<p>静态存储方式：是指在程序运行期间分配固定的存储空间的方式。静态存储区中存放了在整个程序执行过程中都存在的变量，如全局变量。</p>
+<p>动态存储方式：是指在程序运行期间根据需要进行动态的分配存储空间的方式。动态存储区中存放的变量是根据程序运行的需要而建立和释放的，通常包括：函数形式参数；自动变量；函数调用时的现场保护和返回地址等。</p>
+<p>C语言中存储类别又分为四类：自动（auto）、静态（static）、寄存器的（register）和外部的（extern）。</p>
+<p>1、用关键字auto定义的变量为自动变量，auto可以省略，auto不写则隐含定为“自动存储类别”，属于动态存储方式。</p>
+<p>2、用static修饰的为静态变量，如果定义在函数内部的，称之为静态局部变量；如果定义在函数外部，称之为静态外部变量。<br>注意：静态局部变量属于静态存储类别，在静态存储区内分配存储单元，在程序整个运行期间都不释放；静态局部变量在编译时赋初值，即只赋初值一次；如果在定义局部变量时不赋初值的话，则对静态局部变量来说，编译时自动赋初值0（对数值型变量）或空字符（对字符变量）。</p>
+<p>3、为了提高效率，C语言允许将局部变量得值放在CPU中的寄存器中，这种变量叫“寄存器变量”，用关键字register作声明。<br>注意：只有局部自动变量和形式参数可以作为寄存器变量；一个计算机系统中的寄存器数目有限，不能定义任意多个寄存器变量；局部静态变量不能定义为寄存器变量。</p>
+<p>4、用extern声明的的变量是外部变量，外部变量的意义是某函数可以调用在该函数之后定义的变量。</p>
+<p>###内部函数与外部函数<br>在C语言中不能被其他源文件调用的函数称谓内部函数 ，<strong>内部函数由static关键字来定义</strong>，因此又被称谓静态函数，形式为：</p>
+<p><code>static [数据类型] 函数名（[参数]）</code></p>
+<p>这里的static是对函数的作用范围的一个限定，限定该函数只能在其所处的源文件中使用，因此在不同文件中出现相同的函数名称的内部函数是没有问题的。</p>
+<p>在C语言中能被其他源文件调用的函数称谓外部函数 ，外部函数由extern关键字来定义，形式为：</p>
+<p><code>extern [数据类型] 函数名([参数])</code></p>
+<p>C语言规定，在没有指定函数的作用范围时，<strong>系统会默认认为是外部函数</strong>，因此当需要定义外部函数时extern也可以省略。</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>它在程序中是一块连续的，大小固定并且里面的数据类型一致的内存空间，它还有个好听的名字叫数组。</p>
+<p>C语言中的数组初始化是有三种形式的，分别是：<br><strong>注意括号只能放在数组名称后，传参不用加括号，形参需要加括号</strong><br>1、 数据类型 数组名称[长度n] = {元素1,元素2…元素n};</p>
+<p>2、 数据类型 数组名称[] = {元素1,元素2…元素n};</p>
+<p>3、 数据类型 数组名称[长度n]; 数组名称[0] = 元素1; 数组名称[1] = 元素2; 数组名称[n-1] = 元素n;</p>
+<p><strong>如果采用第一种初始化方式，元素个数小于数组的长度时，多余的数组元素初始化为0；</strong><br>在声明数组后没有进行初始化的时候，<strong>静态（static）和外部（extern）类型的数组元素初始化元素为0</strong>，自动（auto）类型的数组的元素初始化值不确定。</p>
+<blockquote>
+<p>定义一个数组，开辟一段内存空间，这段内存空间并不会像被围墙围住一样被封死，合理地利用这个数组，需要程序员自己控制。只定义了这段空间，只有这段空间内的数据对于你当前的程序是合理的，越界的话就不知道你访问到哪里去了，它可能属于机器上任何一个运行着的进程，因为机器上的进程使用的都是这一条内存。如果你修改了你越界访问到的数据，可能会造成未知的错误。<br>int a[3] = {1,2,3};这样的定义，a表示的是开辟的这一段空间的首地址，[]里的数字表示相对这个地址的偏移量，访问数组是这样进行的<br>你可以通过sizeof()获得某个类型的大小，但是程序运行时不会去检查下标是否越界。这样的检查是需要耗费资源的，理想的情况下，这样做对于程序运行也没有意义。C/C++没有这样做这样的检查，C#、java 都是有这样的检查的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[10] = &#123;0&#125;;</span><br><span class="line">int cnt = sizeof(a) / sizeof(a[0]);</span><br><span class="line">输出结果是：</span><br><span class="line">cnt = 10</span><br></pre></td></tr></table></figure>
+
+<p>这样不管数组是增加还是减少元素，sizeof(a)/sizeof(a[0]) 都能自动求出数组的长度。需要注意的是，它求出的是数组的总长度，而不是数组中存放的有意义的数据的个数。<br><code>int a[10] = {1, 2, 3, 4, 5};</code><br>我们只初始化了五个元素，但是 sizeof(a)/sizeof(a[0]) 求出的是 10，而不是 5。换句话说，我们无法通过 sizeof(a)/sizeof(a[0]) 求出数组中有多少个有意义的数据。</p>
+<h3 id="字符串与数组"><a href="#字符串与数组" class="headerlink" title="字符串与数组"></a>字符串与数组</h3><p>在C语言中，是没有办法直接定义字符串数据类型的，但是我们可以使用数组来定义我们所要的字符串。一般有以下两种格式：</p>
+<p>1、char 字符串名称[长度] = “字符串值”;</p>
+<p>2、char 字符串名称[长度] = {‘字符1’,’字符2’,…,’字符n’,’\0’};</p>
+<p>注意：</p>
+<p>1、[]中的长度是可以省略不写的；</p>
+<p>2、采用第2种方式的时候最后一个元素必须是’\0’，’\0’表示字符串的结束标志；</p>
+<p>3、采用第2种方式的时候在数组中不能写中文。</p>
+<p>在输出字符串的时候要使用：<code>printf(“%s”,字符数组名字);或者puts(字符数组名字);</code></p>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><p><code>#include &lt;string.h&gt;</code><br><img src="/2019/10/05/c-note/c-note-10.png" alt="Alt text"></p>
+<p>使用字符串函数注意以下事项:</p>
+<p>1、<code>strlen()</code>获取字符串的长度，在字符串长度中是不包括’\0’而且汉字和字母的长度是不一样的。<br><img src="/2019/10/05/c-note/c-note-14.png" alt="Alt text"></p>
+<p>2、<code>strcmp()</code>在比较的时候会把字符串先转换成ASCII码再进行比较,返回的结果为0表示s1和s2的ASCII码相等,返回结果为1表示s1比s2的ASCII码大,返回结果为-1表示s1比s2的ASCII码小。<br><img src="/2019/10/05/c-note/c-note-15.png" alt="Alt text"></p>
+<p>3、<code>strcpy()</code>拷贝之后会覆盖原来字符串且不能对字符串常量进行拷贝。<br><img src="/2019/10/05/c-note/c-note-11.png" alt="Alt text"></p>
+<p>4、<code>strcat()</code>在使用时s1与s2指的内存空间不能重叠，且s1要有足够的空间来容纳要复制的字符串，<br><img src="/2019/10/05/c-note/c-note-16.png" alt="Alt text"></p>
+<h3 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h3><p><code>数据类型 数组名称[常量表达式1][常量表达式2]...[常量表达式n];</code><br><img src="/2019/10/05/c-note/c-note-12.png" alt="Alt text"><br>我们可以把上面的数组看作一个3×3的矩阵，如下图:<br><img src="/2019/10/05/c-note/c-note-13.png" alt="Alt text"></p>
+<p>多维数组的初始化与一维数组的初始化类似也是分两种:</p>
+<p>1、<figure class="highlight plain"><figcaption><span>数组名称[常量表达式1][常量表达式2]...[常量表达式n] </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、```数据类型 数组名称[常量表达式1][常量表达式2]...[常量表达式n]; 数组名称[下标1][下标2]...[下标n] = 值;</span><br></pre></td></tr></table></figure></p>
+<p>多维数组初始化要注意以下事项:</p>
+<p>1、采用第一种始化时数组声明<strong>必须指定列的维数</strong>。因为系统会根据数组中元素的总个数来分配空间，当知道元素总个数以及列的维数后，会直接计算出行的维数,</p>
+<p>2、采用第二种初始化时数组声明必须<strong>同时指定行和列</strong>的维数。</p>
+<p><strong>二维数组定义的时候，可以不指定行的数量，但是必须指定列的数量。</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/17/sts/" rel="next" title="STS与SpringBoot">
+                <i class="fa fa-chevron-left"></i> STS与SpringBoot
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/10/c-note-linux/" rel="prev" title="C学习笔记-指针">
+                C学习笔记-指针 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C笔记"><span class="nav-number">1.</span> <span class="nav-text">C笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">1.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环顺序"><span class="nav-number">1.2.</span> <span class="nav-text">for循环顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">1.3.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串与数组"><span class="nav-number">1.4.</span> <span class="nav-text">字符串与数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串函数"><span class="nav-number">1.5.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多维数组"><span class="nav-number">1.6.</span> <span class="nav-text">多维数组</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>

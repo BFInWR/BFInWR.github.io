@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,书籍笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="持有对象123456Collection&amp;lt;Integer&amp;gt; c1 = new ArrayList&amp;lt;Integer&amp;gt;(Arrays.asList(1,2,3,4)); c1.addAll(Arrays.asList(5,6));Collections.addAll(c1, 7,8); //这种方式比Arrays.asList快的多List&amp;lt;Integer&amp;gt; l =">
+<meta name="keywords" content="Java,书籍笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java编程思想笔记（三）">
+<meta property="og:url" content="https://bfinwr.github.io/2018/08/02/java-bcsx-note-3/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="持有对象123456Collection&amp;lt;Integer&amp;gt; c1 = new ArrayList&amp;lt;Integer&amp;gt;(Arrays.asList(1,2,3,4)); c1.addAll(Arrays.asList(5,6));Collections.addAll(c1, 7,8); //这种方式比Arrays.asList快的多List&amp;lt;Integer&amp;gt; l =">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-11T14:08:04.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java编程思想笔记（三）">
+<meta name="twitter:description" content="持有对象123456Collection&amp;lt;Integer&amp;gt; c1 = new ArrayList&amp;lt;Integer&amp;gt;(Arrays.asList(1,2,3,4)); c1.addAll(Arrays.asList(5,6));Collections.addAll(c1, 7,8); //这种方式比Arrays.asList快的多List&amp;lt;Integer&amp;gt; l =">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2018/08/02/java-bcsx-note-3/">
+
+
+
+
+
+  <title>Java编程思想笔记（三） | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2018/08/02/java-bcsx-note-3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java编程思想笔记（三）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T16:52:00+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,177
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Integer&gt; c1 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)); </span><br><span class="line">c1.addAll(Arrays.asList(<span class="number">5</span>,<span class="number">6</span>));</span><br><span class="line">Collections.addAll(c1, <span class="number">7</span>,<span class="number">8</span>); <span class="comment">//这种方式比Arrays.asList快的多</span></span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; l = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>); </span><br><span class="line"><span class="comment">//底层是数组 不是ArrayList 没有add方法</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>与HashSet一样，HashMap也提供了最快的查找技术，也没有按照任何明显的顺序来保存其元素。TreeMap按照比较结果升序保存键，而LinkedHashMap则按照插入顺序保存键，同时保留了HashMap的查询速度。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><blockquote>
+<p>ArrayList 访问快，读写较慢<br>LinkedList 访问较慢，读写快，特征集比ArrayList大。</p>
+</blockquote>
+<blockquote>
+<p><strong>方法</strong></p>
+<ol>
+<li>当使用<code>remove()</code>或者<code>removeAll()</code>方法使用参数是值时，会依赖于equals()方法</li>
+<li><code>toArray()</code>方法可以将任意一个<code>Connlection</code>转换为一个数组，无参数将返回一个<code>Object[]</code>,如果你传递目标类型的数据，它将产生指定类型的数据，参数大小不会限制数组长度。</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Integer&gt; c1 = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)); </span><br><span class="line">Integer[] i =  c1.toArray(<span class="keyword">new</span> Integer[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">//如果不加参数 不能强转成Integer[] 只能返回Object[] </span></span><br><span class="line">System.out.println(i.length); <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>LinkedList</strong>有使其作为 栈、队列、双端队列 的方法</p>
+</blockquote>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><blockquote>
+<p>迭代器是一个对象，它的工作是遍历并选择系列中对象，客户端程序员不必指定或关系该系列的底层结构。此外，迭代器常常被成为<strong>轻量级对象：创建它的代价小</strong>。因此，经常可以见到对迭代器有些奇怪的限制，例如，Java的<strong>Iterator</strong>只能单向移动，这个<strong>Iterator</strong>只能用于：</p>
+<ol>
+<li>使用方法<strong>iterator()</strong>要求返回一个Iterator。Iterator将准备好返回序列的第一个元素。</li>
+<li>使用<strong>next()</strong>获得序列中的下一个元素。</li>
+<li>使用<strong>hasNext()</strong>检查序列中是否还有元素。</li>
+<li>使用<strong>remove()</strong>将迭代器新近返回的元素删除。</li>
+</ol>
+</blockquote>
+<h4 id="ListIterator"><a href="#ListIterator" class="headerlink" title="ListIterator"></a>ListIterator</h4><blockquote>
+<p><strong>ListIterator</strong>是一个更加强大的<strong>Iteraor</strong>的子类型，它只能用于各种<strong>List</strong>类的访问。尽管<strong>Iterator</strong>只能向前移动，但是<strong>ListIterator</strong>可以双向移动。它还可以产生相对于迭代器在列表中指向的当前位置的前一个和后一个元素的索引，并且可以使用<strong>set()</strong>方法替换它访问的最后一个元素。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>)); </span><br><span class="line">	ListIterator&lt;String&gt; it = list.listIterator();</span><br><span class="line">	<span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">		System.out.println(it.next()+<span class="string">"-"</span>+it.nextIndex()+<span class="string">"-</span></span><br><span class="line"><span class="string">		"</span>+it.previousIndex());</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">/*  a-1-0</span></span><br><span class="line"><span class="comment">	b-2-1</span></span><br><span class="line"><span class="comment">	c-3-2  */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><blockquote>
+<p>“栈”通常是指“后进先出”(LIFO)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用LinkedList能够直接实现栈的所有功能方法，尽管已经有了java.util.Stack。</span></span><br><span class="line"><span class="comment">//但是LinkedList可以产生更好的Stack</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> LinkedList&lt;T&gt; storage = <span class="keyword">new</span> LinkedList&lt;T&gt;();</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(T v)</span></span>&#123;storage.addFirst(v);&#125; <span class="comment">//存元素 存在第一位</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">peek</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> storage.getFirst();&#125;	<span class="comment">//获取元素 第一位 栈顶元素</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> T <span class="title">pop</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> storage.removeFirst();&#125; <span class="comment">//删除元素  删除第一位</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
+<p>Set不保存重复的元素。查找是<strong>Set</strong>中最重要的操作，因此你通常都会选择一个HashSet的实现，它专门对快速查找进行了优化。<br><strong>Set具有与Collection完全一样的接口，因此没有任何额外的功能，只是行为不同。Set是基于对象的值来确定归属性的</strong><br><strong>HashSet</strong>使用的是散列函数<br><strong>TreeSet</strong>使用的是红-黑数<br><strong>LinkedHashSet</strong>因为查询速度原因也使用了散列，链表维护插入顺序<br>//书中232页写的LinkedHashList我并在jdk8中看见，只有LinkedHashSet和LinkedHashMap，应该是笔误</p>
+</blockquote>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><blockquote>
+<p>将对象映射到其它对象的能力是一种解决编程问题的杀手锏。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//统计随机数的次数</span></span><br><span class="line">Random rand = <span class="keyword">new</span> Random(<span class="number">47</span>);</span><br><span class="line">Map&lt;Integer, Integer&gt; m = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">	<span class="keyword">int</span> r = rand.nextInt(<span class="number">20</span>);</span><br><span class="line">	m.put(r, m.get(r) == <span class="keyword">null</span> ? <span class="number">1</span>: m.get(r)+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(m.toString());</span><br></pre></td></tr></table></figure>
+
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p>队列是一个典型的<strong>先进先出</strong>(FIFO)的容器。<br>LinkedList提供了方法以支持队列的行为，并且它实现了Queue接口，因此LinkedList可以用作Queue的一种实现。<code>Queue queue = new LinkedList()</code></p>
+</blockquote>
+<h4 id="PriorityQueue-优先级队列"><a href="#PriorityQueue-优先级队列" class="headerlink" title="PriorityQueue 优先级队列"></a>PriorityQueue 优先级队列</h4><blockquote>
+<p>它可以确保你调用 peek() 、poll()、remove() 方法时，获取的元素将是优先级最高的。</p>
+</blockquote>
+<h3 id="foreach-与-迭代器"><a href="#foreach-与-迭代器" class="headerlink" title="foreach 与 迭代器"></a>foreach 与 迭代器</h3><blockquote>
+<p><strong>Iterator</strong>接口被foreach用来在序列中移动。因此如果你创建了任何实现<strong>Iterator</strong>的类，都可以将它用于foreach语句中。<br>大量的类都是<strong>Iterator</strong>的类型，包括所有的Collection类(但是不包括各种Map，但是由entrySet()产生的Map.Entry的元素构成的是Set，keySet()也是返回Set)。<br>数组到 <strong>Iterator</strong> 不会把基本类型自动转换成包装类。必须手动转换。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>容器不能持有基本类型，但是自动包装机制会仔细地执行基本类型到到容器中所持有的包装类型之间的双向转换。</li>
+<li>新程序中不应该使用过时的Vector、Hashtable、Stack.</li>
+<li>List可以生成<strong>listIterator</strong>也可以生成<strong>Iterator</strong></li>
+<li>除了TreeSet之外的所有Set都拥有与Colleaction完全一样的接口。</li>
+</ol>
+<hr>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Concatenation</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		String s1 = <span class="string">"asdf"</span>;</span><br><span class="line">		String s2 = <span class="string">"qwe"</span>+s1+<span class="string">"ert"</span>+<span class="number">47</span>;</span><br><span class="line">		System.out.println(s2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//qweasdfert47</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">//反编译如下 简化部分注解</span><br><span class="line">C:\Users\Administrator\Desktop&gt;javap -c Concatenation</span><br><span class="line">Compiled from &quot;Concatenation.java&quot;</span><br><span class="line">public class Concatenation &#123;</span><br><span class="line">  public Concatenation();</span><br><span class="line">    Code:</span><br><span class="line">       0: aload_0</span><br><span class="line">       1: invokespecial #1   // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">       4: return</span><br><span class="line"></span><br><span class="line">  public static void main(java.lang.String[]);</span><br><span class="line">    Code:</span><br><span class="line">       0: ldc           #2 // String asdf</span><br><span class="line">       2: astore_1</span><br><span class="line">       3: new           #3 // class StringBuilder</span><br><span class="line">       6: dup</span><br><span class="line">       7: invokespecial #4 // Method StringBuilder.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">      10: ldc           #5 // String qwe</span><br><span class="line">      12: invokevirtual #6 //Method StringBuilder.append:(LString;)</span><br><span class="line">      15: aload_1</span><br><span class="line">      16: invokevirtual #6 // Method StringBuilder.append:(LString;)</span><br><span class="line">      19: ldc           #7 // String ert</span><br><span class="line">      21: invokevirtual #6 // Method StringBuilder.append:(LString;)</span><br><span class="line">      24: bipush        47</span><br><span class="line">      26: invokevirtual #8 // Method StringBuilder.append:(I)</span><br><span class="line">      29: invokevirtual #9  // Method StringBuilder.toString:()</span><br><span class="line">      32: astore_2</span><br><span class="line">      33: getstatic     #10 // Field System.out:Ljava/io/PrintStream;</span><br><span class="line">      36: aload_2</span><br><span class="line">      37: invokevirtual #11 // Method PrintStream.println:(LString;)V</span><br><span class="line">      40: return</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从反编译可以看到，编译器自动引入了java.lang.StringBuilder类。因为它更加高效。<br>编译器创建了StringBuilder对象，用以构造String，并为每个字符串调用一次1次StringBuilder的append()方法，总计四次。最后调用toString()方法生成结果，并存为s2(使用的命令是astore_2)</p>
+<p><strong>但是不要一味地想着编译器帮你优化就是最好的</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">func1</span><span class="params">(String[] str)</span></span>&#123;</span><br><span class="line">	String result = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;str.length;i++)&#123;</span><br><span class="line">		result +=str[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">func2</span><span class="params">(String[] str)</span></span>&#123;</span><br><span class="line">	StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;str.length;i++)&#123;</span><br><span class="line">		result.append(str[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result.toString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反编译如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"> public static java.lang.String func1(java.lang.String[]);</span><br><span class="line">    Code:</span><br><span class="line">       0: ldc           #10   // String</span><br><span class="line">       2: astore_1</span><br><span class="line">       3: iconst_0</span><br><span class="line">       4: istore_2</span><br><span class="line">       5: iload_2</span><br><span class="line">       6: aload_0</span><br><span class="line">       7: arraylength</span><br><span class="line">       8: if_icmpge     38   //i&lt;str.length 比较false时跳转到38行</span><br><span class="line">      11: new           #11  // class StringBuilder </span><br><span class="line">      14: dup</span><br><span class="line">      15: invokespecial #12  // Method StringBuilder.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">      18: aload_1</span><br><span class="line">      19: invokevirtual #13 // Method StringBuilder.append:(LString;)</span><br><span class="line">      22: aload_0</span><br><span class="line">      23: iload_2</span><br><span class="line">      24: aaload</span><br><span class="line">      25: invokevirtual #13 // Method StringBuilder.append:(LString;)</span><br><span class="line">      28: invokevirtual #14 // Method jStringBuilder.toString:()LString;</span><br><span class="line">      31: astore_1</span><br><span class="line">      32: iinc          2, 1</span><br><span class="line">      35: goto          5   //回到第五行 构成一个循环</span><br><span class="line">      38: aload_1</span><br><span class="line">      39: areturn</span><br><span class="line"></span><br><span class="line">  public static java.lang.String func2(java.lang.String[]);</span><br><span class="line">    Code:</span><br><span class="line">       0: new           #11 // class StringBuilder</span><br><span class="line">       3: dup</span><br><span class="line">       4: invokespecial #12 // Method StringBuilder.&quot;&lt;init&gt;&quot;:()V</span><br><span class="line">       7: astore_1</span><br><span class="line">       8: iconst_0</span><br><span class="line">       9: istore_2</span><br><span class="line">      10: iload_2</span><br><span class="line">      11: aload_0</span><br><span class="line">      12: arraylength</span><br><span class="line">      13: if_icmpge     30</span><br><span class="line">      16: aload_1</span><br><span class="line">      17: aload_0</span><br><span class="line">      18: iload_2</span><br><span class="line">      19: aaload</span><br><span class="line">      20: invokevirtual #13 // Method StringBuilder.append:(String;)</span><br><span class="line">      23: pop</span><br><span class="line">      24: iinc          2, 1</span><br><span class="line">      27: goto          10 //回到第10行，与13行构成一个循环 </span><br><span class="line">      30: aload_1</span><br><span class="line">      31: invokevirtual #14 // Method StringBuilder.toString:()LString;</span><br><span class="line">      34: areturn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以可以看到func1 每次循环都会新建一个StringBuilder，而func2只会新建一个StringBuilder，你还可以在代码中显示的指定其大小，以避免多次重新分配缓冲。（缓冲区(buffer)，它是内存空间的一部分。也就是说，在内存空间中预留了一定的存储空间，这些存储空间用来缓冲输入或输出的数据，这部分预留的空间就叫做缓冲区，显然缓冲区是具有一定大小的。用以缓解冲击。）</p>
+<p>如果你向走捷径，例如<code>append(a+&quot;:&quot;+c)</code>，那编译器就会为你创建另一个StringBuilder对象去处理括号内的字符串操作。</p>
+<p><strong>Java中每个类从根本上都是继承自Object。因此容器类都有toString()方法，并且重写该方法。所以在重写toString方法时一定要注意编译器的无意识的递归，当你在toString中使用this操作的时候，当你需要转换成String类型时，编译器会自动调用this.toString()方法</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/书籍笔记/" rel="tag"><i class="fa fa-tag"></i> 书籍笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/js-srqc-note-3/" rel="next" title="JavaScript深入浅出笔记（三）">
+                <i class="fa fa-chevron-left"></i> JavaScript深入浅出笔记（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/03/js-srqc-note-end/" rel="prev" title="JavaScript深入浅出笔记（END）">
+                JavaScript深入浅出笔记（END） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#持有对象"><span class="nav-number">1.</span> <span class="nav-text">持有对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">1.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器"><span class="nav-number">1.2.</span> <span class="nav-text">迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ListIterator"><span class="nav-number">1.2.1.</span> <span class="nav-text">ListIterator</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">1.3.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.5.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.6.</span> <span class="nav-text">Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PriorityQueue-优先级队列"><span class="nav-number">1.6.1.</span> <span class="nav-text">PriorityQueue 优先级队列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#foreach-与-迭代器"><span class="nav-number">1.7.</span> <span class="nav-text">foreach 与 迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.</span> <span class="nav-text">字符串</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>

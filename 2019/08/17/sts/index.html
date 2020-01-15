@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,SpringBoot,STS,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="STSSTS(Spring Tool Suite™)Spring工具套件是一个基于Eclipse的开发环境，用于开发Spring应用程序。它提供了一个现成的环境以实现、调试、运行和部署Spring应用程序，包括Pivotal tc Server、Pivotal Cloud Foundry、Git、Maven、AspectJ的集成，并且位于最新的Eclipse版本之上。 Spring工具套件包括Pi">
+<meta name="keywords" content="Java,SpringBoot,STS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STS与SpringBoot">
+<meta property="og:url" content="https://bfinwr.github.io/2019/08/17/sts/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="STSSTS(Spring Tool Suite™)Spring工具套件是一个基于Eclipse的开发环境，用于开发Spring应用程序。它提供了一个现成的环境以实现、调试、运行和部署Spring应用程序，包括Pivotal tc Server、Pivotal Cloud Foundry、Git、Maven、AspectJ的集成，并且位于最新的Eclipse版本之上。 Spring工具套件包括Pi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-15T06:36:42.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STS与SpringBoot">
+<meta name="twitter:description" content="STSSTS(Spring Tool Suite™)Spring工具套件是一个基于Eclipse的开发环境，用于开发Spring应用程序。它提供了一个现成的环境以实现、调试、运行和部署Spring应用程序，包括Pivotal tc Server、Pivotal Cloud Foundry、Git、Maven、AspectJ的集成，并且位于最新的Eclipse版本之上。 Spring工具套件包括Pi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2019/08/17/sts/">
+
+
+
+
+
+  <title>STS与SpringBoot | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2019/08/17/sts/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">STS与SpringBoot</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-17T16:52:00+08:00">
+                2019-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,374
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="STS"><a href="#STS" class="headerlink" title="STS"></a>STS</h2><p><strong>STS(Spring Tool Suite™)</strong>Spring工具套件是一个基于Eclipse的开发环境，用于开发Spring应用程序。它提供了一个现成的环境以实现、调试、运行和部署Spring应用程序，包括Pivotal tc Server、Pivotal Cloud Foundry、Git、Maven、AspectJ的集成，并且位于最新的Eclipse版本之上。</p>
+<p>Spring工具套件包括Pivotal tc Server的开发者版本，它是Apache Tomcat的下拉替换，为Spring进行了优化。通过它的Spring Insight控制台，tc Server Developer Edition提供了应用程序性能度量的图形化实时视图，允许开发人员从他们的桌面识别和诊断问题。</p>
+<p>Spring工具套件支持以本地、虚拟和基于云的服务器为目标的应用程序。它可免费用于开发和内部业务操作，没有时间限制，完全开放源代码，并根据Eclipse公共许可证条款进行许可。</p>
+<p>对于Spring Boot有着很好的支持</p>
+<p>*<em>实际用着感受而言 外貌和eclipse一模一样 要稍微好看点 ， 但是用着没有eclipse流畅 错误提示没有intellJ好 可以说是基本没有 电脑稍微差点及其容易未响应 ，eclipse很少 intellJ几乎没有 *</em></p>
+<a id="more"></a>
+<h2 id="Spring-Boot介绍"><a href="#Spring-Boot介绍" class="headerlink" title="Spring Boot介绍"></a>Spring Boot介绍</h2><ul>
+<li>目标：简单，快速开发Spring框架项目</li>
+<li>特性1：自动配置（无需xml配置，通过jar依赖自动识别）</li>
+<li>特性2：通过启步（Starter）依赖集成第三方库，开箱即用</li>
+<li>特性3：内嵌Servlet容器，无需war包部署</li>
+<li>特性4：内置健康检测、度量指标功能</li>
+<li>特性5：提供all-in-one打包插件</li>
+</ul>
+<h3 id="Spring-Boot两种创建方式"><a href="#Spring-Boot两种创建方式" class="headerlink" title="Spring Boot两种创建方式"></a>Spring Boot两种创建方式</h3><ul>
+<li>方式一：使用<a href="https://start.spring.io/" target="_blank" rel="noopener">Spring Initiallizr创建</a></li>
+<li>方式二：使用Spring Tool Suite等IDE创建</li>
+</ul>
+<p>####引入Spring Boot</p>
+<ul>
+<li>方式一：pom继承spring-boot-starter-parent（当需要修改其中的依赖管理版本号时，可以直接覆盖或者修改Properties版本号变量）</li>
+<li>方式二：pom引入spring-boot-dependencies（这种模式修改Properties版本号是不起作用的，只能覆盖）</li>
+</ul>
+<h4 id="引入内嵌容器"><a href="#引入内嵌容器" class="headerlink" title="引入内嵌容器"></a>引入内嵌容器</h4><ul>
+<li>引入tomcat：直接引入spring-boot-starter-web，默认tomcat</li>
+<li>引入jetty：还需添加spring-boot-starter-jetty，并移除starter-tomcat<br><a href="https://docs.spring.io/spring-boot/docs/1.5.15.RELEASE/reference/htmlsingle/#howto-use-jetty-instead-of-tomcat" target="_blank" rel="noopener">Use Jetty instead of Tomcat</a></li>
+</ul>
+<p>####内嵌容器优势</p>
+<ul>
+<li>减少外部容器依赖，可移植性高</li>
+<li>易测试易部署</li>
+<li>Spring Boot提供了可插拔的内嵌容器方案</li>
+</ul>
+<h2 id="数据访问层搭建-整合MyBatis"><a href="#数据访问层搭建-整合MyBatis" class="headerlink" title="数据访问层搭建-整合MyBatis"></a>数据访问层搭建-整合MyBatis</h2><ul>
+<li><p>方式一：通过xml配置</p>
+</li>
+<li><p>1：dataSource配置</p>
+</li>
+<li><p>2：创建SqlSessionFactoryBean，MapperSacnnerConfigurer bean</p>
+</li>
+<li><p>3：创建mybatis配置文件，mapper接口类及sql映射文件</p>
+</li>
+<li><p>方式二：通过Starter</p>
+</li>
+<li><p>1：引入mybatis Starter</p>
+</li>
+<li><p>2：application.properties添加spring mybatis和datasource配置</p>
+</li>
+<li><p>3：创建mybatis配置文件，mapper接口类及sql映射文件</p>
+</li>
+</ul>
+<p>数据传输层需要配置在和启动类在同一层级添加@Mapper 才会被自动扫描到不然就只有用在启动类上面使用@MapperScan配置</p>
+<h3 id="数据库连接池-—-Druid"><a href="#数据库连接池-—-Druid" class="headerlink" title="数据库连接池 — Druid"></a>数据库连接池 — Druid</h3><p>SpringBoot 默认的使用Tomcat连接池：tomcat-jdbc </p>
+<p><a href="https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank" rel="noopener"><strong>Druid</strong></a></p>
+<blockquote>
+<p>Druid是一个JDBC组件库，包括数据库连接池、SQL Parser等组件。DruidDataSource是最好的数据库连接池。</p>
+</blockquote>
+<h4 id="Druid-1-1-10"><a href="#Druid-1-1-10" class="headerlink" title="Druid 1.1.10"></a>Druid 1.1.10</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;druid.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;druid.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">server.port=8080</span><br><span class="line"></span><br><span class="line">#Druid配置</span><br><span class="line">spring.datasource.druid.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</span><br><span class="line">spring.datasource.druid.username=root</span><br><span class="line">spring.datasource.druid.password=123</span><br><span class="line"></span><br><span class="line">#连接池配置(通常来说，只需要修改initialSize、minIdle、maxActive</span><br><span class="line">#如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。</span><br><span class="line">#分库分表较多的数据库，建议配置为false。removeabandoned不建议在生产环境中打开如果用SQL Server，建议追加配置)</span><br><span class="line">#初始化连接大小</span><br><span class="line">spring.datasource.druid.initial-size=8</span><br><span class="line">#最大连接数</span><br><span class="line">spring.datasource.druid.max-active=30</span><br><span class="line">#最小连接数</span><br><span class="line">spring.datasource.druid.min-idle=5</span><br><span class="line"></span><br><span class="line">#一般情况下 Druid以上配置足以</span><br><span class="line"></span><br><span class="line">#启用ConfigFilter</span><br><span class="line">spring.datasource.druid.filter.config.enabled=true</span><br><span class="line"></span><br><span class="line">#下面两个配置可有可无 默认也是这个配置</span><br><span class="line">#配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒</span><br><span class="line">spring.datasource.druid.time-between-eviction-runs-millis=60000</span><br><span class="line">#配置一个连接在池中最小生存的时间，单位是毫秒</span><br><span class="line">spring.datasource.druid.min-evictable-idle-time-millis=300000</span><br><span class="line"></span><br><span class="line">#获取连接的最大等待时间</span><br><span class="line">spring.datasource.druid.max-wait=10000</span><br><span class="line"></span><br><span class="line">#解决mysql提出超过8小时空闲的连接的问题 主动定期验证内存里面的连接是否有效 用来检测连接是否有效的sql，要求是一个查询语句，常用select &apos;x&apos;</span><br><span class="line">spring.datasource.druid.validation-query=SELECT &apos;x&apos;</span><br><span class="line">spring.datasource.druid.test-on-borrow=false</span><br><span class="line">spring.datasource.druid.test-on-return=false</span><br><span class="line">spring.datasource.druid.test-while-idle=true</span><br><span class="line"></span><br><span class="line">#打开PSCache，并且指定每个连接上PSCache的大小</span><br><span class="line">spring.datasource.druid.pool-prepared-statements=true</span><br><span class="line">spring.datasource.druid.max-pool-prepared-statement-per-connection-size=20</span><br><span class="line"></span><br><span class="line">#Druid内置提供一个StatFilter，用于统计监控信息。</span><br><span class="line">#DruidFilter慢SQL追查		1ms上的	是否打印	是否合并</span><br><span class="line">spring.datasource.druid.filter.stat.enabled=true</span><br><span class="line">spring.datasource.druid.filter.stat.slow-sql-millis=1</span><br><span class="line">spring.datasource.druid.filter.stat.log-slow-sql=true</span><br><span class="line">spring.datasource.druid.filter.stat.merge-sql=true</span><br><span class="line"></span><br><span class="line">#监控配置</span><br><span class="line"># WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter</span><br><span class="line">#是否启用StatFilter默认值true</span><br><span class="line">spring.datasource.druid.web-stat-filter.enabled=true</span><br><span class="line">spring.datasource.druid.web-stat-filter.url-pattern=/*</span><br><span class="line">spring.datasource.druid.web-stat-filter.exclusions=*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</span><br><span class="line">spring.datasource.druid.web-stat-filter.session-stat-enable=false</span><br><span class="line">spring.datasource.druid.web-stat-filter.session-stat-max-count=1000</span><br><span class="line">spring.datasource.druid.web-stat-filter.principal-session-name=admin</span><br><span class="line">spring.datasource.druid.web-stat-filter.principal-cookie-name=admin</span><br><span class="line">spring.datasource.druid.web-stat-filter.profile-enable=true</span><br><span class="line">#Druid内置提供了一个StatViewServlet用于展示Druid的统计信息。</span><br><span class="line">#StatViewServlet的用途包括：1.提供监控信息展示的html页面2.提供监控信息的JSON API</span><br><span class="line">#是否启用StatViewServlet默认值true	映射地址/druid</span><br><span class="line">spring.datasource.druid.stat-view-servlet.enabled=true</span><br><span class="line">spring.datasource.druid.stat-view-servlet.url-pattern=/druid/*</span><br></pre></td></tr></table></figure>
+
+<p><strong>若是报错请先检查druid jar包是否正常 ，可能存在版本冲突，导致maven没有导入完整的druid jar包，但是却没有报错</strong></p>
+<h2 id="整合freemarker步骤"><a href="#整合freemarker步骤" class="headerlink" title="整合freemarker步骤"></a>整合freemarker步骤</h2><ul>
+<li><p>方式一 通过xml配置</p>
+</li>
+<li><p>1：pom引入freemarker库</p>
+</li>
+<li><p>2：创建freemarkerConfigurer、viewResolver bean</p>
+</li>
+<li><p>3：编写模板引擎文件</p>
+</li>
+<li><p>方式二 通过Starter</p>
+</li>
+<li><p>1：引入freemarker starter</p>
+</li>
+<li><p>2：application.properties添加freemarker配置</p>
+</li>
+<li><p>3：编写模板引擎文件</p>
+</li>
+</ul>
+<h3 id="Freemarker结构化布局"><a href="#Freemarker结构化布局" class="headerlink" title="Freemarker结构化布局"></a>Freemarker结构化布局</h3><ul>
+<li>抽取header、footer、nav、js、分页</li>
+<li>页面中引入header、footer</li>
+<li>编写页面中自定义的部分.</li>
+</ul>
+<h2 id="起步依赖（Starter）"><a href="#起步依赖（Starter）" class="headerlink" title="起步依赖（Starter）"></a>起步依赖（Starter）</h2><p>一：</p>
+<blockquote>
+<p>spring-boot-starter<br>——spring-boot<br>————spring-core<br>————spring-context<br>——spring-boot-autoconfigure（包含大量自动配置）<br>——spring-boot-starter-logging</p>
+</blockquote>
+<p>二：</p>
+<blockquote>
+<p>mybatis-spring-boot-starter<br>——mybatis<br>——spring-boot-starter-jdbc<br>——mybatis-spring<br>——mybatis-spring-boot-autoconfigure</p>
+</blockquote>
+<h3 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h3><blockquote>
+<p>@SpringApplicationBoot -&gt; @EnableAutoConfiguration -&gt; SpringFactoriesLoader(classpath:/META-INF/spring.factories)<br>@EnableXxxx</p>
+</blockquote>
+<p><strong>Java Config中有很多注解</strong><br>configuration 代表它是一个Java Config<br>会有一些条件注解<br>ConditionalOnMissingBean 如果不存在这个Bean则创建 当用户创建时这个Bean就不生效<br>@ConditionalOnProperty    如果开启某个配置则这个Bean则创建<br>@ConditionalOnClass        在某些类存在的情况下 才去加载</p>
+<h3 id="自定义自动配置"><a href="#自定义自动配置" class="headerlink" title="自定义自动配置"></a>自定义自动配置</h3><p>列子：<br>访问网站都是以Http访问的，就需要HttpClient 单例就可以 是一个SpringBean的存在</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnClass</span>(&#123;HttpClient.class&#125;)</span><br><span class="line"><span class="comment">//将HttpClientProperties 作为一个Bean引入进来</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties</span>(HttpClientProperties.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClientAutoConfiguration</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HttpClientProperties properties;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HttpClientAutoConfiguration</span><span class="params">(HttpClientProperties properties)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.properties = properties;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * httpClient bean 的定义</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="meta">@ConditionalOnMissingBean</span>(HttpClient.class)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> HttpClient <span class="title">httpClient</span><span class="params">()</span></span>&#123;</span><br><span class="line">		RequestConfig requestConfig = RequestConfig.custom()</span><br><span class="line">				.setConnectTimeout(properties.getConnectTimeOut())</span><br><span class="line">				.setSocketTimeout(properties.getSocketTimeOut())</span><br><span class="line">				.build();</span><br><span class="line">		HttpClient client = HttpClientBuilder.create()</span><br><span class="line">				.setDefaultRequestConfig(requestConfig)</span><br><span class="line">				.setUserAgent(properties.getAgent())</span><br><span class="line">				.setMaxConnPerRoute(properties.getMaxConnPerRoute())</span><br><span class="line">				.setMaxConnTotal(properties.getMaxConnTotaol())</span><br><span class="line">				.setConnectionReuseStrategy(<span class="keyword">new</span> NoConnectionReuseStrategy())</span><br><span class="line">				.build();<span class="comment">//setConnectionReuseStrategy 不进行重试 可以在业务中进行 不在http中</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> client;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就是需要启动给application.properties这个文件,提供给用户 进行配置的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明为一个SpringBoot的配置文件</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"spring.httpclient"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpClientProperties</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Integer connectTimeOut = <span class="number">1000</span>;	<span class="comment">//连接超时 1s</span></span><br><span class="line">	<span class="keyword">private</span> Integer socketTimeOut = <span class="number">10000</span>;	<span class="comment">//读超时 10s</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String agent = <span class="string">"agent"</span>;</span><br><span class="line">	<span class="keyword">private</span> Integer maxConnPerRoute = <span class="number">10</span>; <span class="comment">//每个IP最大连接数</span></span><br><span class="line">	<span class="keyword">private</span> Integer maxConnTotaol = <span class="number">50</span>;	<span class="comment">//总连接数</span></span><br><span class="line">....getter</span><br><span class="line">....setter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为上面两个类是在root Package下的子Package，所以加了@configuration 都会被自动扫描到也会自动加载进来，当不是子Package下的时候，就会报错找不到HttpClient这个Bean，这个时候可以使用META-INF 进行配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resources</span><br><span class="line">-- META-INF</span><br><span class="line">-- spring.factories</span><br><span class="line">org.springframework.boot.autoconfigure.EnableAutoConfiguration=\</span><br><span class="line">xxx.xxx.xxx.HttpClientAutoConfiguration</span><br></pre></td></tr></table></figure>
+
+<p>另一种方法是使用注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Import;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Import</span>(HttpClientAutoConfiguration.class)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableHttpClient &#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后在启动类上加上注解 @EnableHttpClient 就行了</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="maven-多module的实现"><a href="#maven-多module的实现" class="headerlink" title="maven 多module的实现"></a>maven 多module的实现</h2><blockquote>
+<p>好处：让我们代码层次逻辑更加清晰，增强代码的内聚性，可以使多人负责不同的module，增加协同开发的效率<br>它并不意味着分布式，最终还是要打成一个jar包，多module通过 maven依赖最终会集成到一起</p>
+</blockquote>
+<p>拆分例子</p>
+<ul>
+<li>house-biz：负责数据访问层以及业务的实现</li>
+<li>house-common：负责定义数据模型以及公共代码</li>
+<li>house-web：负责定义启动类、controller、模板引擎</li>
+</ul>
+<p><strong>工作组</strong><br><a href="https://jingyan.baidu.com/article/f0e83a2563c8eb22e591011b.html" target="_blank" rel="noopener">使用和建立</a></p>
+<p>intellj 直接创建maven项目 -&gt; 在这个项目下 右键 new moudle </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+          
+            <a href="/tags/STS/" rel="tag"><i class="fa fa-tag"></i> STS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/17/blog-build-url/" rel="next" title="博客搭建网址合集">
+                <i class="fa fa-chevron-left"></i> 博客搭建网址合集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/05/c-note/" rel="prev" title="C学习笔记-基本结构">
+                C学习笔记-基本结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#STS"><span class="nav-number">1.</span> <span class="nav-text">STS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot介绍"><span class="nav-number">2.</span> <span class="nav-text">Spring Boot介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot两种创建方式"><span class="nav-number">2.1.</span> <span class="nav-text">Spring Boot两种创建方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入内嵌容器"><span class="nav-number">2.1.1.</span> <span class="nav-text">引入内嵌容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据访问层搭建-整合MyBatis"><span class="nav-number">3.</span> <span class="nav-text">数据访问层搭建-整合MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库连接池-—-Druid"><span class="nav-number">3.1.</span> <span class="nav-text">数据库连接池 — Druid</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Druid-1-1-10"><span class="nav-number">3.1.1.</span> <span class="nav-text">Druid 1.1.10</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合freemarker步骤"><span class="nav-number">4.</span> <span class="nav-text">整合freemarker步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Freemarker结构化布局"><span class="nav-number">4.1.</span> <span class="nav-text">Freemarker结构化布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#起步依赖（Starter）"><span class="nav-number">5.</span> <span class="nav-text">起步依赖（Starter）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动配置"><span class="nav-number">5.1.</span> <span class="nav-text">自动配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义自动配置"><span class="nav-number">5.2.</span> <span class="nav-text">自定义自动配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven-多module的实现"><span class="nav-number">6.</span> <span class="nav-text">maven 多module的实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>

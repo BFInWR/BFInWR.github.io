@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BFInWR&#39; Blog</title>
+  
+  <subtitle>[ Not destory me make stronger ]</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://bfinwr.github.io/"/>
+  <updated>2020-01-15T07:50:56.357Z</updated>
+  <id>https://bfinwr.github.io/</id>
+  
+  <author>
+    <name>BFInWR</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java中调用JS</title>
+    <link href="https://bfinwr.github.io/2020/04/17/java-make-js/"/>
+    <id>https://bfinwr.github.io/2020/04/17/java-make-js/</id>
+    <published>2020-04-17T08:52:00.000Z</published>
+    <updated>2020-01-15T07:50:56.357Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Java中调用JS&quot;&gt;&lt;a href=&quot;#Java中调用JS&quot; class=&quot;headerlink&quot; title=&quot;Java中调用JS&quot;&gt;&lt;/a&gt;Java中调用JS&lt;/h2&gt;&lt;p&gt;JDK自带的类可以实现调用JS的功能，可以实现执行字符串中的运算公式的功能。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="JS" scheme="https://bfinwr.github.io/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA 上的标红</title>
+    <link href="https://bfinwr.github.io/2019/11/17/idea-error/"/>
+    <id>https://bfinwr.github.io/2019/11/17/idea-error/</id>
+    <published>2019-11-17T08:52:00.000Z</published>
+    <updated>2020-01-15T06:41:55.968Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;intellJ-上的标红&quot;&gt;&lt;a href=&quot;#intellJ-上的标红&quot; class=&quot;headerlink&quot; title=&quot;intellJ 上的标红&quot;&gt;&lt;/a&gt;intellJ 上的标红&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;spring boot Configuration Annotation Proessor not found in classpath&lt;/code&gt;&lt;br&gt;解决方案：导入依赖&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt; org.springframework.boot &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt; spring-boot-configuration-processor &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;optional&lt;/span&gt;&amp;gt;&lt;/span&gt; true &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;optional&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;dependency&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若是还标红 重启下intellJ就行了&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Could not autowire. No beans of &amp;#39;xxxxMapper&amp;#39; type found&lt;/code&gt;&lt;br&gt;解决方案：安装 Mybatis Plugin 插件&lt;br&gt;注意Mybatis Plugin是收费的 另外有一个Free Mybatis Plugin但是没有效果&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;cannot resolve property under construction in mybatis-mapper.xml&lt;/code&gt;&lt;br&gt;解决方案：1：输全路径。2 &lt;a href=&quot;http://blog.canang.com.my/2016/06/03/intellij-idea-cannot-resolve-property-key/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;在modules下spring中添加Application xml&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="IDEA" scheme="https://bfinwr.github.io/categories/IDEA/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="IDEA" scheme="https://bfinwr.github.io/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C学习笔记-指针</title>
+    <link href="https://bfinwr.github.io/2019/10/10/c-note-linux/"/>
+    <id>https://bfinwr.github.io/2019/10/10/c-note-linux/</id>
+    <published>2019-10-10T02:52:00.000Z</published>
+    <updated>2020-01-15T09:04:58.246Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Linux-C指针&quot;&gt;&lt;a href=&quot;#Linux-C指针&quot; class=&quot;headerlink&quot; title=&quot;Linux C指针&quot;&gt;&lt;/a&gt;Linux C指针&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/HKUI/p/8955443.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gdb基本使用&lt;/a&gt;&lt;br&gt;查看内存：x（输出内存的值）/3（显示值的数量）d（以十进制显示） 0x7fffffffde14（从哪个地址开始显示&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt;  指针符 表示地址指向的空间&lt;br&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; 取地址符&lt;/p&gt;
+&lt;p&gt; 1bit = 8二进制位&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="C" scheme="https://bfinwr.github.io/categories/C/"/>
+    
+    
+      <category term="C" scheme="https://bfinwr.github.io/tags/C/"/>
+    
+      <category term="指针" scheme="https://bfinwr.github.io/tags/%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C学习笔记-基本结构</title>
+    <link href="https://bfinwr.github.io/2019/10/05/c-note/"/>
+    <id>https://bfinwr.github.io/2019/10/05/c-note/</id>
+    <published>2019-10-05T02:52:00.000Z</published>
+    <updated>2020-01-15T09:04:14.806Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;C笔记&quot;&gt;&lt;a href=&quot;#C笔记&quot; class=&quot;headerlink&quot; title=&quot;C笔记&quot;&gt;&lt;/a&gt;C笔记&lt;/h2&gt;&lt;p&gt;语言中，数据类型可分为：基本数据类型，构造数据类型，指针类型，空类型四大类。&lt;br&gt;&lt;img src=&quot;/2019/10/05/c-note/c-note-1.png&quot; alt=&quot;四种基本数据类型&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="C" scheme="https://bfinwr.github.io/categories/C/"/>
+    
+    
+      <category term="C" scheme="https://bfinwr.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>STS与SpringBoot</title>
+    <link href="https://bfinwr.github.io/2019/08/17/sts/"/>
+    <id>https://bfinwr.github.io/2019/08/17/sts/</id>
+    <published>2019-08-17T08:52:00.000Z</published>
+    <updated>2020-01-15T06:36:42.314Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;STS&quot;&gt;&lt;a href=&quot;#STS&quot; class=&quot;headerlink&quot; title=&quot;STS&quot;&gt;&lt;/a&gt;STS&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;STS(Spring Tool Suite™)&lt;/strong&gt;Spring工具套件是一个基于Eclipse的开发环境，用于开发Spring应用程序。它提供了一个现成的环境以实现、调试、运行和部署Spring应用程序，包括Pivotal tc Server、Pivotal Cloud Foundry、Git、Maven、AspectJ的集成，并且位于最新的Eclipse版本之上。&lt;/p&gt;
+&lt;p&gt;Spring工具套件包括Pivotal tc Server的开发者版本，它是Apache Tomcat的下拉替换，为Spring进行了优化。通过它的Spring Insight控制台，tc Server Developer Edition提供了应用程序性能度量的图形化实时视图，允许开发人员从他们的桌面识别和诊断问题。&lt;/p&gt;
+&lt;p&gt;Spring工具套件支持以本地、虚拟和基于云的服务器为目标的应用程序。它可免费用于开发和内部业务操作，没有时间限制，完全开放源代码，并根据Eclipse公共许可证条款进行许可。&lt;/p&gt;
+&lt;p&gt;对于Spring Boot有着很好的支持&lt;/p&gt;
+&lt;p&gt;*&lt;em&gt;实际用着感受而言 外貌和eclipse一模一样 要稍微好看点 ， 但是用着没有eclipse流畅 错误提示没有intellJ好 可以说是基本没有 电脑稍微差点及其容易未响应 ，eclipse很少 intellJ几乎没有 *&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="SpringBoot" scheme="https://bfinwr.github.io/tags/SpringBoot/"/>
+    
+      <category term="STS" scheme="https://bfinwr.github.io/tags/STS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搭建网址合集</title>
+    <link href="https://bfinwr.github.io/2019/06/17/blog-build-url/"/>
+    <id>https://bfinwr.github.io/2019/06/17/blog-build-url/</id>
+    <published>2019-06-17T07:52:00.000Z</published>
+    <updated>2020-01-15T06:38:43.036Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="https://bfinwr.github.io/categories/blog/"/>
+    
+    
+      <category term="hexo" scheme="https://bfinwr.github.io/tags/hexo/"/>
+    
+      <category term="github" scheme="https://bfinwr.github.io/tags/github/"/>
+    
+      <category term="next" scheme="https://bfinwr.github.io/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>错误合集</title>
+    <link href="https://bfinwr.github.io/2019/05/17/error-list-1/"/>
+    <id>https://bfinwr.github.io/2019/05/17/error-list-1/</id>
+    <published>2019-05-17T08:52:00.000Z</published>
+    <updated>2020-01-15T08:55:05.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;错误合集&quot;&gt;&lt;a href=&quot;#错误合集&quot; class=&quot;headerlink&quot; title=&quot;错误合集&quot;&gt;&lt;/a&gt;错误合集&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/w86440044/article/details/29363067&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mybatis错误：Parameter ‘XXX’ not found. Available parameters are[1, 0, param1, param2]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/luanpeng825485697/article/details/78242083&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/ywlx/p/4544179.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhouzme/article/details/18909469&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MySQL字段自增自减的SQL语句&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shichuwu/article/details/82561715&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;idea的xml文件Tag name expected&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
+    
+    
+      <category term="jenkins" scheme="https://bfinwr.github.io/tags/jenkins/"/>
+    
+      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
+    
+      <category term="MyBatis" scheme="https://bfinwr.github.io/tags/MyBatis/"/>
+    
+      <category term="Spring" scheme="https://bfinwr.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>错误合集2</title>
+    <link href="https://bfinwr.github.io/2019/05/17/error-list-2/"/>
+    <id>https://bfinwr.github.io/2019/05/17/error-list-2/</id>
+    <published>2019-05-17T08:52:00.000Z</published>
+    <updated>2020-01-15T08:55:11.264Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;错误合集2&quot;&gt;&lt;a href=&quot;#错误合集2&quot; class=&quot;headerlink&quot; title=&quot;错误合集2&quot;&gt;&lt;/a&gt;错误合集2&lt;/h2&gt;&lt;p&gt;网页效果 需要时间 加载缓慢的时候 注意排除 css 中或者 js中的网址 一帮使用@import 引入网址 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
+    
+    
+      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
+    
+      <category term="mysql" scheme="https://bfinwr.github.io/tags/mysql/"/>
+    
+      <category term="linux" scheme="https://bfinwr.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot 中的登录验证</title>
+    <link href="https://bfinwr.github.io/2019/01/17/springboot-login-verify/"/>
+    <id>https://bfinwr.github.io/2019/01/17/springboot-login-verify/</id>
+    <published>2019-01-17T11:25:00.000Z</published>
+    <updated>2020-01-15T06:54:44.748Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SpringBoot-中的登录验证&quot;&gt;&lt;a href=&quot;#SpringBoot-中的登录验证&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot 中的登录验证&quot;&gt;&lt;/a&gt;SpringBoot 中的登录验证&lt;/h2&gt;&lt;p&gt;&lt;code&gt;authoritiesByUsernameQuery(sql)&lt;/code&gt;&lt;br&gt;传入的sql 需要返回 用户名和 用户级别&lt;/p&gt;
+&lt;p&gt;源码中的默认sql&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; String authoritiesByUsernameQuery = &lt;span class=&quot;string&quot;&gt;&quot;select username,authority from authorities where username = ?&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;usersByUsernameQuery(sql)&lt;/code&gt;&lt;br&gt;传入的sql 需要返回 用户名,密码,是否启动 enabled = 1 是默认启用&lt;br&gt;源码中的默认sql&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;select username,password,enabled from users where username = ?&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;另一种验证方案&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="SpringBoot" scheme="https://bfinwr.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2019年总结</title>
+    <link href="https://bfinwr.github.io/2019/01/13/2019-summary/"/>
+    <id>https://bfinwr.github.io/2019/01/13/2019-summary/</id>
+    <published>2019-01-12T16:00:00.000Z</published>
+    <updated>2020-01-15T06:33:27.652Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2019年总结&quot;&gt;&lt;a href=&quot;#2019年总结&quot; class=&quot;headerlink&quot; title=&quot;2019年总结&quot;&gt;&lt;/a&gt;2019年总结&lt;/h2&gt;&lt;p&gt;今天是1月13号了，现在才想起把总结写写，虽是太晚，但也是最快了。&lt;br&gt;2019总得来说就是累，但却又不够累，或者说是没有达到想象中的累，或许是因没有达到自己设立的目标的情绪作祟吧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="总结" scheme="https://bfinwr.github.io/categories/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="年度总结" scheme="https://bfinwr.github.io/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2018年总结</title>
+    <link href="https://bfinwr.github.io/2018/12/31/2018-summary/"/>
+    <id>https://bfinwr.github.io/2018/12/31/2018-summary/</id>
+    <published>2018-12-30T16:00:00.000Z</published>
+    <updated>2020-01-15T06:33:32.924Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2018年总结&quot;&gt;&lt;a href=&quot;#2018年总结&quot; class=&quot;headerlink&quot; title=&quot;2018年总结&quot;&gt;&lt;/a&gt;2018年总结&lt;/h2&gt;&lt;p&gt;2018年，是收获的一年，收获的最多的除了知识就是肉了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="总结" scheme="https://bfinwr.github.io/categories/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="年度总结" scheme="https://bfinwr.github.io/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringMVC流程</title>
+    <link href="https://bfinwr.github.io/2018/12/19/springmvc-process/"/>
+    <id>https://bfinwr.github.io/2018/12/19/springmvc-process/</id>
+    <published>2018-12-19T10:25:00.000Z</published>
+    <updated>2020-01-15T09:07:04.399Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SpringMVC流程&quot;&gt;&lt;a href=&quot;#SpringMVC流程&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC流程&quot;&gt;&lt;/a&gt;SpringMVC流程&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2018/12/19/springmvc-process/springmvc-process.png&quot; alt=&quot;流程图&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先从左到右是客户端发起用户请求，以Http形式进入到Servlet容器中&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="SpringMVC" scheme="https://bfinwr.github.io/categories/SpringMVC/"/>
+    
+    
+      <category term="SpringMVC" scheme="https://bfinwr.github.io/tags/SpringMVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring中Model,ModelMap以及ModelAndView</title>
+    <link href="https://bfinwr.github.io/2018/11/19/spring-model/"/>
+    <id>https://bfinwr.github.io/2018/11/19/spring-model/</id>
+    <published>2018-11-19T12:25:00.000Z</published>
+    <updated>2020-01-15T06:55:36.058Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Spring中Model-ModelMap以及ModelAndView之间的区别&quot;&gt;&lt;a href=&quot;#Spring中Model-ModelMap以及ModelAndView之间的区别&quot; class=&quot;headerlink&quot; title=&quot;Spring中Model,ModelMap以及ModelAndView之间的区别&quot;&gt;&lt;/a&gt;Spring中Model,ModelMap以及ModelAndView之间的区别&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;model 都是为了从控制层直接返回前端所需的数据&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;① Model&lt;br&gt;Model是一个接口，它的实现类为ExtendedModelMap，继承ModelMap类&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ExtendedModelMap&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;ModelMap&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Model&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Spring" scheme="https://bfinwr.github.io/categories/Spring/"/>
+    
+    
+      <category term="Spring" scheme="https://bfinwr.github.io/tags/Spring/"/>
+    
+      <category term="Model" scheme="https://bfinwr.github.io/tags/Model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在桌面应用开发项目中的异步操作 - SwingWorker</title>
+    <link href="https://bfinwr.github.io/2018/09/05/swingworker/"/>
+    <id>https://bfinwr.github.io/2018/09/05/swingworker/</id>
+    <published>2018-09-05T02:52:00.000Z</published>
+    <updated>2020-01-11T14:08:04.468Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在桌面应用程序开发的过程中难免会去使用数据，那么这些数据来自哪里呢，数据库、服务器、网络、本地文件等到。这些操作我们统一称作费时操作。若是使用同步开发的话，桌面应用程序UI则会等待这些费时操作完成之后才会更新UI，而使用异步的话，则不会影响，我更新我的UI，你获取做完这些费时操作再通知我，把数据传给我就好了。所以在JDK1.6时候推出了——SwingWorker&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="SwingWorker" scheme="https://bfinwr.github.io/tags/SwingWorker/"/>
+    
+      <category term="桌面应用程序" scheme="https://bfinwr.github.io/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="异步" scheme="https://bfinwr.github.io/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在桌面应用开发项目中走过的凹</title>
+    <link href="https://bfinwr.github.io/2018/09/05/xmbj-ao/"/>
+    <id>https://bfinwr.github.io/2018/09/05/xmbj-ao/</id>
+    <published>2018-09-05T02:52:00.000Z</published>
+    <updated>2020-01-11T14:08:04.469Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文章结合了在项目开发过程中遇到并解决的一些问题和难点，以及一些比较好用的model，引以启发。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="桌面应用程序" scheme="https://bfinwr.github.io/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目笔记 —— Word模板开发</title>
+    <link href="https://bfinwr.github.io/2018/09/05/xmbj-word/"/>
+    <id>https://bfinwr.github.io/2018/09/05/xmbj-word/</id>
+    <published>2018-09-05T02:52:00.000Z</published>
+    <updated>2020-01-11T14:08:04.469Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在项目中遇到，需要使用数据库里面的数据填入word模板中，最后找到了FreeMarker，可以说是非常好用了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Apache FreeMarker™是一个模板引擎：一个Java库，用于根据模板和更改数据生成文本输出（HTML网页，电子邮件，配置文件，源代码等）。模板是用FreeMarker模板语言（FTL）编写的，这是一种简单的专用语言（不像PHP这样的完整编程语言）。通常，使用通用编程语言（如Java）来准备数据（发布数据库查询，进行业务计算）。然后，Apache FreeMarker使用模板显示准备好的数据。在模板中，您将关注如何呈现数据，而在模板之外，您将关注于要呈现的数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Word" scheme="https://bfinwr.github.io/tags/Word/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目笔记 —— Word To PDF To Image</title>
+    <link href="https://bfinwr.github.io/2018/09/05/xmbj-wpi/"/>
+    <id>https://bfinwr.github.io/2018/09/05/xmbj-wpi/</id>
+    <published>2018-09-05T02:52:00.000Z</published>
+    <updated>2020-01-11T14:08:04.470Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在项目中需要使用桌面应用程序显示Word文档，并实现一个放大缩小的效果。但是我发现Word并不能直接转换成Image格式，所以就取了一个折中的方法。先把Word转换为PDF，再把PDF转换成Image。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="桌面应用程序" scheme="https://bfinwr.github.io/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
+    
+      <category term="Word" scheme="https://bfinwr.github.io/tags/Word/"/>
+    
+      <category term="PDF" scheme="https://bfinwr.github.io/tags/PDF/"/>
+    
+      <category term="Image" scheme="https://bfinwr.github.io/tags/Image/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目笔记 - windowbuilder&amp;桌面应用程序开发</title>
+    <link href="https://bfinwr.github.io/2018/08/27/java-windowbuilder/"/>
+    <id>https://bfinwr.github.io/2018/08/27/java-windowbuilder/</id>
+    <published>2018-08-27T08:52:00.000Z</published>
+    <updated>2020-01-15T09:05:39.664Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;WindowBuilder - 是一个功能强大且易于使用的双向Java GUI设计器&lt;br&gt;WindowBuilder由SWT Designer和Swing Designer组成，可以非常轻松地创建Java GUI应用程序，而无需花费大量时间编写代码。使用WYSIWYG可视化设计器和布局工具为复杂窗口创建简单的表单; 将为您生成Java代码。使用拖放轻松添加控件，向控件添加事件处理程序，使用属性编辑器更改控件的各种属性，使应用程序国际化等等。&lt;br&gt;WindowBuilder是作为Eclipse和各种基于Eclipse的IDE（RAD，RSA，MyEclipse，JBuilder等）的插件而构建的。该插件构建了一个抽象语法树（AST）来导航源代码并使用GEF来显示和管理可视化表示。&lt;br&gt;生成的代码不需要任何其他自定义库来编译和运行：可以在不安装WindowBuilder Pro的情况下使用所有生成的代码。WindowBuilder Pro几乎可以读写任何格式，并可以反向工程大多数手工编写的Java GUI代码。它还支持自由格式代码编辑（在任何地方进行更改……不仅仅是在特殊区域）和大多数用户重新分解（您可以移动，重命名和细分方法而不会出现问题）&lt;br&gt;—— Google 翻译&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="windowbuilder" scheme="https://bfinwr.github.io/tags/windowbuilder/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>项目笔记 - JNA</title>
+    <link href="https://bfinwr.github.io/2018/08/17/java-jna/"/>
+    <id>https://bfinwr.github.io/2018/08/17/java-jna/</id>
+    <published>2018-08-17T08:52:00.000Z</published>
+    <updated>2020-01-15T07:41:51.822Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JNA&quot;&gt;&lt;a href=&quot;#JNA&quot; class=&quot;headerlink&quot; title=&quot;JNA&quot;&gt;&lt;/a&gt;JNA&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Java Native Access（JNA）&lt;/strong&gt;&lt;br&gt;JNA为Java程序提供了对本机共享库的轻松访问，而无需编写除Java代码之外的任何内容 - 不需要JNI或本机代码。此功能可与Windows的Platform / Invoke和Python的ctypes相媲美。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JNA允许您使用自然Java方法调用直接调用本机函数。Java调用看起来就像本机代码中的调用一样。大多数呼叫不需要特殊处理或配置; 不需要样板或生成的代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JNA使用小型JNI库存根来动态调用本机代码。开发人员使用Java接口来描述目标本机库中的函数和结构。这使得利用本机平台功能变得非常容易，而不会产生为多个平台配置和构建JNI代码的高额开销。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;虽然对性能给予了极大的关注，但正确性和易用性优先考虑。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此外，JNA还包括一个平台库，其中已经映射了许多本机函数，以及一组简化本机访问的实用程序接口。&lt;br&gt;—— 以上Google翻译&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="JNA" scheme="https://bfinwr.github.io/tags/JNA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java编程思想笔记（四）</title>
+    <link href="https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/"/>
+    <id>https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/</id>
+    <published>2018-08-10T08:52:00.000Z</published>
+    <updated>2020-01-11T14:08:04.449Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;类型信息&quot;&gt;&lt;a href=&quot;#类型信息&quot; class=&quot;headerlink&quot; title=&quot;类型信息&quot;&gt;&lt;/a&gt;类型信息&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;运行时类型信息使得你可以在程序运行时发现和使用类型信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Java是如何让我们在运行时识别对象和类信息。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;“传统的”RTTI，它假定我们在编译时就已经知道了所有的类型；&lt;/li&gt;
+&lt;li&gt;另一种是“反射”机制，允许我们在运行时发现和使用类的信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;运行时类型识别(RTTI, Run-Time Type Identification)在Java运行时，RTTI维护类的相关信息，识别一个对象类型。多态(polymorphism)是基于RTTI实现的。RTTI的功能主要是由Class类实现的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="书籍笔记" scheme="https://bfinwr.github.io/tags/%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>

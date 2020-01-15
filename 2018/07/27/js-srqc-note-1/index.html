@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Monda:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,视频笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="BFInWR' Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="大纲视频链接  数据类型 表达式和运算符 语句 对象 数组 函数 this 闭包 OOP 正则与模式匹配">
+<meta name="keywords" content="JavaScript,视频笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript深入浅出笔记（一）">
+<meta property="og:url" content="https://bfinwr.github.io/2018/07/27/js-srqc-note-1/index.html">
+<meta property="og:site_name" content="BFInWR&#39; Blog">
+<meta property="og:description" content="大纲视频链接  数据类型 表达式和运算符 语句 对象 数组 函数 this 闭包 OOP 正则与模式匹配">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-11T14:08:04.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript深入浅出笔记（一）">
+<meta name="twitter:description" content="大纲视频链接  数据类型 表达式和运算符 语句 对象 数组 函数 this 闭包 OOP 正则与模式匹配">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://bfinwr.github.io/2018/07/27/js-srqc-note-1/">
+
+
+
+
+
+  <title>JavaScript深入浅出笔记（一） | BFInWR' Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a target="_blank" href="https://github.com/wiliam2015">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/forkme.png" alt="Fork me on GitHub">
+	</a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BFInWR' Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">[ Not destory me make stronger ]</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://bfinwr.github.io/2018/07/27/js-srqc-note-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BFInWR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BFInWR' Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript深入浅出笔记（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T16:52:00+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,713
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><p><a href="https://www.imooc.com/learn/277" target="_blank" rel="noopener">视频链接</a></p>
+<ul>
+<li>数据类型</li>
+<li>表达式和运算符</li>
+<li>语句</li>
+<li>对象</li>
+<li>数组</li>
+<li>函数</li>
+<li>this</li>
+<li>闭包</li>
+<li>OOP</li>
+<li>正则与模式匹配<a id="more"></a>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2></li>
+</ul>
+<p>弱类型的特性，隐式转化逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">32</span>+<span class="number">32</span> <span class="comment">//64</span></span><br><span class="line"><span class="string">"32"</span>+<span class="number">32</span> <span class="comment">//"3232" 字符串拼接</span></span><br><span class="line"><span class="string">"32"</span><span class="number">-32</span> <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<p>六种数据类型<br>    原始类型（<code>number string boolean nulll undefined</code>）没有属性和方法<br>            +<br>    对象 object（<code>Date Array Function ...</code>）</p>
+<p>严格等于（ <code>===</code>）<br>    1、类型不同，返回false<br>    2、类型相同<br>等于（ <code>==</code> ）<br>    1、类型相同，同 <code>===</code><br>    2、类型不同，尝试类型转化和比较</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> ==<span class="literal">undefined</span> -&gt; <span class="literal">true</span></span><br><span class="line">number == string 转number -&gt; <span class="number">1</span>== <span class="string">"1.0"</span> <span class="literal">true</span></span><br><span class="line">boolean == ? 转number -&gt; <span class="number">1</span>==<span class="literal">true</span>  <span class="literal">true</span></span><br><span class="line">object == number | string 尝试对象转基本类型 <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"hi"</span>) == <span class="string">'hi'</span> <span class="literal">true</span> 其他：<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>包装对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"string"</span>;</span><br><span class="line">a.length; <span class="comment">//6 </span></span><br><span class="line"><span class="comment">//js会智能的把基本类型转为对应的包装对象 相当于new String 随后临时对象会被销毁</span></span><br><span class="line">a.t =<span class="number">3</span>;</span><br><span class="line">a.t; <span class="comment">//undefind</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>类型检测</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="comment">//最常见的 适合是不是函数对象和基本类型的判断</span></span><br><span class="line">	例外：<span class="keyword">typeof</span> <span class="literal">null</span> === <span class="string">"object"</span> </span><br><span class="line"><span class="keyword">instanceof</span> <span class="comment">//适合对象类型判断 obj instanceof Object</span></span><br><span class="line">	[<span class="number">1</span>,<span class="number">2</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span> === <span class="literal">true</span></span><br><span class="line">	<span class="keyword">new</span> Obejct() <span class="keyword">instanceof</span> <span class="built_in">Array</span> === <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>任何一个构造函数都会有一个<code>prototype</code>对象属性，这个对象属性将用作new来构造出对象的原型，会维持一个原型链（Obj.<em>proto</em><student>.<em>proto</em><person>…继承关系），<strong>需注意是不同Window或iframe间的对象类型检测不能使用instanceof，检测都是false</strong></person></student></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.apply([]); === <span class="string">"[object Array]"</span>; </span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>); === <span class="string">"[object Null]"</span>; </span><br><span class="line">IE6/<span class="number">7</span>/<span class="number">8</span> <span class="built_in">Object</span>.prototype.toString.apply(<span class="literal">null</span>); === <span class="string">"[object Object]"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其它 <code>constructor 、 duck type</code></p>
+<h2 id="JavaScript表达式与运算符"><a href="#JavaScript表达式与运算符" class="headerlink" title="JavaScript表达式与运算符"></a>JavaScript表达式与运算符</h2><blockquote>
+<p>表达式是一种JS短语，可使JS解释器用来产生一个值 </p>
+</blockquote>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>逗号运算符<br>它会从左到右依次去计算表达式的值最后取最右边的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> val = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">//val = 3</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>delete 运算符<br>删除对象上的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line">obj.x; <span class="comment">//1</span></span><br><span class="line"><span class="keyword">delete</span> obj.x;</span><br><span class="line">obj.x; <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//从IE9开始</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">//并不是对象上的所有属性都可以被delete掉的</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'x'</span>,&#123;</span><br><span class="line">	configurable:<span class="literal">false</span>,</span><br><span class="line">	value:<span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">delete</span> obj.x; <span class="comment">// false</span></span><br><span class="line">obj.x; <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>in 运算符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.x = <span class="number">1</span>;</span><br><span class="line"><span class="string">'x'</span> <span class="keyword">in</span> obj; <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>new 运算符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Foo.prototype.x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Foo();</span><br><span class="line">obj.x; <span class="comment">//1</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'x'</span>); <span class="comment">//false 判断'x'属性是原型链上的还是对象本身上的</span></span><br><span class="line">obj.__proto__.hasOwnProperty(<span class="string">'x'</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>this 运算符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>; <span class="comment">// window(浏览器)</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	func:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>;&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.func; <span class="comment">//obj</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>void 一元运算符<br><code>void 0 //undefined void(0) //undefined</code></p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><table>
+<thead>
+<tr>
+<th align="left">运算符</th>
+<th align="right">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>. [] ()</code></td>
+<td align="right">字段访问、数组下标、函数调用以及表达式分组</td>
+</tr>
+<tr>
+<td align="left"><code>++ -- - ~ ! delete new typeof void</code></td>
+<td align="right">一元运算符、返回数据类型、对象创建、未定义值</td>
+</tr>
+<tr>
+<td align="left"><code>* / %</code></td>
+<td align="right">乘法、除法、取模</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;&lt; &gt;&gt; &gt;&gt;&gt;</code></td>
+<td align="right">移位</td>
+</tr>
+<tr>
+<td align="left"><code>== != === !==</code></td>
+<td align="right">等于、不等于、严格相等、非严格相等</td>
+</tr>
+<tr>
+<td align="left"><code>&amp;</code></td>
+<td align="right">按位与</td>
+</tr>
+<tr>
+<td align="left"><code>^</code></td>
+<td align="right">按位异或</td>
+</tr>
+<tr>
+<td align="left"><code>丨</code></td>
+<td align="right">按位或</td>
+</tr>
+<tr>
+<td align="left"><code>&amp;&amp;</code></td>
+<td align="right">逻辑与</td>
+</tr>
+<tr>
+<td align="left"><code>丨丨</code></td>
+<td align="right">逻辑或</td>
+</tr>
+<tr>
+<td align="left"><code>?:</code></td>
+<td align="right">条件运算符</td>
+</tr>
+<tr>
+<td align="left"><code>= oP=</code></td>
+<td align="right">赋值</td>
+</tr>
+<tr>
+<td align="left"><code>,</code></td>
+<td align="right">逗号</td>
+</tr>
+</tbody></table>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="block语句、var语句"><a href="#block语句、var语句" class="headerlink" title="block语句、var语句"></a>block语句、var语句</h3><p>block 语句<br>块语句常用于组合0 ~ 多个语句。块语句用一对花括号定义。<br><strong>没有块级的作用域，Java等很多语言都是有块级作用域的</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;&#125;</span><br><span class="line">i <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+
+<p>但是JS有全局作用域、函数作用域等作用域</p>
+<p>var 语句<br><code>var a = b = 1 //这样写本身不会错，但是写在函数里面那么b将会是一个全局变量</code></p>
+<h3 id="try-catch"><a href="#try-catch" class="headerlink" title="try-catch"></a>try-catch</h3><p>三种表示形式（和Java一样）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;&#125;<span class="keyword">catch</span>(e)&#123;&#125;</span><br><span class="line"><span class="keyword">try</span>&#123;&#125;<span class="keyword">finally</span>&#123;&#125;</span><br><span class="line"><span class="keyword">try</span>&#123;&#125;<span class="keyword">catch</span>(e)&#123;&#125;<span class="keyword">finally</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数、switch、循环"><a href="#函数、switch、循环" class="headerlink" title="函数、switch、循环"></a>函数、switch、循环</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fd</span>(<span class="params"></span>)</span>&#123;&#125;	<span class="comment">//函数声明 </span></span><br><span class="line"><span class="keyword">var</span> fe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">//函数表达式</span></span><br><span class="line"><span class="comment">//fd() 会被函数前置，就是在fd（）函数声明代码之前调用也是可以的，表达式就不行</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>for…in</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>坑：</p>
+<ol>
+<li>顺序不确定（依赖引擎实现）</li>
+<li>enumerable 为false时不会出现</li>
+<li>for in 对象属性时受到原型链影响</li>
+</ol>
+<p>with &lt;已经不建议使用了&gt;<br>可以修改当前的作用域</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span>(&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">with</span>(<span class="built_in">document</span>.forms[<span class="number">0</span>])&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(name.value);</span><br><span class="line">&#125;</span><br><span class="line">	||</span><br><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.forms[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(form.name.value);</span><br></pre></td></tr></table></figure>
+
+<h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><blockquote>
+<p>严格模式是一种特殊的执行模式，它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。是向上兼容的。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">	'use strict'</span>; <span class="comment">//第一行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>严格模式下不允许使用with</li>
+<li>不允许为声明的变量被赋值</li>
+<li>arguments变为参数的静态副本（与形参没有相互的绑定关系了，但是参数是对象去修改参数属性的话依旧会影响<code>arguments[0].x = 100;</code>）</li>
+<li>delete参数报错</li>
+<li>对象字面量重复属性名报错</li>
+<li>禁止八进制字面量</li>
+<li>eval，arguments变为关键字，不能作为变量、函数名</li>
+<li>eval变为独立作用域</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>对象中包含一系列属性，这些属性是<strong>无序</strong>的。每个属性都有一个<strong>字符串key</strong>和对应的value。每个对象还有一个原型，会有一个 [[ proto ]] 对象属性。还有[[class]]、[[extensible]]</p>
+<p>对象中每一个属性都有很多标签（writeable、enumerable、configurable、value、get/set）</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">/*定义一个函数对象,这个函数对象会默认带一个prototype属性，它的属性是一个对象属性。(foo.prototype) 是一对象，每一个对象都有[[proto]]标签。这里的[[proto]] 指向-&gt; Object.prototype -&gt; null*/</span></span><br><span class="line">foo.prototype.z = <span class="number">3</span>; <span class="comment">//往(foo.prototype) 对象中添加了一个属性 "z=3"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> foo(); <span class="comment">/*用new的方式构造了一个新对象，通过new这种方式构造对象的她点就是它的原型[[proto]]会指向构造器的prototype属性（foo.prototype），这么做的好处是可以访问原型链上的属性一直找到null*/</span></span><br><span class="line">obj.y = <span class="number">2</span>;</span><br><span class="line">obj.x = <span class="number">1</span>; <span class="comment">//通过赋值操作，添加了两个属性给obj对象</span></span><br><span class="line"></span><br><span class="line">obj.x; <span class="comment">//1</span></span><br><span class="line">obj.y; <span class="comment">//2</span></span><br><span class="line">obj.z; <span class="comment">//3</span></span><br><span class="line"><span class="keyword">typeof</span> obj.toString; <span class="comment">// 'function' toString 是 Object.prototype 中的</span></span><br><span class="line"><span class="string">'z'</span> <span class="keyword">in</span> obj; <span class="comment">//true</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'z'</span>); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">obj.z = <span class="number">5</span>; <span class="comment">/*赋值时，先看obj中有没有这个值，如果有的话就修改，没有的话就直接添加，不会去修改或者删除 foo.prototype 中的值。*/</span></span><br><span class="line">obj.z; <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> obj.z; <span class="comment">//true</span></span><br><span class="line">obj.z; <span class="comment">//3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> obj.z; <span class="comment">//true</span></span><br><span class="line">obj.z; <span class="comment">//3 , still 3!</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>通过 Object.create 创建对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(&#123;<span class="attr">x</span>:!&#125;);</span><br><span class="line">obj.x; <span class="comment">//1</span></span><br><span class="line">obj.hasOwnProperty(<span class="string">'z'</span>); <span class="comment">//false</span></span><br><span class="line"><span class="comment">// 原型链 obj -&gt; &#123;x:1&#125; -&gt; Object.prototype -&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line">obj.toString <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">// 原型链 obj -&gt; null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line">obj.x; <span class="comment">// 1 一般建议这种</span></span><br><span class="line">obj[<span class="string">'y'</span>]; <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//in操作符 是会往原型链向上查找的</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> obj)&#123; <span class="comment">//可能会把原型链上的属性遍历出来，顺序是不确定的</span></span><br><span class="line">	<span class="built_in">console</span>.log(obj[i]); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span> &amp;&amp; <span class="number">2</span> &amp;&amp; <span class="number">3</span>; <span class="comment">//i=3 巧用运算符，只有前面的值都存在时才会把最后一个值赋予</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(Obejct,<span class="string">'prototype'</span>);</span><br><span class="line"><span class="comment">// 可以去获取一个属性中的所有标签，这里则是获取的Object对象的prototype属性的标签</span></span><br><span class="line">descriptor.configurable; <span class="comment">//false 是否可配置 delete？</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需注意的是我们用对象自变量，new Obejct 去创建的对象，或者是通过赋值去创建这样的属性默认既可以枚举也可以写也可以delete，都是true的，而通过defineProperty这种方式创建的话默认都是false。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Obejct;</span><br><span class="line">cat.propertyIsEnumerable(<span class="string">'toString'</span>); <span class="comment">//false 是否可枚举的</span></span><br><span class="line">Obejct.defineProperty(cat,<span class="string">'price'</span>,&#123;<span class="attr">enumerable</span>:<span class="literal">false</span>,<span class="attr">value</span>:<span class="number">1000</span>&#125;);</span><br><span class="line">cat.propertyIsEnumerable(<span class="string">'price'</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="属性的枚举"><a href="#属性的枚举" class="headerlink" title="属性的枚举"></a>属性的枚举</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span> : <span class="number">1</span>,<span class="attr">y</span> : <span class="number">2</span>&#125;;</span><br><span class="line"><span class="string">'toString'</span> <span class="keyword">in</span> o; <span class="comment">//true</span></span><br><span class="line">o.propertyIsEnumerable(<span class="string">'toString'</span>); <span class="comment">//false </span></span><br><span class="line"><span class="keyword">var</span> key;</span><br><span class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> o)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(key); <span class="comment">// x,y,z</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(o);</span><br><span class="line">obj.a = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> key;</span><br><span class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> o)&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(key); <span class="comment">// a,x,y,z</span></span><br><span class="line">	<span class="keyword">if</span>(obj.hasOwnProperty(key))&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(key); <span class="comment">// a</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="get-set方法"><a href="#get-set方法" class="headerlink" title="get/set方法"></a>get/set方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> man = &#123;</span><br><span class="line">	name : <span class="string">'A'</span>,</span><br><span class="line">	$age: <span class="literal">null</span>,</span><br><span class="line">	get age()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.$age;</span><br><span class="line">	&#125;,</span><br><span class="line">	set age(val)&#123;</span><br><span class="line">		val = +val; <span class="comment">//转换为数字</span></span><br><span class="line">		<span class="keyword">if</span>(!<span class="built_in">isNaN</span>(val))&#123;</span><br><span class="line">			<span class="keyword">this</span>.$age = val;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Incorrent value'</span>+val);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">man.age; <span class="comment">// 自动调用get方法</span></span><br><span class="line">man.age = <span class="number">100</span>; <span class="comment">//自动调用set方法</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="属性标签"><a href="#属性标签" class="headerlink" title="属性标签"></a>属性标签</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(&#123;<span class="attr">pro</span>:<span class="literal">true</span>&#125;,<span class="string">'pro'</span>);</span><br><span class="line"><span class="comment">// (对象，'属性名')查看属性标签</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;…&#125;</span></span><br><span class="line"><span class="comment">	​configurable: true //是否可以再被修改，被 delete</span></span><br><span class="line"><span class="comment">	​enumerable: true //是否可被枚举</span></span><br><span class="line"><span class="comment">	​value: true</span></span><br><span class="line"><span class="comment">	​writable: true //是否可写，修改</span></span><br><span class="line"><span class="comment">	​&lt;prototype&gt;: &#123;…&#125;</span></span><br><span class="line"><span class="comment">		​​__defineGetter__: function __defineGetter__()</span></span><br><span class="line"><span class="comment">		​​__defineSetter__: function __defineSetter__()</span></span><br><span class="line"><span class="comment">		​​__lookupGetter__: function __lookupGetter__()</span></span><br><span class="line"><span class="comment">		​​__lookupSetter__: function __lookupSetter__()</span></span><br><span class="line"><span class="comment">		​​constructor: function Object()</span></span><br><span class="line"><span class="comment">		​​hasOwnProperty: function hasOwnProperty()</span></span><br><span class="line"><span class="comment">		​​isPrototypeOf: function isPrototypeOf()</span></span><br><span class="line"><span class="comment">		​​propertyIsEnumerable: function propertyIsEnumerable()</span></span><br><span class="line"><span class="comment">		​​toLocaleString: function toLocaleString()</span></span><br><span class="line"><span class="comment">		​​toSource: function toSource()</span></span><br><span class="line"><span class="comment">		​​toString: function toString()</span></span><br><span class="line"><span class="comment">		​​valueOf: function valueOf()</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//去创建管理这些属性</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">'name'</span>,&#123; </span><br><span class="line">	configurable : <span class="literal">true</span>,</span><br><span class="line">	​enumerable : <span class="literal">false</span>,</span><br><span class="line">	​value : <span class="string">"Alen"</span></span><br><span class="line">	​writable : <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(person); <span class="comment">// []  获取对象上的所有的key </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperties(person,&#123;</span><br><span class="line">	title2:&#123;<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">value</span>:<span class="string">"da"</span>&#125;,</span><br><span class="line">	salary:&#123;<span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="attr">value</span>:<span class="number">50000</span>,<span class="attr">writable</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">	promote:&#123;<span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">level</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.salary *= <span class="number">1</span> + level*<span class="number">0.1</span>;</span><br><span class="line">	&#125;&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">Object</span>.keys(person); <span class="comment">// Array [ "title2", "salary" ]</span></span><br><span class="line">erson.salary; <span class="comment">//50000</span></span><br><span class="line">person.promote = <span class="number">2</span>; <span class="comment">//2</span></span><br><span class="line">person.salary; <span class="comment">//60000</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">/</th>
+<th align="right"><code>configurable:true, writable:true</code></th>
+<th align="center"><code>configurable:true, writable:false</code></th>
+<th align="center"><code>configurable:false, writable:true</code></th>
+<th align="center"><code>configurable:false, writable:false</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">修改属性的值</td>
+<td align="right">✔</td>
+<td align="center">✔ 重设value标签修改</td>
+<td align="center">✔</td>
+<td align="center"><strong>X</strong></td>
+</tr>
+<tr>
+<td align="left">通过属性赋值修改属性值</td>
+<td align="right">✔</td>
+<td align="center"><strong>X</strong></td>
+<td align="center">✔</td>
+<td align="center"><strong>X</strong></td>
+</tr>
+<tr>
+<td align="left">delete 返回 true</td>
+<td align="right">✔</td>
+<td align="center">✔</td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>X</strong></td>
+</tr>
+<tr>
+<td align="left">修改getter/setter方法</td>
+<td align="right">✔</td>
+<td align="center">✔</td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>X</strong></td>
+</tr>
+<tr>
+<td align="left">修改属性标签 （writable从true改为false总是运许）</td>
+<td align="right">✔</td>
+<td align="center">✔</td>
+<td align="center"><strong>X</strong></td>
+<td align="center"><strong>X</strong></td>
+</tr>
+</tbody></table>
+<h3 id="对象标签、对象序列化"><a href="#对象标签、对象序列化" class="headerlink" title="对象标签、对象序列化"></a>对象标签、对象序列化</h3><p><code>[[proto]]</code></p>
+<p><code>[[class]]</code> 表示对象是哪一个类型，<code>Object.prototype.toString</code>会把参数变为对象再做处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getType</span>(<span class="params">o</span>)</span>&#123;<span class="keyword">return</span> toString.call(o).slice(<span class="number">8</span>,<span class="number">-1</span>);&#125;</span><br><span class="line">toString.call(<span class="literal">null</span>); <span class="comment">//"[object Null]"</span></span><br><span class="line">getType(<span class="literal">null</span>); <span class="comment">//"Null"</span></span><br></pre></td></tr></table></figure>
+
+<p><code>[[extensible]]</code> 表示这个对像是否可扩展</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">// true 默认</span></span><br><span class="line"><span class="built_in">Object</span>.preventExtensible(obj); </span><br><span class="line"><span class="built_in">Object</span>.isExtensible(obj); <span class="comment">//false</span></span><br><span class="line">obj.z = <span class="number">1</span>;</span><br><span class="line">obj.z;<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">Object</span>.seal(obj); <span class="comment">// configurable -&gt;false</span></span><br><span class="line"><span class="built_in">Object</span>.isSealed(obj); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(obj); <span class="comment">// writable -&gt; false configurable -&gt;false</span></span><br><span class="line"><span class="built_in">Object</span>.isFrozen(obj); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>,<span class="attr">val</span>:<span class="literal">undefined</span>,<span class="attr">a</span>:<span class="literal">NaN</span>,<span class="attr">c</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj); </span><br><span class="line"><span class="comment">// "&#123;\"x\":1,\"y\":2,\"a\":null,\"c\":\"2018-07-27T06:37:28.989Z\"&#125;"</span></span><br><span class="line"><span class="comment">//JSON.stringify 如果属性中有undefined，那么这个值将不会被转化，NaN -&gt;null </span></span><br><span class="line"></span><br><span class="line">obj = <span class="built_in">JSON</span>.parse(<span class="string">'&#123;"x":1&#125;'</span>); <span class="comment">//注意合法的JSON 属性名必须用双引号</span></span><br><span class="line">obj.x; <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>序列化-自定义</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">o</span>:&#123;<span class="attr">o1</span>:<span class="number">1</span>,<span class="attr">o2</span>:<span class="number">2</span>,<span class="attr">toJSON</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.o1+<span class="keyword">this</span>.o2&#125;&#125;&#125;;</span><br><span class="line"><span class="built_in">JSON</span>.stringify(obj);<span class="comment">// "&#123;\"x\":1,\"o\":3&#125;"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="其它对象方法"><a href="#其它对象方法" class="headerlink" title="其它对象方法"></a>其它对象方法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>:<span class="number">1</span>,<span class="attr">y</span>:<span class="number">2</span>&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// "[object Object]"</span></span><br><span class="line"><span class="string">"Result"</span>+obj; <span class="comment">// "Result[object Object]"</span></span><br><span class="line">obj.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.x+<span class="keyword">this</span>.y&#125;; <span class="comment">//重写toString方法</span></span><br><span class="line"><span class="string">"Result"</span>+obj; <span class="comment">// "Result3"</span></span><br><span class="line">+obj; <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">obj.valueOf = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.x+<span class="keyword">this</span>.y+<span class="number">100</span>&#125;; </span><br><span class="line"><span class="comment">//尝试把对象转为基本类型时候调用的函数</span></span><br><span class="line">+obj; <span class="comment">// 103</span></span><br><span class="line"><span class="string">"Result"</span>+obj; <span class="comment">// "Result103"</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当valueOf  和 toString都存在时 拼接和 + 时，都会尝试把对象转化为基本类型，会先去valueOf 若返回的是对象则会去找toString</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/视频笔记/" rel="tag"><i class="fa fa-tag"></i> 视频笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/java-bcsx-note-1/" rel="next" title="Java编程思想笔记（一）">
+                <i class="fa fa-chevron-left"></i> Java编程思想笔记（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/27/java-bcsx-note-2/" rel="prev" title="Java编程思想笔记（二）">
+                Java编程思想笔记（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.png" alt="BFInWR">
+            
+              <p class="site-author-name" itemprop="name">BFInWR</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/BFInWR" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiamixianer@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#大纲"><span class="nav-number">1.</span> <span class="nav-text">大纲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript表达式与运算符"><span class="nav-number">3.</span> <span class="nav-text">JavaScript表达式与运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符"><span class="nav-number">3.1.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算符优先级"><span class="nav-number">3.2.</span> <span class="nav-text">运算符优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number">4.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#block语句、var语句"><span class="nav-number">4.1.</span> <span class="nav-text">block语句、var语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-catch"><span class="nav-number">4.2.</span> <span class="nav-text">try-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数、switch、循环"><span class="nav-number">4.3.</span> <span class="nav-text">函数、switch、循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式"><span class="nav-number">4.4.</span> <span class="nav-text">严格模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">5.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">5.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性操作"><span class="nav-number">5.2.</span> <span class="nav-text">属性操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性的枚举"><span class="nav-number">5.2.1.</span> <span class="nav-text">属性的枚举</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-set方法"><span class="nav-number">5.3.</span> <span class="nav-text">get/set方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性标签"><span class="nav-number">5.4.</span> <span class="nav-text">属性标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象标签、对象序列化"><span class="nav-number">5.5.</span> <span class="nav-text">对象标签、对象序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化"><span class="nav-number">5.5.1.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它对象方法"><span class="nav-number">5.5.2.</span> <span class="nav-text">其它对象方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-leaf"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BFInWR</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">35.5k</span>
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--爆炸效果
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+  -->
+</body>
+</html>
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
