@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Java中调用JS]]></title>
-    <url>%2F2020%2F04%2F17%2Fjava-make-js%2F</url>
-    <content type="text"><![CDATA[Java中调用JSJDK自带的类可以实现调用JS的功能，可以实现执行字符串中的运算公式的功能。 123456789101112131415public class runString &#123; static ScriptEngine jse = new ScriptEngineManager().getEngineByName("JavaScript"); /** * @param args */ public static void main(String[] args) &#123; String strs = "1+1*2+(10-(2*(5-3)*(2-1))-4)+10/(5-0)"; try &#123; System.out.println(jse.eval(strs)); &#125; catch (Exception t) &#123; &#125; &#125;&#125; 注意：如果公式中存在变量作为运算的元素的话，可以借鉴使用replaceAll()方法将相应的变量替换成实际的数值。如果是多个变量可以利用循环遍历的方式来解决。 例子：jse.eval(“1+b”.replaceAll(“b”, b.toString()))；]]></content>
+    <title><![CDATA[2019年总结]]></title>
+    <url>%2F2020%2F01%2F13%2F2019-summary%2F</url>
+    <content type="text"><![CDATA[2019年总结今天是1月13号了，现在才想起把总结写写，虽是太晚，但也是最快了。2019总得来说就是累，但却又不够累，或者说是没有达到想象中的累，或许是因没有达到自己设立的目标的情绪作祟吧。 今年毕业了没错，2019今年是我毕业的一年，正式从学校步入社会，这个身份的转变正式终结了我16年来的学生身份，十六年想想可真是漫长，却又快的不得了，时间转瞬即逝，我想大多数学生对进入社会还是需要一定的时候去过渡的。好高骛远，眼高手低我想是大多数学生的通病，但是理想还是要有的，目标设立了就要去做，务实一点才好。大学的生活现在想想无疑使怀念的，从中总有段时间从某种意义上来说是我们的人生中的第一段无忧无虑的生活，或许在在这段生活之后就会进入青春的迷茫期，大多数人也是有的，或许也会有些抑郁的情况，但是我想应该自己走出来，自己经过思考之后选择的才是最适合自己的，当然或许会犯错，但是想想我们的年龄，是有试错时间的，最害怕的就是不敢，不敢破圈。再看看我们的工作前景，Java固然工作好找也不容易失业，但是做的总感觉心里不舒坦，或许这就是想象很丰满，现实很骨感吧。看着那些所谓的白菜价，是羡慕的，也想去试试，工作也想去挑战，想去大公司，但是总归是自己的能力有限，之前是没有见识过，但是现在想想矛盾是相互的，或许去不了也不是一件坏事。所以下半年就决定去考研了。 考研虽然现在分数还没有出来，但是总得来说是失败的，失败在哪里呢？1：时间分配不均2：实际和认识存在偏差 我的时间分配大致是 英语&gt;&gt;&gt;数学&gt;专业课&gt;政治 因为我的英语是从小到考研的超级短板，或许在考研之前我就没有入门，我总是这么想，现在想来高三的时候也是因为一直为了提英语的分，导致了其它科目的时候分配不太够，虽然最后结果出来还能看。但是考研就不同了，数学专业课是拉分的，今年的数学很难，英语也比较难，但是我做英语做完感觉很稳，数学却是严重翻车。这种情况下及时英语考上70也没有什么希望了，所以以后一定要谋定而后动，大体计划是很重要的，要心中有数。当然考研这段经历也是让自己清楚认识到了自己有哪些不足，也算是沉淀了一番，心中沉得住气才是最重要的。知识什么时候都要学，目标也要有，但是更重要的是做好现在的事情。年后大概二月初就准备上成都找工作了，现在好好准备一番，想在天府新区那边找一家公司，看2020如何继续发展吧。]]></content>
       <categories>
-        <category>Java</category>
+        <category>总结</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>JS</tag>
+        <tag>年度总结</tag>
       </tags>
   </entry>
   <entry>
@@ -102,6 +101,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Java中调用JS]]></title>
+    <url>%2F2019%2F04%2F17%2Fjava-make-js%2F</url>
+    <content type="text"><![CDATA[Java中调用JSJDK自带的类可以实现调用JS的功能，可以实现执行字符串中的运算公式的功能。 123456789101112131415public class runString &#123; static ScriptEngine jse = new ScriptEngineManager().getEngineByName("JavaScript"); /** * @param args */ public static void main(String[] args) &#123; String strs = "1+1*2+(10-(2*(5-3)*(2-1))-4)+10/(5-0)"; try &#123; System.out.println(jse.eval(strs)); &#125; catch (Exception t) &#123; &#125; &#125;&#125; 注意：如果公式中存在变量作为运算的元素的话，可以借鉴使用replaceAll()方法将相应的变量替换成实际的数值。如果是多个变量可以利用循环遍历的方式来解决。 例子：jse.eval(“1+b”.replaceAll(“b”, b.toString()))；]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SpringBoot 中的登录验证]]></title>
     <url>%2F2019%2F01%2F17%2Fspringboot-login-verify%2F</url>
     <content type="text"><![CDATA[SpringBoot 中的登录验证authoritiesByUsernameQuery(sql)传入的sql 需要返回 用户名和 用户级别 源码中的默认sql 1private String authoritiesByUsernameQuery = "select username,authority from authorities where username = ?"; usersByUsernameQuery(sql)传入的sql 需要返回 用户名,密码,是否启动 enabled = 1 是默认启用源码中的默认sql 1"select username,password,enabled from users where username = ?"; 另一种验证方案 1234567891011121314151617181920@Autowired AdminUserService adminUserService; @Override protected void configure(AuthenticationManagerBuilder auth) throws Exception &#123; auth .userDetailsService(buildUserDetailsService()) .passwordEncoder(new BCryptPasswordEncoder()); &#125; @Bean UserDetailsService buildUserDetailsService() &#123; return username -&gt; &#123; AdminUser account = adminUserService.selectByUsername(username); User user = new User(account.getName(), account.getPasswd(), true, true, true, true, AuthorityUtils.createAuthorityList("USER")); return user; &#125;; &#125;]]></content>
@@ -112,17 +123,6 @@
         <tag>Java</tag>
         <tag>项目笔记</tag>
         <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2019年总结]]></title>
-    <url>%2F2019%2F01%2F13%2F2019-summary%2F</url>
-    <content type="text"><![CDATA[2019年总结今天是1月13号了，现在才想起把总结写写，虽是太晚，但也是最快了。2019总得来说就是累，但却又不够累，或者说是没有达到想象中的累，或许是因没有达到自己设立的目标的情绪作祟吧。 今年毕业了没错，2019今年是我毕业的一年，正式从学校步入社会，这个身份的转变正式终结了我16年来的学生身份，十六年想想可真是漫长，却又快的不得了，时间转瞬即逝，我想大多数学生对进入社会还是需要一定的时候去过渡的。好高骛远，眼高手低我想是大多数学生的通病，但是理想还是要有的，目标设立了就要去做，务实一点才好。大学的生活现在想想无疑使怀念的，从中总有段时间从某种意义上来说是我们的人生中的第一段无忧无虑的生活，或许在在这段生活之后就会进入青春的迷茫期，大多数人也是有的，或许也会有些抑郁的情况，但是我想应该自己走出来，自己经过思考之后选择的才是最适合自己的，当然或许会犯错，但是想想我们的年龄，是有试错时间的，最害怕的就是不敢，不敢破圈。再看看我们的工作前景，Java固然工作好找也不容易失业，但是做的总感觉心里不舒坦，或许这就是想象很丰满，现实很骨感吧。看着那些所谓的白菜价，是羡慕的，也想去试试，工作也想去挑战，想去大公司，但是总归是自己的能力有限，之前是没有见识过，但是现在想想矛盾是相互的，或许去不了也不是一件坏事。所以下半年就决定去考研了。 考研虽然现在分数还没有出来，但是总得来说是失败的，失败在哪里呢？1：时间分配不均2：实际和认识存在偏差 我的时间分配大致是 英语&gt;&gt;&gt;数学&gt;专业课&gt;政治 因为我的英语是从小到考研的超级短板，或许在考研之前我就没有入门，我总是这么想，现在想来高三的时候也是因为一直为了提英语的分，导致了其它科目的时候分配不太够，虽然最后结果出来还能看。但是考研就不同了，数学专业课是拉分的，今年的数学很难，英语也比较难，但是我做英语做完感觉很稳，数学却是严重翻车。这种情况下及时英语考上70也没有什么希望了，所以以后一定要谋定而后动，大体计划是很重要的，要心中有数。当然考研这段经历也是让自己清楚认识到了自己有哪些不足，也算是沉淀了一番，心中沉得住气才是最重要的。知识什么时候都要学，目标也要有，但是更重要的是做好现在的事情。年后大概二月初就准备上成都找工作了，现在好好准备一番，想在天府新区那边找一家公司，看2020如何继续发展吧。]]></content>
-      <categories>
-        <category>总结</category>
-      </categories>
-      <tags>
-        <tag>年度总结</tag>
       </tags>
   </entry>
   <entry>
