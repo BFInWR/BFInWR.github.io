@@ -24,7 +24,7 @@ tags:
 <!--more-->
 
 **JNA jar包**
-[自己使用的 github挂载](https://github.com/BFInWR/BFInWR.github.io/blob/hexo/source/_posts/java-jna/jna-3.2.5.jar.zip)
+[自己使用的 github挂载](https://github.com/BFInWR/BFInWR.github.io/blob/hexo/source/_posts/resource/jna-3.2.5.jar.zip)
 
 [4.5.2 官网的](http://repo1.maven.org/maven2/net/java/dev/jna/jna/4.5.2/jna-4.5.2.jar)
 

@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: XMXJB Blog
-subtitle: '[ 虾米馅煎包 ]'
-description: 飘逸~~~
+title: BFInWR' Blog
+subtitle: '[ Not destory me make stronger ]'
+description: 
 keywords:
 author: BFInWR
 language: zh-Hans
@@ -96,7 +96,7 @@ feed:
   content_limit_delim: ' '
 # 搜索
 search:
-  path: search.xml
+  path: ./public/search.xml
   field: post
   format: html
   limit: 10000

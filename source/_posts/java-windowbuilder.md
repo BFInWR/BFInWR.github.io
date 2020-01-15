@@ -25,13 +25,13 @@ tags:
 
 ### 面板
 
-![容器](java-windowbuilder/1.png)
+![容器](java-windowbuilder/java-windowbuilder_1.png)
 
-![布局](java-windowbuilder/2.png)
+![布局](java-windowbuilder/java-windowbuilder_2.png)
 
-![支柱&弹簧](java-windowbuilder/3.png)
+![支柱&弹簧](java-windowbuilder/java-windowbuilder_3.png)
 
-![组件](java-windowbuilder/4.png)
+![组件](java-windowbuilder/java-windowbuilder_4.png)
 
 ### 常用模块
 
