@@ -91,6 +91,35 @@
   </entry>
   
   <entry>
+    <title>错误合集</title>
+    <link href="https://bfinwr.github.io/2019/10/17/error-list-1/"/>
+    <id>https://bfinwr.github.io/2019/10/17/error-list-1/</id>
+    <published>2019-10-17T07:52:00.000Z</published>
+    <updated>2020-02-26T07:54:56.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;错误合集&quot;&gt;&lt;a href=&quot;#错误合集&quot; class=&quot;headerlink&quot; title=&quot;错误合集&quot;&gt;&lt;/a&gt;错误合集&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/w86440044/article/details/29363067&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mybatis错误：Parameter ‘XXX’ not found. Available parameters are[1, 0, param1, param2]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/luanpeng825485697/article/details/78242083&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/ywlx/p/4544179.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhouzme/article/details/18909469&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MySQL字段自增自减的SQL语句&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shichuwu/article/details/82561715&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;idea的xml文件Tag name expected&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
+    
+    
+      <category term="jenkins" scheme="https://bfinwr.github.io/tags/jenkins/"/>
+    
+      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
+    
+      <category term="MyBatis" scheme="https://bfinwr.github.io/tags/MyBatis/"/>
+    
+      <category term="Spring" scheme="https://bfinwr.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C学习笔记-指针</title>
     <link href="https://bfinwr.github.io/2019/10/10/c-note-linux/"/>
     <id>https://bfinwr.github.io/2019/10/10/c-note-linux/</id>
@@ -135,6 +164,30 @@
   </entry>
   
   <entry>
+    <title>错误合集2</title>
+    <link href="https://bfinwr.github.io/2019/10/01/error-list-2/"/>
+    <id>https://bfinwr.github.io/2019/10/01/error-list-2/</id>
+    <published>2019-10-01T05:52:00.000Z</published>
+    <updated>2020-02-26T07:55:18.035Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;错误合集2&quot;&gt;&lt;a href=&quot;#错误合集2&quot; class=&quot;headerlink&quot; title=&quot;错误合集2&quot;&gt;&lt;/a&gt;错误合集2&lt;/h2&gt;&lt;p&gt;网页效果 需要时间 加载缓慢的时候 注意排除 css 中或者 js中的网址 一帮使用@import 引入网址 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
+    
+    
+      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
+    
+      <category term="mysql" scheme="https://bfinwr.github.io/tags/mysql/"/>
+    
+      <category term="linux" scheme="https://bfinwr.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>STS与SpringBoot</title>
     <link href="https://bfinwr.github.io/2019/08/17/sts/"/>
     <id>https://bfinwr.github.io/2019/08/17/sts/</id>
@@ -159,90 +212,6 @@
       <category term="SpringBoot" scheme="https://bfinwr.github.io/tags/SpringBoot/"/>
     
       <category term="STS" scheme="https://bfinwr.github.io/tags/STS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建网址合集</title>
-    <link href="https://bfinwr.github.io/2019/06/17/blog-build-url/"/>
-    <id>https://bfinwr.github.io/2019/06/17/blog-build-url/</id>
-    <published>2019-06-17T07:52:00.000Z</published>
-    <updated>2020-01-15T06:38:43.036Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="blog" scheme="https://bfinwr.github.io/categories/blog/"/>
-    
-    
-      <category term="hexo" scheme="https://bfinwr.github.io/tags/hexo/"/>
-    
-      <category term="github" scheme="https://bfinwr.github.io/tags/github/"/>
-    
-      <category term="next" scheme="https://bfinwr.github.io/tags/next/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>错误合集</title>
-    <link href="https://bfinwr.github.io/2019/05/17/error-list-1/"/>
-    <id>https://bfinwr.github.io/2019/05/17/error-list-1/</id>
-    <published>2019-05-17T08:52:00.000Z</published>
-    <updated>2020-01-15T08:55:05.353Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;错误合集&quot;&gt;&lt;a href=&quot;#错误合集&quot; class=&quot;headerlink&quot; title=&quot;错误合集&quot;&gt;&lt;/a&gt;错误合集&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/w86440044/article/details/29363067&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mybatis错误：Parameter ‘XXX’ not found. Available parameters are[1, 0, param1, param2]&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/luanpeng825485697/article/details/78242083&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.cnblogs.com/ywlx/p/4544179.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;base64 to image&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhouzme/article/details/18909469&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MySQL字段自增自减的SQL语句&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shichuwu/article/details/82561715&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;idea的xml文件Tag name expected&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
-    
-    
-      <category term="jenkins" scheme="https://bfinwr.github.io/tags/jenkins/"/>
-    
-      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
-    
-      <category term="MyBatis" scheme="https://bfinwr.github.io/tags/MyBatis/"/>
-    
-      <category term="Spring" scheme="https://bfinwr.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>错误合集2</title>
-    <link href="https://bfinwr.github.io/2019/05/17/error-list-2/"/>
-    <id>https://bfinwr.github.io/2019/05/17/error-list-2/</id>
-    <published>2019-05-17T08:52:00.000Z</published>
-    <updated>2020-01-15T08:55:11.264Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;错误合集2&quot;&gt;&lt;a href=&quot;#错误合集2&quot; class=&quot;headerlink&quot; title=&quot;错误合集2&quot;&gt;&lt;/a&gt;错误合集2&lt;/h2&gt;&lt;p&gt;网页效果 需要时间 加载缓慢的时候 注意排除 css 中或者 js中的网址 一帮使用@import 引入网址 &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="错误合集" scheme="https://bfinwr.github.io/categories/%E9%94%99%E8%AF%AF%E5%90%88%E9%9B%86/"/>
-    
-    
-      <category term="maven" scheme="https://bfinwr.github.io/tags/maven/"/>
-    
-      <category term="mysql" scheme="https://bfinwr.github.io/tags/mysql/"/>
-    
-      <category term="linux" scheme="https://bfinwr.github.io/tags/linux/"/>
     
   </entry>
   
@@ -505,8 +474,8 @@
     <title>项目笔记 - JNA</title>
     <link href="https://bfinwr.github.io/2018/08/17/java-jna/"/>
     <id>https://bfinwr.github.io/2018/08/17/java-jna/</id>
-    <published>2018-08-17T08:52:00.000Z</published>
-    <updated>2020-01-15T07:41:51.822Z</updated>
+    <published>2018-08-17T03:52:00.000Z</published>
+    <updated>2020-02-26T07:55:45.069Z</updated>
     
     <summary type="html">
     
@@ -534,6 +503,36 @@
       <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
     
       <category term="JNA" scheme="https://bfinwr.github.io/tags/JNA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java编程思想笔记（四）</title>
+    <link href="https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/"/>
+    <id>https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/</id>
+    <published>2018-08-10T11:52:00.000Z</published>
+    <updated>2020-02-26T07:55:35.331Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;类型信息&quot;&gt;&lt;a href=&quot;#类型信息&quot; class=&quot;headerlink&quot; title=&quot;类型信息&quot;&gt;&lt;/a&gt;类型信息&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;运行时类型信息使得你可以在程序运行时发现和使用类型信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Java是如何让我们在运行时识别对象和类信息。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;“传统的”RTTI，它假定我们在编译时就已经知道了所有的类型；&lt;/li&gt;
+&lt;li&gt;另一种是“反射”机制，允许我们在运行时发现和使用类的信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;运行时类型识别(RTTI, Run-Time Type Identification)在Java运行时，RTTI维护类的相关信息，识别一个对象类型。多态(polymorphism)是基于RTTI实现的。RTTI的功能主要是由Class类实现的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="书籍笔记" scheme="https://bfinwr.github.io/tags/%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
