@@ -1,6 +1,6 @@
 ---
 title: 错误合集
-date: 2019-5-17 16:52:00
+date: 2019-10-17 15:52:00
 categories: "错误合集"
 tags:
 	- jenkins
