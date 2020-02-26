@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bfinwr.github.io/"/>
-  <updated>2020-01-15T10:23:29.516Z</updated>
+  <updated>2020-02-26T07:40:13.088Z</updated>
   <id>https://bfinwr.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java回顾总结</title>
+    <link href="https://bfinwr.github.io/2020/02/25/java-summary/"/>
+    <id>https://bfinwr.github.io/2020/02/25/java-summary/</id>
+    <published>2020-02-25T07:52:00.000Z</published>
+    <updated>2020-02-26T07:40:13.088Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##Java回顾总结&lt;/p&gt;
+&lt;p&gt;最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年总结</title>
@@ -513,36 +534,6 @@
       <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
     
       <category term="JNA" scheme="https://bfinwr.github.io/tags/JNA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java编程思想笔记（四）</title>
-    <link href="https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/"/>
-    <id>https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/</id>
-    <published>2018-08-10T08:52:00.000Z</published>
-    <updated>2020-01-11T14:08:04.449Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;类型信息&quot;&gt;&lt;a href=&quot;#类型信息&quot; class=&quot;headerlink&quot; title=&quot;类型信息&quot;&gt;&lt;/a&gt;类型信息&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;运行时类型信息使得你可以在程序运行时发现和使用类型信息&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Java是如何让我们在运行时识别对象和类信息。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;“传统的”RTTI，它假定我们在编译时就已经知道了所有的类型；&lt;/li&gt;
-&lt;li&gt;另一种是“反射”机制，允许我们在运行时发现和使用类的信息。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;运行时类型识别(RTTI, Run-Time Type Identification)在Java运行时，RTTI维护类的相关信息，识别一个对象类型。多态(polymorphism)是基于RTTI实现的。RTTI的功能主要是由Class类实现的。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
-    
-      <category term="书籍笔记" scheme="https://bfinwr.github.io/tags/%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
