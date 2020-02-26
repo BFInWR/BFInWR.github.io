@@ -114,13 +114,13 @@
 
 
 
-<meta name="description" content="##Java回顾总结 最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
+<meta name="description" content="Java回顾总结最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java回顾总结">
 <meta property="og:url" content="https://bfinwr.github.io/2020/02/25/java-summary/index.html">
 <meta property="og:site_name" content="BFInWR&#39; Blog">
-<meta property="og:description" content="##Java回顾总结 最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
+<meta property="og:description" content="Java回顾总结最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582545256220.png">
 <meta property="og:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582536053838.png">
@@ -128,10 +128,10 @@
 <meta property="og:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582544856988.png">
 <meta property="og:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582371953037.png">
 <meta property="og:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582545585324.png">
-<meta property="og:updated_time" content="2020-02-26T07:40:13.088Z">
+<meta property="og:updated_time" content="2020-02-26T08:04:54.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java回顾总结">
-<meta name="twitter:description" content="##Java回顾总结 最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
+<meta name="twitter:description" content="Java回顾总结最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。">
 <meta name="twitter:image" content="https://bfinwr.github.io/2020/02/25/java-summary/1582545256220.png">
 
 
@@ -459,94 +459,86 @@
       
 
       
-        <p>##Java回顾总结</p>
-<p>最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。</p>
+        <h2 id="Java回顾总结"><a href="#Java回顾总结" class="headerlink" title="Java回顾总结"></a>Java回顾总结</h2><p>最近重温Java，做出总结，本文共分为语法细节、语法特点、接口&amp;抽象类、版本变化、内部类、集合框架、JVM、类加载器八个部分。</p>
 <a id="more"></a>
 
 <hr>
-<p>###语法细节<br>####数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">java数据类型图：</span><br><span class="line">                      ┏数值型━┳━整数型：byte short int long</span><br><span class="line">       ┏基本数据类型━━┫       ┗━浮点型：float do</span><br><span class="line">       ┃             ┣字符型：char                                          </span><br><span class="line">数据类型╋             ┗布尔型：boolean             </span><br><span class="line">       ┃              ┏类（class）</span><br><span class="line">        ┗引用数据类型━━╋接口（interface）</span><br><span class="line">                       ┗数组（array）</span><br><span class="line">String也是属于引用数据类型</span><br><span class="line">System.out.println(&quot;123&quot; instanceof Object);//true</span><br><span class="line">System.out.println(new int[2] instanceof Object); //true</span><br></pre></td></tr></table></figure>
+<h3 id="语法细节"><a href="#语法细节" class="headerlink" title="语法细节"></a>语法细节</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">java数据类型图：</span><br><span class="line">                      ┏数值型━┳━整数型：byte short int long</span><br><span class="line">       ┏基本数据类型━━┫       ┗━浮点型：float do</span><br><span class="line">       ┃             ┣字符型：char                                          </span><br><span class="line">数据类型╋             ┗布尔型：boolean             </span><br><span class="line">       ┃              ┏类（class）</span><br><span class="line">        ┗引用数据类型━━╋接口（interface）</span><br><span class="line">                       ┗数组（array）</span><br><span class="line">String也是属于引用数据类型</span><br><span class="line">System.out.println(&quot;123&quot; instanceof Object);//true</span><br><span class="line">System.out.println(new int[2] instanceof Object); //true</span><br></pre></td></tr></table></figure>
 
-<p>####Integer&amp;int<br>Integer.valueOf方法中也有判断，如果传递的整型变量&gt;= -128并且小于127时会返回IntegerCache类中一个静态数组中的某一个对象， 否则会返回一个新的Integer对象<br>int和integer(无论new否)比，都为true，因为会把Integer自动拆箱为int再去比</p>
+<h4 id="Integer-amp-int"><a href="#Integer-amp-int" class="headerlink" title="Integer&amp;int"></a>Integer&amp;int</h4><p>Integer.valueOf方法中也有判断，如果传递的整型变量&gt;= -128并且小于127时会返回IntegerCache类中一个静态数组中的某一个对象， 否则会返回一个新的Integer对象<br>int和integer(无论new否)比，都为true，因为会把Integer自动拆箱为int再去比</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">assert</span> IntegerCache.high &gt;= <span class="number">127</span>;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</span><br><span class="line">            <span class="keyword">return</span> IntegerCache.***[i + (-IntegerCache.low)];</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">Integer.valueOf(<span class="string">"100"</span>)==Integer.valueOf(<span class="string">"100"</span>)　<span class="comment">//true</span></span><br><span class="line">Integer.valueOf(<span class="string">"200"</span>)==Integer.valueOf(<span class="string">"200"</span>)　<span class="comment">//false</span></span><br><span class="line">Integer.valueOf(<span class="string">"200"</span>)==<span class="number">200</span> <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
-<p>####Byte<br> Byte类型值大小为-128~127之间。 a=127;add(++a);这里++a会越界，a的值变为-128 ，再++a 变为 -127。</p>
-<p>####switch<br>switch支持 byte、short、char、int或者其对应的封装类、Enum类型、String。</p>
-<p>####final</p>
-<ol>
+<h4 id="Byte"><a href="#Byte" class="headerlink" title="Byte"></a>Byte</h4><p> Byte类型值大小为-128~127之间。 a=127;add(++a);这里++a会越界，a的值变为-128 ，再++a 变为 -127。</p>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><p>switch支持 byte、short、char、int或者其对应的封装类、Enum类型、String。</p>
+<h4 id="final"><a href="#final" class="headerlink" title="final"></a>final</h4><ol>
 <li>修饰变量，变量的引用地址不可变，但是地址中的内容可以变。</li>
 <li>修饰方法，方法不可被重写，但是还是可以重载</li>
 <li>修饰类，类不可继承。</li>
 </ol>
-<p>####String<br><code>String c = &quot;my&quot; + &quot;String&quot;;</code><br>会在编译时对”my” + “String”进行拼接成myString字符串，再去常量池查找，找到之后指向该字符串地址，所以 <code>c == &quot;myString&quot;; //true</code></p>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><p><code>String c = &quot;my&quot; + &quot;String&quot;;</code><br>会在编译时对”my” + “String”进行拼接成myString字符串，再去常量池查找，找到之后指向该字符串地址，所以 <code>c == &quot;myString&quot;; //true</code></p>
 <ul>
 <li>String获取长度用的是length（）方法，而数组类型我们直接用属性length获取长度</li>
 </ul>
 <p><strong>StringBuilder , StringBuffer ,String 都是 final 的</strong></p>
-<p>####数组<br>使用Arrays.equals()  是比较两个数组中的内容。</p>
-<p>####Byte<br>Byte是byte的包装类型，初始化为null而不是0</p>
-<p>####float<br>float：小数如果不加 f 后缀，默认是double类型。double转成float向下转换，意味着精度丢失，所以要进行强制类型转换。<br><code>Object o = ‘f’;</code>：’f’ 字符会自动装箱成包装类，就可以向上转型成Object了。<br><code>Double d = 100;</code>：整数默认是int类型，int类型不能转型为Double，最多通过自动装箱变为Integer但是Integer与Double没有继承关系，也没法进行转型。</p>
-<p>####Thread.yield()<br>Thread.yield()方法作用是：暂停当前正在执行的线程对象，并执行其他线程。<br>yield()从未导致线程转到等待/睡眠/阻塞状态。在大多数情况下，yield()将导致线程从运行状态转到可运行状态，但有可能没有效果。</p>
-<p>####GBK-&gt;UTF-8<br>GBK编码字节流到UTF-8编码字节流的转换：<br><code>byte[] src,dst; dst=new String(src，&quot;GBK&quot;).getBytes(&quot;UTF-8&quot;)</code></p>
-<p>####异常<br>异常的继承结构：基类为Throwable，Error和Exception继承Throwable，Exception又分为运行时异常和编译时异常,RuntimeException和 IOException等继承Exception，具体的RuntimeException继承RuntimeException。<br>编译时异常是未雨绸缪性质的异常，是防范，需要显示处理。运行时异常是程序员问题造成，并不强制进行显示处理。<br>运行时异常的特点是Java编译器不会检查它。<br><img src="/2020/02/25/java-summary/1582545256220.png" alt="Alt text"></p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>使用Arrays.equals()  是比较两个数组中的内容。</p>
+<h4 id="Byte-1"><a href="#Byte-1" class="headerlink" title="Byte"></a>Byte</h4><p>Byte是byte的包装类型，初始化为null而不是0</p>
+<h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4><p>float：小数如果不加 f 后缀，默认是double类型。double转成float向下转换，意味着精度丢失，所以要进行强制类型转换。<br><code>Object o = ‘f’;</code>：’f’ 字符会自动装箱成包装类，就可以向上转型成Object了。<br><code>Double d = 100;</code>：整数默认是int类型，int类型不能转型为Double，最多通过自动装箱变为Integer但是Integer与Double没有继承关系，也没法进行转型。</p>
+<h4 id="Thread-yield"><a href="#Thread-yield" class="headerlink" title="Thread.yield()"></a>Thread.yield()</h4><p>Thread.yield()方法作用是：暂停当前正在执行的线程对象，并执行其他线程。<br>yield()从未导致线程转到等待/睡眠/阻塞状态。在大多数情况下，yield()将导致线程从运行状态转到可运行状态，但有可能没有效果。</p>
+<h4 id="GBK-gt-UTF-8"><a href="#GBK-gt-UTF-8" class="headerlink" title="GBK-&gt;UTF-8"></a>GBK-&gt;UTF-8</h4><p>GBK编码字节流到UTF-8编码字节流的转换：<br><code>byte[] src,dst; dst=new String(src，&quot;GBK&quot;).getBytes(&quot;UTF-8&quot;)</code></p>
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>异常的继承结构：基类为Throwable，Error和Exception继承Throwable，Exception又分为运行时异常和编译时异常,RuntimeException和 IOException等继承Exception，具体的RuntimeException继承RuntimeException。<br>编译时异常是未雨绸缪性质的异常，是防范，需要显示处理。运行时异常是程序员问题造成，并不强制进行显示处理。<br>运行时异常的特点是Java编译器不会检查它。<br><img src="/2020/02/25/java-summary/1582545256220.png" alt="Alt text"></p>
 <hr>
-<p>###语法特点<br>####访问权限作用域<br>java的访问权限有public、protected、private和default的，default不能修饰变量<br><img src="/2020/02/25/java-summary/1582536053838.png" alt="Alt text"></p>
-<p>####数值操作<br>两个数值进行二元操作时，会有如下的转换操作：<br>如果两个操作数其中有一个是double类型，另一个操作就会转换为double类型。<br>否则，如果其中一个操作数是float类型，另一个将会转换为float类型。<br>否则，如果其中一个操作数是long类型，另一个会转换为long类型。<br>否则，两个操作数都转换为int类型。<br><code>double&gt;float&gt;long&gt;int</code></p>
+<h3 id="语法特点"><a href="#语法特点" class="headerlink" title="语法特点"></a>语法特点</h3><h4 id="访问权限作用域"><a href="#访问权限作用域" class="headerlink" title="访问权限作用域"></a>访问权限作用域</h4><p>java的访问权限有public、protected、private和default的，default不能修饰变量<br><img src="/2020/02/25/java-summary/1582536053838.png" alt="Alt text"></p>
+<h4 id="数值操作"><a href="#数值操作" class="headerlink" title="数值操作"></a>数值操作</h4><p>两个数值进行二元操作时，会有如下的转换操作：<br>如果两个操作数其中有一个是double类型，另一个操作就会转换为double类型。<br>否则，如果其中一个操作数是float类型，另一个将会转换为float类型。<br>否则，如果其中一个操作数是long类型，另一个会转换为long类型。<br>否则，两个操作数都转换为int类型。<br><code>double&gt;float&gt;long&gt;int</code></p>
 <p>Java表达式转型规则由低到高转换：<br>1、所有的byte,short,char型的值将被提升为int型；<br>2、如果有一个操作数是long型，计算结果是long型；<br>3、如果有一个操作数是float型，计算结果是float型；<br>4、如果有一个操作数是double型，计算结果是double型；<br>5、被fianl修饰的变量不会自动改变类型，当2个final修饰相操作时，结果会根据左边变量的类型而转化。<br><code>b3 = b1+b2; 若b1、b2为final类型，不会自动提升，所以和的类型视左边变量类型而定，即b6可以是任意数值类型</code></p>
-<p>####包装类<br>包装类的“==”运算在<strong>不遇到算术运算</strong>的情况下<strong>不会自动拆箱</strong><br>包装类的equals()方法不处理数据转型</p>
-<p>####字节&amp;字符<br><code>字符流 = 字节流 + 编码集</code><br>stream结尾都是字节流，reader和writer结尾都是字符流 两者的区别就是读写的时候一个是按字节读写，一个是按字符。 实际使用通常差不多。<br>在读写文件<strong>需要对内容按行处理</strong>，比如比较特定字符，处理某一行数据的时候一般会<strong>选择字符流</strong>。<br><strong>只是读写文件，和文件内容无关的，一般选择字节流。</strong></p>
-<p>####中间缓存变量机制<br><code>int i = 0; i = i++; =》 i=0;</code></p>
+<h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>包装类的“==”运算在<strong>不遇到算术运算</strong>的情况下<strong>不会自动拆箱</strong><br>包装类的equals()方法不处理数据转型</p>
+<h4 id="字节-amp-字符"><a href="#字节-amp-字符" class="headerlink" title="字节&amp;字符"></a>字节&amp;字符</h4><p><code>字符流 = 字节流 + 编码集</code><br>stream结尾都是字节流，reader和writer结尾都是字符流 两者的区别就是读写的时候一个是按字节读写，一个是按字符。 实际使用通常差不多。<br>在读写文件<strong>需要对内容按行处理</strong>，比如比较特定字符，处理某一行数据的时候一般会<strong>选择字符流</strong>。<br><strong>只是读写文件，和文件内容无关的，一般选择字节流。</strong></p>
+<h4 id="中间缓存变量机制"><a href="#中间缓存变量机制" class="headerlink" title="中间缓存变量机制"></a>中间缓存变量机制</h4><p><code>int i = 0; i = i++; =》 i=0;</code></p>
 <p>Java使用了中间缓存变量机制：<br>i=i++;等同于：<br>temp=i； (等号右边的i)<br>i=i+1;      (等号右边的i)<br>i=temp;   (等号左边的i)</p>
-<p>####构造方法<br>普通的类方法是可以和类名同名的，和构造方法唯一的区分就是，构造方法没有返回值。<br>构造方法是在对象创建时就被调用，用于初始化。</p>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>普通的类方法是可以和类名同名的，和构造方法唯一的区分就是，构造方法没有返回值。<br>构造方法是在对象创建时就被调用，用于初始化。</p>
 <p>在调用子类构造器之前，会先调用父类构造器，当子类构造器中没有使用”super(参数或无参数)”指定调用父类构造器时，是默认调用父类的无参构造器，如果父类中包含有参构造器，却没有无参构造器，则在子类构造器中一定要使用“super(参数)”指定调用父类的有参构造器，不然就会报错。</p>
 <p>子类的构造方法总是先调用父类的构造方法，如果子类的构造方法没有明显地指明使用父类的哪个构造方法，子类就调用父类不带参数的构造方法。<br>而父类没有无参的构造函数，所以子类需要在自己的构造函数中显示的调用父类的构造函数。</p>
-<p>####多态</p>
-<blockquote>
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><blockquote>
 <p>重写和重载是多态的两种表现形式</p>
 </blockquote>
 <p>子类继承了父类的所有成员，包括private权限的成员变量，但是继承的子类具有私有变量的拥有权但是没有使用权。<br>private的成员变量，根据权限修饰符的访问控制范围，只有在类内部才能被访问，就算是他的子类，也不能访问。</p>
-<p>####重写<br>方法的重写（override）两同两小一大原则：<br>方法名相同，参数类型相同<br>子类返回类型小于等于父类方法返回类型，<br>子类抛出异常小于等于父类方法抛出异常，<br><strong>子类访问权限大于等于父类方法访问权限。</strong></p>
-<p>####静态</p>
-<ol>
+<h4 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h4><p>方法的重写（override）两同两小一大原则：<br>方法名相同，参数类型相同<br>子类返回类型小于等于父类方法返回类型，<br>子类抛出异常小于等于父类方法抛出异常，<br><strong>子类访问权限大于等于父类方法访问权限。</strong></p>
+<h4 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h4><ol>
 <li>静态语句块中x为局部变量，不影响静态变量x的值</li>
 <li><strong>并不是静态块最先初始化,而是静态域（类加载初始化时执行）</strong><br>而静态域中包含静态变量、静态块和静态方法,其中需要初始化的是静态变量和静态块.而他们两个的初始化顺序是靠他们俩的位置决定的!</li>
 <li><strong>修饰非静态方法 锁的是this 对象，修饰静态方法 锁的是class对象</strong></li>
 <li>静态方法属于类的成员，实例方法属于对象的成员。</li>
 </ol>
-<p>####super&amp;this<br>super和this都只能位于构造器的第一行，而且不能同时使用，这是因为会造成初始化两次，this用于调用重载的构造器，super用于调用父类被子类重写的方法</p>
-<p>####面向对象五个基本原则：单开利益接<br><strong>单一职责原则</strong>（Single-Resposibility Principle）：<br>        一个类，最好只做一件事，只有一个引起它的变化。单一职责原则可以看做是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。</p>
+<h4 id="super-amp-this"><a href="#super-amp-this" class="headerlink" title="super&amp;this"></a>super&amp;this</h4><p>super和this都只能位于构造器的第一行，而且不能同时使用，这是因为会造成初始化两次，this用于调用重载的构造器，super用于调用父类被子类重写的方法</p>
+<h4 id="面向对象五个基本原则：单开利益接"><a href="#面向对象五个基本原则：单开利益接" class="headerlink" title="面向对象五个基本原则：单开利益接"></a>面向对象五个基本原则：单开利益接</h4><p><strong>单一职责原则</strong>（Single-Resposibility Principle）：<br>        一个类，最好只做一件事，只有一个引起它的变化。单一职责原则可以看做是低耦合、高内聚在面向对象原则上的引申，将职责定义为引起变化的原因，以提高内聚性来减少引起变化的原因。</p>
 <p><strong>开放封闭原则</strong>（Open-Closed principle）：<br>        软件实体应该是可扩展的，而不可修改的。也就是，对扩展开放，对修改封闭的。</p>
 <p><strong>Liskov替换原则</strong>（Liskov-Substituion Principle）：<br>        子类必须能够替换其基类。这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。</p>
 <p><strong>依赖倒置原则</strong>（Dependecy-Inversion Principle）：<br>        依赖于抽象。具体而言就是高层模块不依赖于底层模块，二者都同依赖于抽象；抽象不依赖于具体，具体依赖于抽象。</p>
 <p><strong>接口隔离原则</strong>（Interface-Segregation Principle）：<br>        使用多个小的专门的接口，而不要使用一个大的总接口</p>
 <hr>
-<p>###接口&amp;抽象类<br>抽象类可以含有私有成员变量，接口不含有私有成员变量。<br>接口中的成员变量都是public static final的，一般用作常量。<br>接口中的方法都是抽象方法，接口中的方法默认修饰符有public abstract。</p>
-<p>####抽象类<br>特点:</p>
+<h3 id="接口-amp-抽象类"><a href="#接口-amp-抽象类" class="headerlink" title="接口&amp;抽象类"></a>接口&amp;抽象类</h3><p>抽象类可以含有私有成员变量，接口不含有私有成员变量。<br>接口中的成员变量都是public static final的，一般用作常量。<br>接口中的方法都是抽象方法，接口中的方法默认修饰符有public abstract。</p>
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><p>特点:</p>
 <ol>
 <li>抽象类中可以存在构造方法、普通属性，方法，静态属性和方法、抽象方法</li>
 <li>如果一个类中有一个抽象方法，那么当前类一定是抽象类；抽象类中不一定有抽象方法。</li>
 <li>抽象类中的抽象方法，需要有子类实现，如果子类不实现，则子类也需要定义为抽象的。</li>
 </ol>
-<p>####抽象类构造函数的作用是什么？<br>可以用来初始化抽象类内部声明的通用变量，并被各种实现使用。</p>
-<p>####接口</p>
-<ol>
+<h4 id="抽象类构造函数的作用是什么？"><a href="#抽象类构造函数的作用是什么？" class="headerlink" title="抽象类构造函数的作用是什么？"></a>抽象类构造函数的作用是什么？</h4><p>可以用来初始化抽象类内部声明的通用变量，并被各种实现使用。</p>
+<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><ol>
 <li>在接口中<strong>只有常量，没有变量声明</strong>，因为定义的变量，在编译的时候都会默认加上public static final </li>
 <li>接口中没有构造方法，也不能实例化接口的对象。</li>
 <li>接口中定义的方法都需要有实现类来实现，如果实现类不能实现接口中的所有方法则实现类定义为抽象类。</li>
 <li>方法还有被static或default修饰，一旦被修饰，这个方法必须有方法体。</li>
 </ol>
 <hr>
-<p>###版本变化<br>JDK1.8之后，接口中的方法也可以有方法体。<br>Java8的接口方法可以有：only public, abstract, default, static and strictfp are permitted<br><img src="/2020/02/25/java-summary/1582371868454.png" alt="Alt text"></p>
+<h3 id="版本变化"><a href="#版本变化" class="headerlink" title="版本变化"></a>版本变化</h3><p>JDK1.8之后，接口中的方法也可以有方法体。<br>Java8的接口方法可以有：only public, abstract, default, static and strictfp are permitted<br><img src="/2020/02/25/java-summary/1582371868454.png" alt="Alt text"></p>
 <hr>
-<p>###内部类<br>1.成员内部类<br>    成员内部类是最普通的内部类，它的定义为位于另一个类的内部<br>    在外部类外部 创建非静态内部类<br>    语法： 外部类.内部类 内部类对象 = new 外部类().new 内部类();<br>    举例：<code>Outer.Inner in = new Outer().new Inner();</code><br>2.局部(方法)内部类<br>    局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。只能用abstract和final修饰。<br>3.匿名内部类<br>    匿名内部类应该是平时我们编写代码时用得最多的，在编写事件监听的代码时使用匿名内部类不但方便，而且使代码更加容易维护。由于构造器的名字必须与类名相同，而匿名类没有类名，所以匿名类不能有构造器。匿名内部类时，必须继承一个类或实现一个接口。<br>4.静态内部类<br>    静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似，并且它不能使用外部类的非static成员变量或者方法，这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非static成员就会产生矛盾，因为外部类的非static成员必须依附于具体的对象。<br>在外部类外部 创建静态内部类<br>语法： 外部类.内部类 内部类对象 = new 外部类.内部类();<br>举例： <code>Outer.Inner in = new Outer.Inner();</code><br><img src="/2020/02/25/java-summary/1582544856988.png" alt="Alt text"></p>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><p>1.成员内部类<br>    成员内部类是最普通的内部类，它的定义为位于另一个类的内部<br>    在外部类外部 创建非静态内部类<br>    语法： 外部类.内部类 内部类对象 = new 外部类().new 内部类();<br>    举例：<code>Outer.Inner in = new Outer().new Inner();</code><br>2.局部(方法)内部类<br>    局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。只能用abstract和final修饰。<br>3.匿名内部类<br>    匿名内部类应该是平时我们编写代码时用得最多的，在编写事件监听的代码时使用匿名内部类不但方便，而且使代码更加容易维护。由于构造器的名字必须与类名相同，而匿名类没有类名，所以匿名类不能有构造器。匿名内部类时，必须继承一个类或实现一个接口。<br>4.静态内部类<br>    静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似，并且它不能使用外部类的非static成员变量或者方法，这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非static成员就会产生矛盾，因为外部类的非static成员必须依附于具体的对象。<br>在外部类外部 创建静态内部类<br>语法： 外部类.内部类 内部类对象 = new 外部类.内部类();<br>举例： <code>Outer.Inner in = new Outer.Inner();</code><br><img src="/2020/02/25/java-summary/1582544856988.png" alt="Alt text"></p>
 <p><strong>关于非静态内部类不能有静态成员（可以有常量），是关于谁先加载的问题</strong><br>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字,如:<code>Outer.this.name</code></p>
 <hr>
-<p>###集合框架</p>
-<p>####线程安全<br>vector：就比arraylist多了个同步化机制（线程安全），因为效率较低，现在已经不太建议使用。在web应用中，特别是前台页面，往往效率（页面响应速度）是优先考虑的。<br>statck：堆栈类，先进后出<br>hashtable：就比hashmap多了个线程安全<br>enumeration：枚举，相当于迭代器</p>
-<p>####Set<br>Set存储的是不重复的对象，依据hashCode和equals进行判断，所以Set存储的对象必须重写这两个方法。<br>如果自定义对象做为Map的键，那么必须重写hashCode和equals。</p>
-<p>####List<br>List扩容实现步骤<br>         总的来说就是分两步：<br>         1、扩容把原来的数组复制到另一个内存空间更大的数组中<br>         2、添加元素把新元素添加到扩容以后的数组中<br><code>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</code><br>oldCapacity &gt;&gt; 1    右移运算符   原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍</p>
-<p>####HashMap</p>
-<ol>
+<h3 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h3><h4 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h4><p>vector：就比arraylist多了个同步化机制（线程安全），因为效率较低，现在已经不太建议使用。在web应用中，特别是前台页面，往往效率（页面响应速度）是优先考虑的。<br>statck：堆栈类，先进后出<br>hashtable：就比hashmap多了个线程安全<br>enumeration：枚举，相当于迭代器</p>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><p>Set存储的是不重复的对象，依据hashCode和equals进行判断，所以Set存储的对象必须重写这两个方法。<br>如果自定义对象做为Map的键，那么必须重写hashCode和equals。</p>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><p>List扩容实现步骤<br>         总的来说就是分两步：<br>         1、扩容把原来的数组复制到另一个内存空间更大的数组中<br>         2、添加元素把新元素添加到扩容以后的数组中<br><code>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</code><br>oldCapacity &gt;&gt; 1    右移运算符   原来长度的一半 再加上原长度也就是每次扩容是原来的1.5倍</p>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><ol>
 <li>使用的链地址法来解决冲突的。</li>
 <li>使用的是平衡树来解决提高效率的。</li>
 <li>HashMap中hash数组的默认大小是16，而且一定是2的指数。</li>
@@ -555,33 +547,30 @@
 </blockquote>
 </li>
 </ol>
-<p>####ArrayList<br>ArrayList内部是动态数组实现，在增加空间时会复制全部数据到新的容量大一些的数组中。而LinkedList内部为双向链表，可以按需分配空间，扩展容量简单，因此LinkedList用时少。</p>
-<p>####ConcurrentHashMap<br>JDK1.8 的 ConcurrentHashMap 采用CAS+Synchronized保证线程安全。 JDK1.7 及以前采用segment的分段锁机制实现线程安全，其中segment继承自ReentrantLock，因此采用Lock锁来保证线程安全。</p>
+<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><p>ArrayList内部是动态数组实现，在增加空间时会复制全部数据到新的容量大一些的数组中。而LinkedList内部为双向链表，可以按需分配空间，扩展容量简单，因此LinkedList用时少。</p>
+<h4 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h4><p>JDK1.8 的 ConcurrentHashMap 采用CAS+Synchronized保证线程安全。 JDK1.7 及以前采用segment的分段锁机制实现线程安全，其中segment继承自ReentrantLock，因此采用Lock锁来保证线程安全。</p>
 <p>CAS是英文单词Compare And Swap的缩写，翻译过来就是比较并替换（自旋锁或乐观锁）<br>更新一个变量的时候，只有当变量的预期值A和内存地址V当中的实际值相同时，才会将内存地址V对应的值修改为B。</p>
 <p>但是Synchronized虽然确保了线程的安全，但是在性能上却不是最优的，Synchronized关键字会让没有得到锁资源的线程进入BLOCKED状态，而后在争夺到锁资源后恢复为RUNNABLE状态，这个过程中涉及到操作系统用户模式和内核模式的转换，代价比较高。</p>
 <hr>
-<p>###JVM<br>####内存模型<br><img src="/2020/02/25/java-summary/1582371953037.png" alt="Alt text"></p>
-<p>####方法区<br>方法区在JVM中也是一个非常重要的区域，它与堆一样，是被 线程共享 的区域。 在方法区中，存储了每个类的信息（包括类的名称、方法信息、字段信息）、静态变量、常量以及编译器编译后的代码等。</p>
+<h3 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h3><h4 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h4><p><img src="/2020/02/25/java-summary/1582371953037.png" alt="Alt text"></p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区在JVM中也是一个非常重要的区域，它与堆一样，是被 线程共享 的区域。 在方法区中，存储了每个类的信息（包括类的名称、方法信息、字段信息）、静态变量、常量以及编译器编译后的代码等。</p>
 <hr>
-<p>###类加载器</p>
-<blockquote>
+<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><blockquote>
 <p>比较两个类是否相等，只有这两个类是由同一个类加载器加载才有意义。否则，即使这两个类是来源于同一个Class文件，只要加载它们的类加载器不同，那么这两个类必定不相等。</p>
 </blockquote>
 <p><img src="/2020/02/25/java-summary/1582545585324.png" alt="Alt text"></p>
-<p>####什么是类加载器？<br>把类加载的过程放到Java虚拟机外部去实现，让应用程序决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。类的加载包括：加载，验证，准备，解析，初始化。所有ClassLoader装载的类都来自CLASSPATH环境指定的路径。</p>
-<p>####有哪些类加载器，分别加载哪些类<br>类加载器按照层次，从顶层到底层，分为以下三种：<br>(1)<strong>启动</strong>类加载器 : 它用来加载 Java 的核心库，比如String、System这些类<br>(2)<strong>扩展</strong>类加载器 : 它用来加载 Java 的扩展库。<br>(3)<strong>应用程序</strong>类加载器 : 负责加载用户类路径上所指定的类库，一般来说，Java 应用的类都是由它来完成加载的。</p>
-<p>####双亲委派模型<br>我们应用程序都是由以上三种类加载器互相配合进行加载的，还可以加入自己定义的类加载器。称为：类加载器的双亲委派模型，这里类加载器之间的父子关系一般不会以继承的关系来实现，而是都使用组合关系来<strong>复用父加载器</strong>的。</p>
-<p>####双亲委托模型的工作原理<br>当一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此<strong>所有的加载请求最终都应该传送到顶层的启动类加载器中</strong>，只有当父加载器反馈自己无法加载这个加载请求的时候，子加载器才会尝试自己去加载。</p>
+<h4 id="什么是类加载器？"><a href="#什么是类加载器？" class="headerlink" title="什么是类加载器？"></a>什么是类加载器？</h4><p>把类加载的过程放到Java虚拟机外部去实现，让应用程序决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。类的加载包括：加载，验证，准备，解析，初始化。所有ClassLoader装载的类都来自CLASSPATH环境指定的路径。</p>
+<h4 id="有哪些类加载器，分别加载哪些类"><a href="#有哪些类加载器，分别加载哪些类" class="headerlink" title="有哪些类加载器，分别加载哪些类"></a>有哪些类加载器，分别加载哪些类</h4><p>类加载器按照层次，从顶层到底层，分为以下三种：<br>(1)<strong>启动</strong>类加载器 : 它用来加载 Java 的核心库，比如String、System这些类<br>(2)<strong>扩展</strong>类加载器 : 它用来加载 Java 的扩展库。<br>(3)<strong>应用程序</strong>类加载器 : 负责加载用户类路径上所指定的类库，一般来说，Java 应用的类都是由它来完成加载的。</p>
+<h4 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h4><p>我们应用程序都是由以上三种类加载器互相配合进行加载的，还可以加入自己定义的类加载器。称为：类加载器的双亲委派模型，这里类加载器之间的父子关系一般不会以继承的关系来实现，而是都使用组合关系来<strong>复用父加载器</strong>的。</p>
+<h4 id="双亲委托模型的工作原理"><a href="#双亲委托模型的工作原理" class="headerlink" title="双亲委托模型的工作原理"></a>双亲委托模型的工作原理</h4><p>当一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载都是如此，因此<strong>所有的加载请求最终都应该传送到顶层的启动类加载器中</strong>，只有当父加载器反馈自己无法加载这个加载请求的时候，子加载器才会尝试自己去加载。</p>
 <p>实现双亲委派的代码集中在java.lang.ClassLoader的loadClass()方法中，此方法实现的大致逻辑是：先检查是否已经被加载，若没有加载则调用父类加载器的loadClass()方法，若父类加载器为空则默认使用启动类加载器作为父类加载器。如果父类加载失败，抛出ClassNotFoundException异常。</p>
-<p>####使用双亲委派模型好处？（原因）</p>
-<ol>
+<h4 id="使用双亲委派模型好处？（原因）"><a href="#使用双亲委派模型好处？（原因）" class="headerlink" title="使用双亲委派模型好处？（原因）"></a>使用双亲委派模型好处？（原因）</h4><ol>
 <li>避免重复加载，当父亲已经加载了该类的时候，子类不需要再次加载。</li>
 <li>安全，String已经在启动时被加载，所以用户自定义类是无法加载一个自定义的类装载器。</li>
 </ol>
-<p>####自定义类加载器<br>自定义类加载器实现 继承ClassLoader后重写了findClass方法加载指定路径上的class</p>
-<p>####两个类是否“相等”？<br>《深入理解Java虚拟机》P228：对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性，每一个类加载器，都拥有一个独立的类名称空间。这句话可以表达得更通俗一些：比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来源于同一个Class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那么这两个类必定不相等。接口类是一种特殊类，因此对于同一接口不同的类装载器装载所获得的类是不相同的。</p>
-<p>####类只需加载一次，类加载过程线程安全</p>
-
+<h4 id="自定义类加载器"><a href="#自定义类加载器" class="headerlink" title="自定义类加载器"></a>自定义类加载器</h4><p>自定义类加载器实现 继承ClassLoader后重写了findClass方法加载指定路径上的class</p>
+<h4 id="两个类是否“相等”？"><a href="#两个类是否“相等”？" class="headerlink" title="两个类是否“相等”？"></a>两个类是否“相等”？</h4><p>《深入理解Java虚拟机》P228：对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性，每一个类加载器，都拥有一个独立的类名称空间。这句话可以表达得更通俗一些：比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来源于同一个Class文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那么这两个类必定不相等。接口类是一种特殊类，因此对于同一接口不同的类装载器装载所获得的类是不相同的。</p>
+<h4 id="类只需加载一次，类加载过程线程安全"><a href="#类只需加载一次，类加载过程线程安全" class="headerlink" title="类只需加载一次，类加载过程线程安全"></a>类只需加载一次，类加载过程线程安全</h4>
       
     </div>
     
@@ -671,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -757,6 +755,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java回顾总结"><span class="nav-number">1.</span> <span class="nav-text">Java回顾总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法细节"><span class="nav-number">1.1.</span> <span class="nav-text">语法细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Integer-amp-int"><span class="nav-number">1.1.2.</span> <span class="nav-text">Integer&amp;int</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Byte"><span class="nav-number">1.1.3.</span> <span class="nav-text">Byte</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch"><span class="nav-number">1.1.4.</span> <span class="nav-text">switch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final"><span class="nav-number">1.1.5.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">1.1.6.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">1.1.7.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Byte-1"><span class="nav-number">1.1.8.</span> <span class="nav-text">Byte</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float"><span class="nav-number">1.1.9.</span> <span class="nav-text">float</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thread-yield"><span class="nav-number">1.1.10.</span> <span class="nav-text">Thread.yield()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GBK-gt-UTF-8"><span class="nav-number">1.1.11.</span> <span class="nav-text">GBK-&gt;UTF-8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常"><span class="nav-number">1.1.12.</span> <span class="nav-text">异常</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法特点"><span class="nav-number">1.2.</span> <span class="nav-text">语法特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问权限作用域"><span class="nav-number">1.2.1.</span> <span class="nav-text">访问权限作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">数值操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包装类"><span class="nav-number">1.2.3.</span> <span class="nav-text">包装类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字节-amp-字符"><span class="nav-number">1.2.4.</span> <span class="nav-text">字节&amp;字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中间缓存变量机制"><span class="nav-number">1.2.5.</span> <span class="nav-text">中间缓存变量机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态"><span class="nav-number">1.2.7.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重写"><span class="nav-number">1.2.8.</span> <span class="nav-text">重写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态"><span class="nav-number">1.2.9.</span> <span class="nav-text">静态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#super-amp-this"><span class="nav-number">1.2.10.</span> <span class="nav-text">super&amp;this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象五个基本原则：单开利益接"><span class="nav-number">1.2.11.</span> <span class="nav-text">面向对象五个基本原则：单开利益接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口-amp-抽象类"><span class="nav-number">1.3.</span> <span class="nav-text">接口&amp;抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类"><span class="nav-number">1.3.1.</span> <span class="nav-text">抽象类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类构造函数的作用是什么？"><span class="nav-number">1.3.2.</span> <span class="nav-text">抽象类构造函数的作用是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口"><span class="nav-number">1.3.3.</span> <span class="nav-text">接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本变化"><span class="nav-number">1.4.</span> <span class="nav-text">版本变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类"><span class="nav-number">1.5.</span> <span class="nav-text">内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合框架"><span class="nav-number">1.6.</span> <span class="nav-text">集合框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全"><span class="nav-number">1.6.1.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">1.6.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">1.6.3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap"><span class="nav-number">1.6.4.</span> <span class="nav-text">HashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.6.5.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.6.6.</span> <span class="nav-text">ConcurrentHashMap</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM"><span class="nav-number">1.7.</span> <span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存模型"><span class="nav-number">1.7.1.</span> <span class="nav-text">内存模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法区"><span class="nav-number">1.7.2.</span> <span class="nav-text">方法区</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类加载器"><span class="nav-number">1.8.</span> <span class="nav-text">类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是类加载器？"><span class="nav-number">1.8.1.</span> <span class="nav-text">什么是类加载器？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有哪些类加载器，分别加载哪些类"><span class="nav-number">1.8.2.</span> <span class="nav-text">有哪些类加载器，分别加载哪些类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委派模型"><span class="nav-number">1.8.3.</span> <span class="nav-text">双亲委派模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双亲委托模型的工作原理"><span class="nav-number">1.8.4.</span> <span class="nav-text">双亲委托模型的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用双亲委派模型好处？（原因）"><span class="nav-number">1.8.5.</span> <span class="nav-text">使用双亲委派模型好处？（原因）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义类加载器"><span class="nav-number">1.8.6.</span> <span class="nav-text">自定义类加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两个类是否“相等”？"><span class="nav-number">1.8.7.</span> <span class="nav-text">两个类是否“相等”？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类只需加载一次，类加载过程线程安全"><span class="nav-number">1.8.8.</span> <span class="nav-text">类只需加载一次，类加载过程线程安全</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
