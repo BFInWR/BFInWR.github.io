@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="BFInWR&#39; Blog">
 <meta property="og:description" content="hexo clean  //清除缓存hexo g  //重新生成代码hexo s  //部署到本地 //然后打开浏览器访问 localhost:4000 查看效果 依次执行以下命令：清理 – 生成 – 部署github 123$ hexo clean$ hexo generate$ hexo deploy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-11T14:08:04.446Z">
+<meta property="og:updated_time" content="2020-03-08T03:26:35.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo笔记">
 <meta name="twitter:description" content="hexo clean  //清除缓存hexo g  //重新生成代码hexo s  //部署到本地 //然后打开浏览器访问 localhost:4000 查看效果 依次执行以下命令：清理 – 生成 – 部署github 123$ hexo clean$ hexo generate$ hexo deploy">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  604
+                  605
                 </span>
               
 
@@ -472,7 +472,7 @@
 7.执行hexo generate -d生成网站并部署到GitHub上。</code></pre><p>这样一来，在GitHub上的GitName.github.io仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p>
 <h2 id="日常修改"><a href="#日常修改" class="headerlink" title="日常修改"></a>日常修改</h2><p>在本地对博客进行修改（添加新博文、修改样式等等）后，通过下面的流程进行管理：</p>
 <pre><code>1.依次执行git add .、git commit -m “…”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexo）；
-2.然后才执行hexo generate -d发布网站到master分支上。</code></pre><p>虽然两个过程顺序调转一般不会有问题，不过逻辑上这样的顺序是绝对没问题的（例如突然死机要重装了，悲催….的情况，调转顺序就有问题了）。</p>
+2.然后才执行hexo generate（g） -d发布网站到master分支上。</code></pre><p>虽然两个过程顺序调转一般不会有问题，不过逻辑上这样的顺序是绝对没问题的（例如突然死机要重装了，悲催….的情况，调转顺序就有问题了）。</p>
 <h2 id="本地资料丢失"><a href="#本地资料丢失" class="headerlink" title="本地资料丢失"></a>本地资料丢失</h2><p>当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：</p>
 <pre><code>1.使用git clone git@github.com:GitName/GitName.github.io.git拷贝仓库（默认分支为hexo）；
 2.在本地新拷贝的GitName.github.io文件夹下通过Git bash依次执行下列指令：npm install hexo、npm install、npm install hexo-deployer-git（记得，不需要hexo init这条指令）。</code></pre>
@@ -598,7 +598,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +609,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -620,7 +620,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -710,7 +710,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">40.5k</span>
+    <span title="Site words total count">43.5k</span>
   
 </div>
 

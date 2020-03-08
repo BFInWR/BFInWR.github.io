@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://bfinwr.github.io/"/>
-  <updated>2020-02-26T08:04:54.015Z</updated>
+  <updated>2020-03-08T03:24:47.307Z</updated>
   <id>https://bfinwr.github.io/</id>
   
   <author>
@@ -15,6 +15,92 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL优化</title>
+    <link href="https://bfinwr.github.io/2020/03/08/sql-optimize/"/>
+    <id>https://bfinwr.github.io/2020/03/08/sql-optimize/</id>
+    <published>2020-03-08T07:52:00.000Z</published>
+    <updated>2020-03-08T03:24:47.307Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;SQL优化&quot;&gt;&lt;a href=&quot;#SQL优化&quot; class=&quot;headerlink&quot; title=&quot;SQL优化&quot;&gt;&lt;/a&gt;SQL优化&lt;/h2&gt;&lt;p&gt;所谓SQL调优，本质上就是：大量读用索引，索引不失效，慢查询explain调&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://bfinwr.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="https://bfinwr.github.io/tags/SQL/"/>
+    
+      <category term="MySQL" scheme="https://bfinwr.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构-树</title>
+    <link href="https://bfinwr.github.io/2020/03/07/Tree/"/>
+    <id>https://bfinwr.github.io/2020/03/07/Tree/</id>
+    <published>2020-03-07T07:52:00.000Z</published>
+    <updated>2020-03-08T03:22:34.594Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;树&quot;&gt;&lt;a href=&quot;#树&quot; class=&quot;headerlink&quot; title=&quot;树&quot;&gt;&lt;/a&gt;树&lt;/h2&gt;&lt;p&gt;树状图是一种数据结构，它是由n（n&amp;gt;=1）个有限结点组成一个具有层次关系的集合。&lt;br&gt;子类：二叉树、二叉排序树、平衡二叉树（AVL、红黑树）、B/B+/B*、哈夫曼树&lt;br&gt;&lt;strong&gt;平衡二叉树一定是二叉排序树&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://bfinwr.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="DS" scheme="https://bfinwr.github.io/tags/DS/"/>
+    
+      <category term="Tree" scheme="https://bfinwr.github.io/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java的四种引用</title>
+    <link href="https://bfinwr.github.io/2020/03/06/four-java-cite/"/>
+    <id>https://bfinwr.github.io/2020/03/06/four-java-cite/</id>
+    <published>2020-03-06T07:52:00.000Z</published>
+    <updated>2020-03-08T03:14:53.265Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;四种引用&quot;&gt;&lt;a href=&quot;#四种引用&quot; class=&quot;headerlink&quot; title=&quot;四种引用&quot;&gt;&lt;/a&gt;四种引用&lt;/h2&gt;&lt;p&gt;把对象的引用分为四种级别，更灵活控制对象的生命周期，这四种级别由高到低依次为：强引用、软引用、弱引用和虚引用。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
+    
+      <category term="JVM" scheme="https://bfinwr.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关系型数据库和非关系型数据库</title>
+    <link href="https://bfinwr.github.io/2020/03/05/sql-and-nosql/"/>
+    <id>https://bfinwr.github.io/2020/03/05/sql-and-nosql/</id>
+    <published>2020-03-05T07:52:00.000Z</published>
+    <updated>2020-03-08T03:12:00.682Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;关系型数据库和非关系型数据库&quot;&gt;&lt;a href=&quot;#关系型数据库和非关系型数据库&quot; class=&quot;headerlink&quot; title=&quot;关系型数据库和非关系型数据库&quot;&gt;&lt;/a&gt;关系型数据库和非关系型数据库&lt;/h2&gt;&lt;p&gt;数据库是数据的仓库。&lt;br&gt;与普通的“数据仓库”不同的是，数据库依据“数据结构”来组织数据，因为“数据结构”，所以我们看到的数据是比较“条理化”的（比如不会跟以前的普通文件存储式存储成一个文件那么不条理化，我们的数据库分成一个个库，分成一个个表，分成一条条记录，这些记录是多么分明）&lt;br&gt;也因为其“数据结构”式，所以有极高的查找速率（比如B-Tree查找法），（由于专精，可以根据自己的结构特性来快速查找，所以对于数据库的查找会比较快捷；不像普通文件系统的“查找”那么通用）&lt;br&gt;如果与EXCEL来比的话，能明显的看出数据库的好处，我们能给一个个“字段”添加“约束”（比如约束一列的值不能为空）&lt;br&gt;数据库与普通的文件系统的主要区别（起因）：数据库能快速查找对应的数据&lt;br&gt;常说的XX数据库，其实实质上是XX数据库管理系统。数据库管理系统是一个软件，是数据库管理的程序实现。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://bfinwr.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="https://bfinwr.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Java回顾总结</title>
@@ -412,126 +498,6 @@
       <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
     
       <category term="Word" scheme="https://bfinwr.github.io/tags/Word/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目笔记 —— Word To PDF To Image</title>
-    <link href="https://bfinwr.github.io/2018/09/05/xmbj-wpi/"/>
-    <id>https://bfinwr.github.io/2018/09/05/xmbj-wpi/</id>
-    <published>2018-09-05T02:52:00.000Z</published>
-    <updated>2020-01-11T14:08:04.470Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在项目中需要使用桌面应用程序显示Word文档，并实现一个放大缩小的效果。但是我发现Word并不能直接转换成Image格式，所以就取了一个折中的方法。先把Word转换为PDF，再把PDF转换成Image。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
-    
-      <category term="项目笔记" scheme="https://bfinwr.github.io/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="桌面应用程序" scheme="https://bfinwr.github.io/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"/>
-    
-      <category term="Word" scheme="https://bfinwr.github.io/tags/Word/"/>
-    
-      <category term="PDF" scheme="https://bfinwr.github.io/tags/PDF/"/>
-    
-      <category term="Image" scheme="https://bfinwr.github.io/tags/Image/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目笔记 - windowbuilder&amp;桌面应用程序开发</title>
-    <link href="https://bfinwr.github.io/2018/08/27/java-windowbuilder/"/>
-    <id>https://bfinwr.github.io/2018/08/27/java-windowbuilder/</id>
-    <published>2018-08-27T08:52:00.000Z</published>
-    <updated>2020-01-15T09:05:39.664Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;WindowBuilder - 是一个功能强大且易于使用的双向Java GUI设计器&lt;br&gt;WindowBuilder由SWT Designer和Swing Designer组成，可以非常轻松地创建Java GUI应用程序，而无需花费大量时间编写代码。使用WYSIWYG可视化设计器和布局工具为复杂窗口创建简单的表单; 将为您生成Java代码。使用拖放轻松添加控件，向控件添加事件处理程序，使用属性编辑器更改控件的各种属性，使应用程序国际化等等。&lt;br&gt;WindowBuilder是作为Eclipse和各种基于Eclipse的IDE（RAD，RSA，MyEclipse，JBuilder等）的插件而构建的。该插件构建了一个抽象语法树（AST）来导航源代码并使用GEF来显示和管理可视化表示。&lt;br&gt;生成的代码不需要任何其他自定义库来编译和运行：可以在不安装WindowBuilder Pro的情况下使用所有生成的代码。WindowBuilder Pro几乎可以读写任何格式，并可以反向工程大多数手工编写的Java GUI代码。它还支持自由格式代码编辑（在任何地方进行更改……不仅仅是在特殊区域）和大多数用户重新分解（您可以移动，重命名和细分方法而不会出现问题）&lt;br&gt;—— Google 翻译&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
-    
-      <category term="windowbuilder" scheme="https://bfinwr.github.io/tags/windowbuilder/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>项目笔记 - JNA</title>
-    <link href="https://bfinwr.github.io/2018/08/17/java-jna/"/>
-    <id>https://bfinwr.github.io/2018/08/17/java-jna/</id>
-    <published>2018-08-17T03:52:00.000Z</published>
-    <updated>2020-02-26T07:55:45.069Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;JNA&quot;&gt;&lt;a href=&quot;#JNA&quot; class=&quot;headerlink&quot; title=&quot;JNA&quot;&gt;&lt;/a&gt;JNA&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Java Native Access（JNA）&lt;/strong&gt;&lt;br&gt;JNA为Java程序提供了对本机共享库的轻松访问，而无需编写除Java代码之外的任何内容 - 不需要JNI或本机代码。此功能可与Windows的Platform / Invoke和Python的ctypes相媲美。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;JNA允许您使用自然Java方法调用直接调用本机函数。Java调用看起来就像本机代码中的调用一样。大多数呼叫不需要特殊处理或配置; 不需要样板或生成的代码。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;JNA使用小型JNI库存根来动态调用本机代码。开发人员使用Java接口来描述目标本机库中的函数和结构。这使得利用本机平台功能变得非常容易，而不会产生为多个平台配置和构建JNI代码的高额开销。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;虽然对性能给予了极大的关注，但正确性和易用性优先考虑。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;此外，JNA还包括一个平台库，其中已经映射了许多本机函数，以及一组简化本机访问的实用程序接口。&lt;br&gt;—— 以上Google翻译&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
-    
-      <category term="JNA" scheme="https://bfinwr.github.io/tags/JNA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java编程思想笔记（四）</title>
-    <link href="https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/"/>
-    <id>https://bfinwr.github.io/2018/08/10/java-bcsx-note-4/</id>
-    <published>2018-08-10T11:52:00.000Z</published>
-    <updated>2020-02-26T07:55:35.331Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;类型信息&quot;&gt;&lt;a href=&quot;#类型信息&quot; class=&quot;headerlink&quot; title=&quot;类型信息&quot;&gt;&lt;/a&gt;类型信息&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;运行时类型信息使得你可以在程序运行时发现和使用类型信息&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Java是如何让我们在运行时识别对象和类信息。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;“传统的”RTTI，它假定我们在编译时就已经知道了所有的类型；&lt;/li&gt;
-&lt;li&gt;另一种是“反射”机制，允许我们在运行时发现和使用类的信息。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;运行时类型识别(RTTI, Run-Time Type Identification)在Java运行时，RTTI维护类的相关信息，识别一个对象类型。多态(polymorphism)是基于RTTI实现的。RTTI的功能主要是由Class类实现的。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://bfinwr.github.io/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="https://bfinwr.github.io/tags/Java/"/>
-    
-      <category term="书籍笔记" scheme="https://bfinwr.github.io/tags/%E4%B9%A6%E7%B1%8D%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
